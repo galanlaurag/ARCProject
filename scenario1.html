@@ -1,0 +1,550 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Scenario 1</title>
+  <meta name="description" content="A simple HTML5 Template for new projects.">
+  <meta name="author" content="SitePoint">
+
+  <meta property="og:title" content="A Basic HTML5 Template">
+  <meta property="og:type" content="website">
+  <!-- <meta property="og:url" content="https://www.sitepoint.com/a-basic-html5-template/"> -->
+  <!-- <meta property="og:description" content="A simple HTML5 Template for new projects."> -->
+  <!-- <meta property="og:image" content="image.png"> -->
+
+  <!-- <link rel="icon" href="/favicon.ico"> -->
+  <!-- <link rel="icon" href="/favicon.svg" type="image/svg+xml"> -->
+  <!-- <link rel="apple-touch-icon" href="/apple-touch-icon.png"> -->
+
+
+  <link rel="stylesheet" href="test.css">
+  <!-- jquery - might not need? -->
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <!-- sweet alerts for popups -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- on scroll animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> -->
+
+
+
+</head>
+
+<body>
+    <!-- <h1>Scenario 1</h1> -->
+    <header>
+        <nav id="navbar">
+            <a href="test.html"><img src="img/home.png" id="home"></a>
+            <h1>Scenario 1[/some other title]</h1>
+            <button id="fillButton">Stop animating text</button>
+            <div>
+                <h1>[teacher]</h1>
+                <img id="hint" src="img/hint.png">
+            </div>
+        </nav>
+    </header>
+
+    <main id="scenarioMain">
+<!--        <nav id="navbar">-->
+<!--            <a href="test.html"><img src="img/home.png" id="home"></a>-->
+<!--            <h1>Scenario 1[/some other title]</h1>-->
+<!--            <button id="fillButton">Stop animating text</button>-->
+<!--            <div>-->
+<!--                <h1>[teacher]</h1>-->
+<!--                <img id="hint" src="img/hint.png">-->
+<!--            </div>-->
+<!--        </nav>-->
+<!--        <div class="container">-->
+<!--        <div class="section" id="s1p1">-->
+            <div class="block pearson">
+                <div class="char">
+                    <img src="img/Pearson.png" class="charImg">
+                    <p class="charName">Pearson</p>
+                </div>
+                 <div class="charTxt"><p>Alright everyone, we’re going to take a short break here.</p></div>
+<!--                <div class="charTxt"><p id="txt1"></p></div>-->
+            </div>
+
+            <div class="block pearson">
+                <div class="char">
+                    <img src="img/Pearson.png" class="charImg">
+                    <p class="charName">Pearson</p>
+                </div>
+<!--                <div class="charTxt"><p id="txt2"></p></div>-->
+                 <div class="charTxt"><p>Get yourselves a drink and have a little think about the social implications of what we’ve just been learning about this morning.</p></div>
+            </div>
+
+            <div class="block pearson">
+                <div class="char">
+                    <img src="img/Pearson.png" class="charImg">
+                    <p class="charName">Pearson</p>
+                </div>
+<!--                <div class="charTxt"><p id="txt3"></p></div>-->
+                 <div class="charTxt"><p>I’ll be up at the front if anyone has any questions, otherwise we’ll start back up in about ten minutes.</p></div>
+            </div>
+<!--        </div>-->
+        
+<!--        <div class="section" id="s1p2">-->
+            <div class="backgroundBlock">
+<!--                <div class="char">-->
+<!--                    <img src="img/class.png" class="backgroundImg">-->
+<!--                </div>-->
+<!--&lt;!&ndash;                <div class="backgroundTxt"><p id="txt4"></p></div>&ndash;&gt;-->
+                <div class="backgroundTxt"><p>Students shuffle around the room in their seats, some getting up in small clusters to head to the canteen. No one approaches Pearson, who sits by the front monitor and sips from his hydroflask while scrolling mindlessly on the computer.</p></div>
+            </div>
+<!--        </div>-->
+
+<!--        <div class="section" id="s1p3">-->
+            <div class="block anna">
+                <div class="char">
+                    <img src="img/Anna2.png" class="charImg">
+                    <p class="charName">Anna</p>
+                </div>
+<!--                <div class="charTxt"><p id="txt5"></p></div>-->
+                <div class="charTxt"><p>Hey Sofia, did any of that seem… right to you? Like a lot of that sounded very missing-important-context right?</p></div>
+            </div>
+<!--            <br>-->
+            <div class="block blockRight sofia">
+                <div class="char">
+                    <img src="img/Sofia.png" class="charImg charImgRight">
+                    <p class="charName">Sofia</p>
+                </div>
+<!--                <div class="charTxt"><p id="txt6"></p></div>-->
+                <div class="charTxt"><p><span style="font-style: italic;">Softly sighs while staring at the last slide on the projector.</span><br>Yeah, he didn’t mention a word about any of the coups that have plagued the country before or after that revolution. </p></div>
+            </div>
+<!--            <br>-->
+            <div class="block blockRight sofia">
+                <div class="char">
+                    <img src="img/Sofia.png" class="charImg charImgRight">
+                    <p class="charName">Sofia</p>
+                </div>
+                <div class="charTxt"><p>Or about the massive corporations who rushed in to bully the local workforce.</p></div>
+            </div>
+<!--        </div>-->
+        
+<!--        <div class="section" id="s1p4">-->
+            <div class="block blockRight sofia">
+                <div class="char">
+                    <img src="img/Sofia.png" class="charImg charImgRight">
+                    <p class="charName">Sofia</p>
+                </div>
+                <div class="charTxt"><p>Or about the international policies and tariffs that prevented people from getting help.</p></div>
+            </div>
+<!--            <br>-->
+            <div class="block blockRight sofia">
+                <div class="char">
+                    <img src="img/Sofia.png" class="charImg charImgRight">
+                    <p class="charName">Sofia</p>
+                </div>
+                <div class="charTxt"><p>Not a single word.</p></div>
+            </div>
+<!--            <br>-->
+            <div class="block anna">
+                <div class="char">
+                    <img src="img/Anna2.png" class="charImg">
+                    <p class="charName">Anna</p>
+                </div>
+                <div class="charTxt"><p>...</p></div>
+            </div>
+<!--        </div>-->
+
+        <div class="section" id="s1p5">
+            <div class="block anna">
+                <div class="char">
+                    <img src="img/Anna2.png" class="charImg">
+                    <p class="charName">Anna</p>
+                </div>
+                <div class="charTxt"><p>It must really suck to see all of that stuff not mentioned here. I’m really annoyed and sorry we have to sit through all this stuff without being able to talk back...</p></div>
+            </div>
+            <br>
+            <div class="block blockRight sofia">
+                <div class="char">
+                    <img src="img/Sofia.png" class="charImg charImgRight">
+                    <p class="charName">Sofia</p>
+                </div>
+                <div class="charTxt"><p>Yeah, it’s actually a joke.</p></div>
+            </div>
+            <br>
+            <div class="block blockRight sofia">
+                <div class="char">
+                    <img src="img/Sofia.png" class="charImg charImgRight">
+                    <p class="charName">Sofia</p>
+                </div>
+                <div class="charTxt"><p>Like I get that Aaron’s probably inherited the module from however long ago and he’s probably not familiar with all of this background stuff, plus he’s supposed to have like 60 students in here and he’s only got like, 25 or something, so that’s probably on his mind as well...</p></div>
+            </div>
+        </div>
+
+        <div class="section" id="s1p6">
+            <div class="block blockRight sofia">
+                <div class="char">
+                    <img src="img/Sofia.png" class="charImg charImgRight">
+                    <p class="charName">Sofia</p>
+                </div>
+                <div class="charTxt"><p>But still, yeah it does suck.</p></div>
+            </div>
+            <br>
+            <div class="block anna">
+                <div class="char">
+                    <img src="img/Anna2.png" class="charImg">
+                    <p class="charName">Anna</p>
+                </div>
+                <div class="charTxt"><p>I don’t suppose you want to do anything about it this time?</p></div>
+            </div>
+            <br>
+            <div class="block anna">
+                <div class="char">
+                    <img src="img/Anna2.png" class="charImg">
+                    <p class="charName">Anna</p>
+                </div>
+                <div class="charTxt"><p>Especially since it’s not just been today for this module, it happened last week as well when you were telling me about all that stuff about the media campaigns in Puerto Rico too that he didn’t mention.</p></div>
+            </div>
+        </div>
+
+        <div class="section" id="s1p7">
+            <div class="block blockRight sofia">
+                <div class="char">
+                    <img src="img/Sofia.png" class="charImg charImgRight">
+                    <p class="charName">Sofia</p>
+                </div>
+                <div class="charTxt"><p>Yeah but at this point it’s like, what can I actually do?</p></div>
+            </div>
+            <br>
+            <div class="block blockRight sofia">
+                <div class="char">
+                    <img src="img/Sofia.png" class="charImg charImgRight">
+                    <p class="charName">Sofia</p>
+                </div>
+                <div class="charTxt"><p>Why would he listen to me and make any changes to module halfway through the term?</p></div>
+            </div>
+            <br>
+            <div class="block blockRight sofia">
+                <div class="char">
+                    <img src="img/Sofia.png" class="charImg charImgRight">
+                    <p class="charName">Sofia</p>
+                </div>
+                <div class="charTxt"><p>It’s not like I have anything to back up my points other than stuff I’ve lived through or heard from my family, so I can’t point him to a source to put up the slides.</p></div>
+            </div>
+        </div>
+
+        <div class="section" id="s1p8">
+            <div class="block blockRight sofia">
+                <div class="char">
+                    <img src="img/Sofia.png" class="charImg charImgRight">
+                    <p class="charName">Sofia</p>
+                </div>
+                <div class="charTxt"><p>Plus a lot of the stuff isn’t exactly written down anyways – how do you explain that the reason that no one gets the public transport to work is not just because of terrible infrastructure but also because the process to get a car is sponsored by companies who sell it as their “work-perk” and like to show off the idea that they enable their employees to have a “higher standard” lifestyle with a personal vehicle?</p></div>
+            </div>
+            <br>
+            <div class="block blockRight sofia">
+                <div class="char">
+                    <img src="img/Sofia.png" class="charImg charImgRight">
+                    <p class="charName">Sofia</p>
+                </div>
+                <div class="charTxt"><p>And then it becomes a whole thing with prestige and showing face and keeping up with your richer friends – none of that is something you can get people to admit to in an academic environment.</p></div>
+            </div>
+            <br>
+            <div class="block blockRight sofia">
+                <div class="char">
+                    <img src="img/Sofia.png" class="charImg charImgRight">
+                    <p class="charName">Sofia</p>
+                </div>
+                <div class="charTxt"><p><span style="font-style: italic;">Bitterly looking at her laptop.</span><br>It’s so unfair that he gets to be unaware of all of these social consequences and has the nerve to tell us to “have a little think about it”.</p></div>
+            </div>
+        </div>
+
+        <div class="section" id="s1p9">
+            <div class="block blockRight sofia">
+                <div class="char">
+                    <img src="img/Sofia.png" class="charImg charImgRight">
+                    <p class="charName">Sofia</p>
+                </div>
+                <div class="charTxt"><p>...</p></div>
+            </div>
+            <br>
+            <div class="block anna">
+                <div class="char">
+                    <img src="img/Anna2.png" class="charImg">
+                    <p class="charName">Anna</p>
+                </div>
+                <div class="charTxt"><p>...</p></div>
+            </div>
+            <br>
+            <div class="block blockRight sofia">
+                <div class="char">
+                    <img src="img/Sofia.png" class="charImg charImgRight">
+                    <p class="charName">Sofia</p>
+                </div>
+                <div class="charTxt"><p>Lucky him where it gets to be a “little think” problem and for us it’s much more of a “massive pain in the ass” problem.</p></div>
+            </div>
+        </div>
+
+        <div class="section" id="s1p10">
+            <div class="block anna">
+                <div class="char">
+                    <img src="img/Anna2.png" class="charImg">
+                    <p class="charName">Anna</p>
+                </div>
+                <div class="charTxt"><p>...now I feel bad for giving this module the benefit of the doubt at the start of the term.</p></div>
+            </div>
+            <br>
+            <div class="block blockRight sofia">
+                <div class="char">
+                    <img src="img/Sofia.png" class="charImg charImgRight">
+                    <p class="charName">Sofia</p>
+                </div>
+                <div class="charTxt"><p>Hmm? What do you mean by that?</p></div>
+            </div>
+            <br>
+            <div class="block anna">
+                <div class="char">
+                    <img src="img/Anna2.png" class="charImg">
+                    <p class="charName">Anna</p>
+                </div>
+                <div class="charTxt"><p>I mean like, way back at the start I didn’t know as much because we didn’t talk a lot before, but even then I was kinda like, uh?? Why isn’t he at least mentioning stuff like how the local economy affected things like the country’s morale during the class fighting, stuff that should’ve been pretty obvious, y’know?</p></div>
+            </div>
+        </div>
+
+        <div class="section" id="s1p11">
+            <div class="block blockRight sofia">
+                <div class="char">
+                    <img src="img/Sofia.png" class="charImg charImgRight">
+                    <p class="charName">Sofia</p>
+                </div>
+                <div class="charTxt"><p>Yeah?</p></div>
+            </div>
+            <br>
+            <div class="block anna">
+                <div class="char">
+                    <img src="img/Anna2.png" class="charImg">
+                    <p class="charName">Anna</p>
+                </div>
+                <div class="charTxt"><p>And now we’re what, 8, 9 weeks into the term? More than halfway through and if anything it’s gotten worse. </p></div>
+            </div>
+            <br>
+            <div class="block anna">
+                <div class="char">
+                    <img src="img/Anna2.png" class="charImg">
+                    <p class="charName">Anna</p>
+                </div>
+                <div class="charTxt"><p>I mean I’m sure I’m noticing more now because of all the stuff you’ve been saying, but even that sucks because it means you had to point it out to me and take the burden for it – that should’ve been his job, not yours.</p></div>
+            </div>
+        </div>
+
+        <div class="section" id="s1p12">
+            <div class="block blockRight sofia">
+                <div class="char">
+                    <img src="img/Sofia.png" class="charImg charImgRight">
+                    <p class="charName">Sofia</p>
+                </div>
+                <div class="charTxt"><p>Oh no, no it’s fine! I don’t mind explaining things to you at all.</p></div>
+            </div>
+            <br>
+            <div class="block anna">
+                <div class="char">
+                    <img src="img/Anna2.png" class="charImg">
+                    <p class="charName">Anna</p>
+                </div>
+                <div class="charTxt"><p>But that’s the point isn’t it? It’s not fair that you have to explain it to me, and it’s not fair that the lecturers don’t know to mention it in the first place.</p></div>
+            </div>
+            <br>
+            <div class="block anna">
+                <div class="char">
+                    <img src="img/Anna2.png" class="charImg">
+                    <p class="charName">Anna</p>
+                </div>
+                <div class="charTxt"><p>Literally the entire point of being in uni is to learn new things and develop yourself and your knowledge.</p></div>
+            </div>
+        </div>
+
+        <div class="section" id="s1p13">
+            <div class="block anna">
+                <div class="char">
+                    <img src="img/Anna2.png" class="charImg">
+                    <p class="charName">Anna</p>
+                </div>
+                <div class="charTxt"><p>With all this stuff, they’re glossing over all the stuff you already know on a personal level and you don’t get the same opportunity to develop like the rest of us, because really you’d be more suited to teaching the module than Aaron.</p></div>
+            </div>
+            <br>
+            <div class="block blockRight sofia">
+                <div class="char">
+                    <img src="img/Sofia.png" class="charImg charImgRight">
+                    <p class="charName">Sofia</p>
+                </div>
+                <div class="charTxt"><p>Yeah, I know that, but really what could I even do? I’m just sitting here doing my job as a student when half the class hasn’t even shown up.</p></div>
+            </div>
+            <br>
+            <div class="block blockRight sofia">
+                <div class="char">
+                    <img src="img/Sofia.png" class="charImg charImgRight">
+                    <p class="charName">Sofia</p>
+                </div>
+                <div class="charTxt"><p><span style="font-style: italic;">Resentfully</span><br>And now if we’re talking about unfair responsibilities, how is it fair that it’s my job to educate the lecturer on why his content sucks, just because I happen to know it first hand?</p></div>
+            </div>
+        </div>
+
+        <div class="section" id="s1p14">
+            <div class="block blockRight sofia">
+                <div class="char">
+                    <img src="img/Sofia.png" class="charImg charImgRight">
+                    <p class="charName">Sofia</p>
+                </div>
+                <div class="charTxt"><p><span style="font-style: italic;">Quietly sighs and visibly tries to relax.</span><br>How is it that this always happens. Don’t they do some kind of teacher training for this? You’d think they would, wouldn’t you, with the amount of international students they apparently keep trying to bring in to pay their bills.</p></div>
+            </div>
+            <br>
+            <div class="block anna">
+                <div class="char">
+                    <img src="img/Anna2.png" class="charImg">
+                    <p class="charName">Anna</p>
+                </div>
+                <div class="charTxt"><p>...hey, I’m sorry, I didn’t mean it like that.</p></div>
+            </div>
+            <br>
+            <div class="block blockRight sofia">
+                <div class="char">
+                    <img src="img/Sofia.png" class="charImg charImgRight">
+                    <p class="charName">Sofia</p>
+                </div>
+                <div class="charTxt"><p>No, it’s fine, I know you didn’t.</p></div>
+            </div>
+        </div>
+
+        <div class="section" id="s1p15">
+            <div class="block anna">
+                <div class="char">
+                    <img src="img/Anna2.png" class="charImg">
+                    <p class="charName">Anna</p>
+                </div>
+                <div class="charTxt"><p>That’s why it’s not fine though, I should’ve realised the way I phrased it would’ve landed that way.</p></div>
+            </div>
+            <br>
+            <div class="block blockRight sofia">
+                <div class="char">
+                    <img src="img/Sofia.png" class="charImg charImgRight">
+                    <p class="charName">Sofia</p>
+                </div>
+                <div class="charTxt"><p>Don’t worry about it, seriously, we’re good. I’m just happy someone in here is actually willing to listen to me rant about everything.</p></div>
+            </div>
+            <br>
+            <div class="block anna">
+                <div class="char">
+                    <img src="img/Anna2.png" class="charImg">
+                    <p class="charName">Anna</p>
+                </div>
+                <div class="charTxt"><p>I mean, it’s very justified ranting, so of course I want to hear it. The context that’s just straight up missing in half of these classes is ridiculous.</p></div>
+            </div>
+        </div>
+
+        <div class="section" id="s1p16">
+            <div class="block anna">
+                <div class="char">
+                    <img src="img/Anna2.png" class="charImg">
+                    <p class="charName">Anna</p>
+                </div>
+                <div class="charTxt"><p>Even if it wasn’t justified I’d still listen anyways, it’s what friends do and all that, right?</p></div>
+            </div>
+            <br>
+            <div class="block blockRight sofia">
+                <div class="char">
+                    <img src="img/Sofia.png" class="charImg charImgRight">
+                    <p class="charName">Sofia</p>
+                </div>
+                <div class="charTxt"><p><span style="font-style: italic;">Soft laugh</span><br>Yeah, I suppose. Thanks anyways.</p></div>
+            </div>
+            <br>
+            <div class="block anna">
+                <div class="char">
+                    <img src="img/Anna2.png" class="charImg">
+                    <p class="charName">Anna</p>
+                </div>
+                <div class="charTxt"><p>Mhm.</p></div>
+            </div>
+        </div>
+
+        <div class="section" id="s1p17">
+            <div class="block anna">
+                <div class="char">
+                    <img src="img/Anna2.png" class="charImg">
+                    <p class="charName">Anna</p>
+                </div>
+                <div class="charTxt"><p>I know you said you don’t really see a way to get all of these issues across to Aaron or guy who does the practical sessions, but is there anything I can do to help with that? Y’know, use my white privilege and local privileges for the betterment of the world type thing.<br><span style="font-style: italic;">Small chuckle</span></p></div>
+            </div>
+            <br>
+            <div class="block blockRight sofia">
+                <div class="char">
+                    <img src="img/Sofia.png" class="charImg charImgRight">
+                    <p class="charName">Sofia</p>
+                </div>
+                <div class="charTxt"><p><span style="font-style: italic;">Laughs comfortably</span><br>Aww, that’s real nice of you to put it that way.</p></div>
+            </div>
+            <br>
+            <div class="block blockRight sofia">
+                <div class="char">
+                    <img src="img/Sofia.png" class="charImg charImgRight">
+                    <p class="charName">Sofia</p>
+                </div>
+                <div class="charTxt"><p>I mean, short of asking him yourself or dumping a ton of links to articles in his inbox, I think we’ve got the same problem anyway where he controls our grades and we really don’t wanna risk his… temperamental attitude towards us “youngins” to affect our marks.</p></div>
+            </div>
+        </div>
+
+        <div class="section" id="s1p18">
+            <div class="block anna">
+                <div class="char">
+                    <img src="img/Anna2.png" class="charImg">
+                    <p class="charName">Anna</p>
+                </div>
+                <div class="charTxt"><p>Young uns?</p></div>
+            </div>
+            <br>
+            <div class="block blockRight sofia">
+                <div class="char">
+                    <img src="img/Sofia.png" class="charImg charImgRight">
+                    <p class="charName">Sofia</p>
+                </div>
+                <div class="charTxt"><p>Youngins, young uns? You know what I mean.</p></div>
+            </div>
+            <br>
+            <div class="block anna">
+                <div class="char">
+                    <img src="img/Anna2.png" class="charImg">
+                    <p class="charName">Anna</p>
+                </div>
+                <div class="charTxt"><p>Oh yeah, with all his “back in my day” bs it’s a wonder he’s even ended up teaching a module like this.</p></div>
+            </div>
+        </div>
+  </main>
+
+
+  <script src="test.js"></script>
+  <!-- on scroll animations -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+        disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+  startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+  initClassName: 'aos-init', // class applied after initialization
+  animatedClassName: 'aos-animate', // class applied on animation
+  useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+  disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+  debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+  throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+  
+
+  // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+  offset: 120, // offset (in px) from the original trigger point
+  delay: 0, // values from 0 to 3000, with step 50ms
+  duration: 400, // values from 0 to 3000, with step 50ms
+  easing: 'ease', // default easing for AOS animations
+  once: false, // whether animation should happen only once - while scrolling down
+  mirror: false, // whether elements should animate out while scrolling past them
+  anchorPlacement: 'top-bottom',
+    });
+  </script>
+  <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> -->
+  <!-- <script>
+    AOS.init();
+  </script> -->
+</body>
+</html>
