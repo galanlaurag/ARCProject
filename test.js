@@ -6,7 +6,6 @@ let callback = (entries, observer) => {
 
         const targetIndex = Array.from(blocks).indexOf(target);
         if (entry.isIntersecting) {
-            // entry.target.style.backgroundColor = entry.isIntersecting ? 'green' : 'red';
             blocks.forEach((block) => {
                 block.classList.remove('top', 'middle', 'bottom', 'bottom2');
             });
