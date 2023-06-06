@@ -402,7 +402,85 @@ function checkClassesToDisplayPopup() {
             }
         }
     } else if (window.location.href.includes('scenario3')) {
-
+        if (document.querySelectorAll('.popup1.top').length === 1) {
+            if (user === 'teacher') {
+                Swal.fire({
+                    html: '<p>How does this opening resonate with you?</p>',
+                    showCloseButton: true,
+                    showConfirmButton: false,
+                })
+            } else {
+                Swal.fire({
+                    html: '<p>Does this opening surprise you?</p>',
+                    showCloseButton: true,
+                    showConfirmButton: false,
+                })
+            }
+        } else if (document.querySelectorAll('.popup2.top').length === 1) {
+            if (user === 'teacher') {
+                Swal.fire({
+                    html: '<p>While it is great that Hana can call out her colleague here, what do you feel about his assumptions and inability to see that he has been racist?</p><p>What do you think about Hana having to share her personal story to make her point?</p>',
+                    showCloseButton: true,
+                    showConfirmButton: false,
+                })
+            }
+        } else if (document.querySelectorAll('.popup3.top').length === 1) {
+            if (user === 'teacher') {
+                Swal.fire({
+                    html: '<p>How does this part make you feel in terms of what it says about staff perspectives on inclusion?</p><p>There are some interesting reflections on academic freedom here, a very contentious topic. What do you make of Hana’s approach to teaching?</p>',
+                    showCloseButton: true,
+                    showConfirmButton: false,
+                })
+            } else {
+                Swal.fire({
+                    html: '<p>How does this part make you feel in terms of what it says about staff perspectives on inclusion?</p><p>How do you feel about some of the wider conversations on academic freedom and cancel culture?</p>',
+                    showCloseButton: true,
+                    showConfirmButton: false,
+                })
+            }
+        } else if (document.querySelectorAll('.popup4.top').length === 1) {
+            if (user === 'teacher') {
+                Swal.fire({
+                    html: '<p>What do you think about Mary’s realisation that our university culture and practices are in fact colonial and that our students can enlighten us?</p>',
+                    showCloseButton: true,
+                    showConfirmButton: false,
+                })
+            } else {
+                Swal.fire({
+                    html: '<p>What do you think about Mary’s realisation that our university culture and practices are in fact colonial and that our students can enlighten us?</p>',
+                    showCloseButton: true,
+                    showConfirmButton: false,
+                })
+            }
+        } else if (document.querySelectorAll('.popup5.top').length === 1) {
+            if (user === 'teacher') {
+                Swal.fire({
+                    html: '<p>What, if anything, are you learning from this dialogue about our own approaches to teaching and how we listen to our students?</p><p>What do you make of Aaron Pearson’s response to his colleague’s insights?</p>',
+                    showCloseButton: true,
+                    showConfirmButton: false,
+                })
+            } else {
+                Swal.fire({
+                    html: '<p>As a student, how do you respond to this part?</p>',
+                    showCloseButton: true,
+                    showConfirmButton: false,
+                })
+            }
+        } else if (document.querySelectorAll('.popup6.top').length === 1) {
+            if (user === 'teacher') {
+                Swal.fire({
+                    html: '<p>How would you describe the overall tone and language here?</p><p>Is there anything in this dialogue that makes you feel uncomfortable? If so, why?</p><p>How do you feel about the changing landscape of higher education (is it?)</p>',
+                    showCloseButton: true,
+                    showConfirmButton: false,
+                })
+            } else {
+                Swal.fire({
+                    html: '<p>How would you describe the overall tone and language here?</p><p>Is there anything in this dialogue that makes you feel uncomfortable? If so, why?</p><p>What, for you, is the purpose of higher education?</p>',
+                    showCloseButton: true,
+                    showConfirmButton: false,
+                })
+            }
+        }
     }
 }
 
