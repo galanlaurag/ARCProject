@@ -240,36 +240,111 @@ function checkClassesToDisplayPopup() {
         return;
     }
     const user = localStorage.getItem('user');
-    if (document.querySelectorAll('.popup1.top').length === 1) {
-        localStorage.setItem('shouldDisplayPopups', 'true');
-        if (user === 'teacher') {
-            Swal.fire({
-                html: '<p>Why would the teacher invite questions and then ‘hide’ in front of his computer?</p><p>What could he do differently to invite interaction with the students?<br>Is there anything in this opening scene that resonates with you and your practice?</p><p>Is this what you do?</p>',
-                showCloseButton: true,
-                showConfirmButton: false,
-            })
-        } else {
-            Swal.fire({
-                html: '<p>Why do you think the teacher invites questions but then doesn’t encourage interaction?</p><p>Is this familiar to you?</p><p>As students, what kind of interaction would you like here? What would make you approach the teacher?</p><p>What could he do differently to invite interaction with the students?</p><p>Is there anything in this opening scene that resonates with you and your practice?</p><p>Is this what you do?</p>',
-                showCloseButton: true,
-                showConfirmButton: false,
-            })
+    if (window.location.href.includes('scenario1')) {
+        if (document.querySelectorAll('.popup1.top').length === 1) {
+            localStorage.setItem('shouldDisplayPopups', 'true');
+            if (user === 'teacher') {
+                Swal.fire({
+                    html: '<p>Why would the teacher invite questions and then ‘hide’ in front of his computer?</p><p>What could he do differently to invite interaction with the students?<br>Is there anything in this opening scene that resonates with you and your practice?</p><p>Is this what you do?</p>',
+                    showCloseButton: true,
+                    showConfirmButton: false,
+                })
+            } else {
+                Swal.fire({
+                    html: '<p>Why do you think the teacher invites questions but then doesn’t encourage interaction?</p><p>Is this familiar to you?</p><p>As students, what kind of interaction would you like here? What would make you approach the teacher?</p><p>What could he do differently to invite interaction with the students?</p><p>Is there anything in this opening scene that resonates with you and your practice?</p><p>Is this what you do?</p>',
+                    showCloseButton: true,
+                    showConfirmButton: false,
+                })
+            }
+        } else if (document.querySelectorAll('.popup2.top').length === 1) {
+            localStorage.setItem('shouldDisplayPopups', 'true');
+            if (user === 'teacher') {
+                Swal.fire({
+                    html: '<p>Why is Sofia so upset here?</p><p>What do you think about Anna’s role as the local Scottish student?</p><p>As a teacher, how do you feel about the criticism here?</p>',
+                    showCloseButton: true,
+                    showConfirmButton: false,
+                })
+            } else {
+                Swal.fire({
+                    html: '<p>As a student, does Sofia and/or Anna’s response resonate?</p>',
+                    showCloseButton: true,
+                    showConfirmButton: false,
+                })
+            }
+        } else if (document.querySelectorAll('.popup3.top').length === 1) {
+            localStorage.setItem('shouldDisplayPopups', 'true');
+            if (user === 'teacher') {
+                Swal.fire({
+                    html: '<p>Interesting peer learning going on here – does this surprise you? Do you acknowledge this in your teaching?</p>',
+                    showCloseButton: true,
+                    showConfirmButton: false,
+                })
+            }
+        } else if (document.querySelectorAll('.popup4.top').length === 1) {
+            localStorage.setItem('shouldDisplayPopups', 'true');
+            if (user === 'teacher') {
+                Swal.fire({
+                    html: '<p>The student’s feeling of powerless, where does it come from?</p><p>What can you do to ensure that students feel able to feed back, to be heard, in your classes?</p>',
+                    showCloseButton: true,
+                    showConfirmButton: false,
+                })
+            } else {
+                Swal.fire({
+                    html: '<p>Does this powerless surprise you?</p><p>Are there ways in which you could influence/feedback to staff?</p>',
+                    showCloseButton: true,
+                    showConfirmButton: false,
+                })
+            }
+        } else if (document.querySelectorAll('.popup5.top').length === 1) {
+            localStorage.setItem('shouldDisplayPopups', 'true');
+            if (user === 'teacher') {
+                Swal.fire({
+                    html: '<p>What do these comments tell us about the curriculum?</p>',
+                    showCloseButton: true,
+                    showConfirmButton: false,
+                })
+            } else {
+                Swal.fire({
+                    html: '<p>What do these comments tells us about the formal materials you are taught?</p>',
+                    showCloseButton: true,
+                    showConfirmButton: false,
+                })
+            }
+        } else if (document.querySelectorAll('.popup6.top').length === 1) {
+            localStorage.setItem('shouldDisplayPopups', 'true');
+            if (user === 'teacher') {
+                Swal.fire({
+                    html: '<p>What do Anna’s comments here tell us about our approaches to teaching, in terms of our assumptions and knowledges?</p><p>How can we invite our students’ experiences and knowledge into our curriculum content?</p><p>Would you want to?</p>',
+                    showCloseButton: true,
+                    showConfirmButton: false,
+                })
+            } else {
+                Swal.fire({
+                    html: '<p>Anna’s frustration here is clear, how does that make you feel, as a student? Is she right do you think and if so, why?</p><p>How can we invite our students’ experiences and knowledge into our curriculum content?</p><p>Would you want to?</p>',
+                    showCloseButton: true,
+                    showConfirmButton: false,
+                })
+            }
+        } else if (document.querySelectorAll('.popup7.top').length === 1) {
+            localStorage.setItem('shouldDisplayPopups', 'true');
+            if (user === 'teacher') {
+                Swal.fire({
+                    html: '<p>How would you describe the overall tone and language here?</p><p>Is there anything that surprises you in this last section, from a staff or student perspective, or that makes you uncomfortable?</p><p>Does Anna’s frustration make you feel sympathy towards Dr Aaron Pearson, given the context, or does it illicit a different emotion?</p>',
+                    showCloseButton: true,
+                    showConfirmButton: false,
+                })
+            } else {
+                Swal.fire({
+                    html: '<p>How would you describe the overall tone and language here?</p><p>Is there anything that surprises you in this last section, from a staff or student perspective, or that makes you uncomfortable?</p>',
+                    showCloseButton: true,
+                    showConfirmButton: false,
+                })
+            }
         }
-    } else if (document.querySelectorAll('.popup2.top').length === 1) {
-        localStorage.setItem('shouldDisplayPopups', 'true');
-        if (user === 'teacher') {
-            Swal.fire({
-                html: '<p>Why is Sofia so upset here?</p><p>What do you think about Anna’s role as the local Scottish student?</p><p>As a teacher, how do you feel about the criticism here?',
-                showCloseButton: true,
-                showConfirmButton: false,
-            })
-        } else {
-            Swal.fire({
-                html: '<p>As a student, does Sofia and/or Anna’s response resonate?</p>',
-                showCloseButton: true,
-                showConfirmButton: false,
-            })
-        }
+    } else if (window.location.href.includes('scenario2')) {
+
+    } else if (window.location.href.includes('scenario3')) {
+
     }
 }
 
