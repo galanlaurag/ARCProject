@@ -46,7 +46,7 @@ let callback = (entries, observer) => {
         if (entry.isIntersecting) {
             // entry.target.style.backgroundColor = entry.isIntersecting ? 'green' : 'red';
             blocks.forEach((block) => {
-                block.classList.remove('top', 'middle', 'bottom');
+                block.classList.remove('top', 'middle', 'bottom', 'bottom2');
             });
             blocks[targetIndex - 2]?.classList.add('top');
             blocks[targetIndex - 1]?.classList.add('middle');
@@ -54,12 +54,12 @@ let callback = (entries, observer) => {
         } else {
             // Remove existing classes from all blocks
             blocks.forEach((block) => {
-                block.classList.remove('top', 'middle', 'bottom');
+                block.classList.remove('top', 'middle', 'bottom2', 'bottom');
             });
             // Add appropriate classes to the current visible blocks
             blocks[targetIndex - 3]?.classList.add('top');
             blocks[targetIndex - 2]?.classList.add('middle');
-            blocks[targetIndex - 1]?.classList.add('bottom');
+            blocks[targetIndex - 1]?.classList.add('bottom2');
         }
     })
 }
@@ -74,6 +74,19 @@ document.getElementById("scenarioMain").addEventListener("scroll", function() {
 })
 
 
+
+// function applyAnimationDelays(selector, delay) {
+//     var elements = document.querySelectorAll(selector);
+//
+//     for (var i = 0; i < elements.length; i++) {
+//         var animationDelay = i * delay;
+//         elements[i].style.animationDelay = animationDelay + 's';
+//     }
+// }
+//
+// window.addEventListener('load', function() {
+//     applyAnimationDelays('.block', 2);
+// });
 
 
 
