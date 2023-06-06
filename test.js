@@ -40,9 +40,15 @@ document.getElementById("scenarioMain").addEventListener("scroll", function(even
     const currentScrollTop = event.target.scrollTop;
     if (currentScrollTop > prevScrollTop) {
         clearTimeout(timeoutId);
-        timeoutId = setTimeout(function() {
-            checkClassesToDisplayPopup();
-        }, 300);
+        // if (document.querySelectorAll('.popup7.top').length === 1) {
+        //     timeoutId = setTimeout(function () {
+        //         checkClassesToDisplayPopup();
+        //     }, 10000);
+        // } else {
+            timeoutId = setTimeout(function () {
+                checkClassesToDisplayPopup();
+            }, 300);
+        // }
     }
     prevScrollTop = currentScrollTop;
 })
@@ -241,8 +247,8 @@ function checkClassesToDisplayPopup() {
     }
     const user = localStorage.getItem('user');
     if (window.location.href.includes('scenario1')) {
+        isLastPopup = 0;
         if (document.querySelectorAll('.popup1.top').length === 1) {
-            localStorage.setItem('shouldDisplayPopups', 'true');
             if (user === 'teacher') {
                 Swal.fire({
                     html: '<p>Why would the teacher invite questions and then ‘hide’ in front of his computer?</p><p>What could he do differently to invite interaction with the students?<br>Is there anything in this opening scene that resonates with you and your practice?</p><p>Is this what you do?</p>',
@@ -257,7 +263,6 @@ function checkClassesToDisplayPopup() {
                 })
             }
         } else if (document.querySelectorAll('.popup2.top').length === 1) {
-            localStorage.setItem('shouldDisplayPopups', 'true');
             if (user === 'teacher') {
                 Swal.fire({
                     html: '<p>Why is Sofia so upset here?</p><p>What do you think about Anna’s role as the local Scottish student?</p><p>As a teacher, how do you feel about the criticism here?</p>',
@@ -272,7 +277,6 @@ function checkClassesToDisplayPopup() {
                 })
             }
         } else if (document.querySelectorAll('.popup3.top').length === 1) {
-            localStorage.setItem('shouldDisplayPopups', 'true');
             if (user === 'teacher') {
                 Swal.fire({
                     html: '<p>Interesting peer learning going on here – does this surprise you? Do you acknowledge this in your teaching?</p>',
@@ -281,7 +285,6 @@ function checkClassesToDisplayPopup() {
                 })
             }
         } else if (document.querySelectorAll('.popup4.top').length === 1) {
-            localStorage.setItem('shouldDisplayPopups', 'true');
             if (user === 'teacher') {
                 Swal.fire({
                     html: '<p>The student’s feeling of powerless, where does it come from?</p><p>What can you do to ensure that students feel able to feed back, to be heard, in your classes?</p>',
@@ -296,7 +299,6 @@ function checkClassesToDisplayPopup() {
                 })
             }
         } else if (document.querySelectorAll('.popup5.top').length === 1) {
-            localStorage.setItem('shouldDisplayPopups', 'true');
             if (user === 'teacher') {
                 Swal.fire({
                     html: '<p>What do these comments tell us about the curriculum?</p>',
@@ -311,7 +313,6 @@ function checkClassesToDisplayPopup() {
                 })
             }
         } else if (document.querySelectorAll('.popup6.top').length === 1) {
-            localStorage.setItem('shouldDisplayPopups', 'true');
             if (user === 'teacher') {
                 Swal.fire({
                     html: '<p>What do Anna’s comments here tell us about our approaches to teaching, in terms of our assumptions and knowledges?</p><p>How can we invite our students’ experiences and knowledge into our curriculum content?</p><p>Would you want to?</p>',
@@ -326,7 +327,6 @@ function checkClassesToDisplayPopup() {
                 })
             }
         } else if (document.querySelectorAll('.popup7.top').length === 1) {
-            localStorage.setItem('shouldDisplayPopups', 'true');
             if (user === 'teacher') {
                 Swal.fire({
                     html: '<p>How would you describe the overall tone and language here?</p><p>Is there anything that surprises you in this last section, from a staff or student perspective, or that makes you uncomfortable?</p><p>Does Anna’s frustration make you feel sympathy towards Dr Aaron Pearson, given the context, or does it illicit a different emotion?</p>',
