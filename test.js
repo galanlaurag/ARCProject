@@ -1,3 +1,283 @@
+//changing & observing the styling of top, middle and bottom block
+const blocks = document.querySelectorAll('.block');
+let callback = (entries, observer) => {
+    entries.forEach(entry => {
+        const target = entry.target;
+
+        const targetIndex = Array.from(blocks).indexOf(target);
+        if (entry.isIntersecting) {
+            // entry.target.style.backgroundColor = entry.isIntersecting ? 'green' : 'red';
+            blocks.forEach((block) => {
+                block.classList.remove('top', 'middle', 'bottom', 'bottom2');
+            });
+            blocks[targetIndex - 2]?.classList.add('top');
+            blocks[targetIndex - 1]?.classList.add('middle');
+            blocks[targetIndex]?.classList.add('bottom');
+        } else {
+            // Remove existing classes from all blocks
+            blocks.forEach((block) => {
+                block.classList.remove('top', 'middle', 'bottom2', 'bottom');
+            });
+            // Add appropriate classes to the current visible blocks
+            blocks[targetIndex - 3]?.classList.add('top');
+            blocks[targetIndex - 2]?.classList.add('middle');
+            blocks[targetIndex - 1]?.classList.add('bottom2');
+        }
+
+    })
+}
+let observer = new IntersectionObserver(callback, {
+    threshold: [0.5] // If 50% of the element is in the screen, we count it!
+});
+
+let timeoutId = null;
+let prevScrollTop = 0;
+document.getElementById("scenarioMain").addEventListener("scroll", function(event) {
+    blocks.forEach((block) => {
+        observer.observe(block);
+    });
+    //display popups only on scrolls down
+    const currentScrollTop = event.target.scrollTop;
+    if (currentScrollTop > prevScrollTop) {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(function() {
+            checkClassesToDisplayPopup();
+        }, 300);
+    }
+    prevScrollTop = currentScrollTop;
+})
+
+
+
+//popups
+// function showHint(elementId) {
+//     const elementToShow = document.getElementById('hint');
+//     elementToShow.style.visibility = 'visible';
+//     switch (elementId) {
+//         case 's1p2':
+//             elementToShow.onclick = function() {
+//                 Swal.fire({
+//                     // title: 'Error!',
+//                     html: '<p>Why would the teacher invite questions and then ‘hide’ in front of his computer?</p><p>What could he do differently to invite interaction with the students?<br>Is there anything in this opening scene that resonates with you and your practice?</p><p>Is this what you do?</p>',
+//                     // inputAttributes: {
+//                     //     id: "txt-note",
+//                     //   },
+//                     showCloseButton: true,
+//                     showConfirmButton: false,
+//                     // confirmButtonText: 'Close'
+//                 })
+//             }
+//             break;
+//         case 's1p5':
+//             elementToShow.onclick = function() {
+//                 Swal.fire({
+//                     // title: 'Error!',
+//                     html: '<p>Why is Sofia so upset here?</p><p>What do you think about Anna’s role as the local Scottish student?</p><p>As a teacher, how do you feel about the criticism here?</p>',
+//                     showCloseButton: true,
+//                     showConfirmButton: false,
+//                 })
+//             }
+//             break;
+//         case 's1p6':
+//             elementToShow.onclick = function() {
+//                 Swal.fire({
+//                     // title: 'Error!',
+//                     html: '<p>Interesting peer learning going on here – does this surprise you?</p><p>Do you acknowledge this in your teaching?</p>',
+//                     showCloseButton: true,
+//                     showConfirmButton: false,
+//                 })
+//             }
+//             break;
+//         case 's1p7':
+//             elementToShow.onclick = function() {
+//                 Swal.fire({
+//                     // title: 'Error!',
+//                     html: '<p>The student’s feeling of powerless, where does it come from?</p><p>What can you do to ensure that students feel able to feed back, to be heard, in your classes?</p>',
+//                     showCloseButton: true,
+//                     showConfirmButton: false,
+//                 })
+//             }
+//             break;
+//         case 's1p9':
+//             elementToShow.onclick = function() {
+//                 Swal.fire({
+//                     // title: 'Error!',
+//                     html: '<p>What do these comments tell us about the curriculum?</p>',
+//                     showCloseButton: true,
+//                     showConfirmButton: false,
+//                 })
+//             }
+//             break;
+//         case 's1p13':
+//             elementToShow.onclick = function() {
+//                 Swal.fire({
+//                     // title: 'Error!',
+//                     html: '<p>What do Anna’s comments here tell us about our approaches to teaching, in terms of our assumptions and knowledges?</p><p>How can we invite our students’ experiences and knowledge into our curriculum content? Would you want to?</p>',
+//                     showCloseButton: true,
+//                     showConfirmButton: false,
+//                 })
+//             }
+//             break;
+//         case 's1p18':
+//             elementToShow.onclick = function() {
+//                 Swal.fire({
+//                     // title: 'Error!',
+//                     html: '<p>How would you describe the overall tone and language here?</p><p>Is there anything that surprises you in this last section, from a staff or student perspective, or that makes you uncomfortable?</p><p>Does Anna’s frustration make you feel sympathy towards Dr Aaron Pearson, given the context, or does it illicit a different emotion?</p>',
+//                     showCloseButton: true,
+//                     showConfirmButton: false,
+//                 })
+//             }
+//             break;
+//         case 's2p2':
+//         elementToShow.onclick = function() {
+//             Swal.fire({
+//                 // title: 'Error!',
+//                 text: 'And here pay attention to blablablabla here...',
+//                 confirmButtonText: 'Cool'
+//             })
+//         }
+//         break;
+//         default:
+//             break;
+//     }
+// }
+// function hideHint() {
+//     const elementToShow = document.getElementById('hint');
+//     // elementToShow.style.display = 'none';
+//     elementToShow.style.visibility = 'hidden';
+// }
+//
+// const options = {
+//     root: null,
+//     rootMargin: '0px',
+//     threshold: 0.5
+// };
+//
+// function handleIntersection(entries, observer) {
+//     entries.forEach(entry => {
+//       const elementId = entry.target.id;
+//       if (entry.isIntersecting) {
+//         showHint(elementId);
+//       } else {
+//         hideHint();
+//       }
+//     });
+// }
+//
+// if (window.location.href.includes('scenario1')) {
+//     const idsToObserve = [
+//         document.getElementById('s1p2'),
+//         document.getElementById('s1p5'),
+//         document.getElementById('s1p6'),
+//         document.getElementById('s1p7'),
+//         document.getElementById('s1p9'),
+//         document.getElementById('s1p13'),
+//         document.getElementById('s1p18'),
+//         // document.getElementById('2section2'),
+//     ];
+//     const observer = new IntersectionObserver(handleIntersection, options);
+//     idsToObserve.forEach(e => {
+//         observer.observe(e);
+//     });
+// }
+// if (window.location.href.includes('scenario2')) {
+//     const idsToObserve = [
+//         document.getElementById('s2p2'),
+//     ];
+//     const observer = new IntersectionObserver(handleIntersection, options);
+//     idsToObserve.forEach(e => {
+//         observer.observe(e);
+//     });
+// }
+
+
+//store & toggle user type in local storage
+window.onload = function() {
+    const user = localStorage.getItem('user');
+    if (user === 'student') {
+        localStorage.setItem('user', 'student');
+        document.getElementById('userType').textContent = 'Change to teacher';
+    } else {
+        localStorage.setItem('user', 'teacher');
+        document.getElementById('userType').textContent = 'Change to student';
+    }
+
+    const shouldDisplayPopups = localStorage.getItem('popups');
+    if (shouldDisplayPopups === "false") {
+        localStorage.setItem('popups', 'false');
+        document.getElementById('popups').textContent = 'Enable popups';
+    } else {
+        localStorage.setItem('popups', 'true');
+        document.getElementById('popups').textContent = 'Disable popups';
+    }
+};
+function toggleUser() {
+    const user = localStorage.getItem('user');
+    // Toggle user role and update local storage
+    if (user === 'teacher') {
+        document.getElementById('userType').textContent = 'Change to teacher';
+        localStorage.setItem('user', 'student');
+    } else {
+        document.getElementById('userType').textContent = 'Change to student';
+        localStorage.setItem('user', 'teacher');
+    }
+}
+function togglePopups() {
+    const shouldDisplayPopups = localStorage.getItem('popups');
+    // Toggle user role and update local storage
+    if (shouldDisplayPopups === 'true') {
+        document.getElementById('popups').textContent = 'Enable popups';
+        localStorage.setItem('popups', 'false');
+    } else {
+        document.getElementById('popups').textContent = 'Disable popups';
+        localStorage.setItem('popups', 'true');
+    }
+}
+
+//displaying popups
+function checkClassesToDisplayPopup() {
+    if (localStorage.getItem('popups') === 'false') {
+        return;
+    }
+    const user = localStorage.getItem('user');
+    if (document.querySelectorAll('.popup1.top').length === 1) {
+        localStorage.setItem('shouldDisplayPopups', 'true');
+        if (user === 'teacher') {
+            Swal.fire({
+                html: '<p>Why would the teacher invite questions and then ‘hide’ in front of his computer?</p><p>What could he do differently to invite interaction with the students?<br>Is there anything in this opening scene that resonates with you and your practice?</p><p>Is this what you do?</p>',
+                showCloseButton: true,
+                showConfirmButton: false,
+            })
+        } else {
+            Swal.fire({
+                html: '<p>Why do you think the teacher invites questions but then doesn’t encourage interaction?</p><p>Is this familiar to you?</p><p>As students, what kind of interaction would you like here? What would make you approach the teacher?</p><p>What could he do differently to invite interaction with the students?</p><p>Is there anything in this opening scene that resonates with you and your practice?</p><p>Is this what you do?</p>',
+                showCloseButton: true,
+                showConfirmButton: false,
+            })
+        }
+    } else if (document.querySelectorAll('.popup2.top').length === 1) {
+        localStorage.setItem('shouldDisplayPopups', 'true');
+        if (user === 'teacher') {
+            Swal.fire({
+                html: '<p>Why is Sofia so upset here?</p><p>What do you think about Anna’s role as the local Scottish student?</p><p>As a teacher, how do you feel about the criticism here?',
+                showCloseButton: true,
+                showConfirmButton: false,
+            })
+        } else {
+            Swal.fire({
+                html: '<p>As a student, does Sofia and/or Anna’s response resonate?</p>',
+                showCloseButton: true,
+                showConfirmButton: false,
+            })
+        }
+    }
+}
+
+
+
+
+
+
 // const blocks = document.querySelectorAll('.block');
 // const observerOptions = {
 //     root: null,
@@ -37,41 +317,7 @@
 // });
 
 
-const blocks = document.querySelectorAll('.block');
-let callback = (entries, observer) => {
-    entries.forEach(entry => {
-        const target = entry.target;
 
-        const targetIndex = Array.from(blocks).indexOf(target);
-        if (entry.isIntersecting) {
-            // entry.target.style.backgroundColor = entry.isIntersecting ? 'green' : 'red';
-            blocks.forEach((block) => {
-                block.classList.remove('top', 'middle', 'bottom', 'bottom2');
-            });
-            blocks[targetIndex - 2]?.classList.add('top');
-            blocks[targetIndex - 1]?.classList.add('middle');
-            blocks[targetIndex]?.classList.add('bottom');
-        } else {
-            // Remove existing classes from all blocks
-            blocks.forEach((block) => {
-                block.classList.remove('top', 'middle', 'bottom2', 'bottom');
-            });
-            // Add appropriate classes to the current visible blocks
-            blocks[targetIndex - 3]?.classList.add('top');
-            blocks[targetIndex - 2]?.classList.add('middle');
-            blocks[targetIndex - 1]?.classList.add('bottom2');
-        }
-    })
-}
-let observer = new IntersectionObserver(callback, {
-    threshold: [0.5] // If 50% of the element is in the screen, we count it!
-});
-
-document.getElementById("scenarioMain").addEventListener("scroll", function() {
-    blocks.forEach((block) => {
-        observer.observe(block);
-    });
-})
 
 
 
