@@ -1,3 +1,178 @@
+// const blocks = document.querySelectorAll('.block');
+// const observerOptions = {
+//     root: null,
+//     rootMargin: '0px',
+//     threshold: 0.5,
+// };
+//
+// const observerCallback = (entries) => {
+//     entries.forEach((entry) => {
+//         const target = entry.target;
+//         const targetIndex = Array.from(blocks).indexOf(target);
+//
+//         if (entry.isIntersecting) {
+//             // Remove existing classes from all blocks
+//             blocks.forEach((block) => {
+//                 block.classList.remove('top', 'middle', 'bottom');
+//             });
+//             blocks[targetIndex - 2]?.classList.add('top');
+//             blocks[targetIndex - 1]?.classList.add('middle');
+//             blocks[targetIndex]?.classList.add('bottom');
+//         }
+//         else {
+//             // Remove existing classes from all blocks
+//             blocks.forEach((block) => {
+//                 block.classList.remove('top', 'middle', 'bottom');
+//             });
+//             // Add appropriate classes to the current visible blocks
+//             blocks[targetIndex - 3]?.classList.add('top');
+//             blocks[targetIndex - 2]?.classList.add('middle');
+//             blocks[targetIndex - 1]?.classList.add('bottom');
+//         }
+//     });
+// };
+// const observer = new IntersectionObserver(observerCallback, observerOptions);
+// blocks.forEach((block) => {
+//     observer.observe(block);
+// });
+
+
+const blocks = document.querySelectorAll('.block');
+let callback = (entries, observer) => {
+    entries.forEach(entry => {
+        const target = entry.target;
+
+        const targetIndex = Array.from(blocks).indexOf(target);
+        if (entry.isIntersecting) {
+            // entry.target.style.backgroundColor = entry.isIntersecting ? 'green' : 'red';
+            blocks.forEach((block) => {
+                block.classList.remove('top', 'middle', 'bottom');
+            });
+            blocks[targetIndex - 2]?.classList.add('top');
+            blocks[targetIndex - 1]?.classList.add('middle');
+            blocks[targetIndex]?.classList.add('bottom');
+        } else {
+            // Remove existing classes from all blocks
+            blocks.forEach((block) => {
+                block.classList.remove('top', 'middle', 'bottom');
+            });
+            // Add appropriate classes to the current visible blocks
+            blocks[targetIndex - 3]?.classList.add('top');
+            blocks[targetIndex - 2]?.classList.add('middle');
+            blocks[targetIndex - 1]?.classList.add('bottom');
+        }
+    })
+}
+let observer = new IntersectionObserver(callback, {
+    threshold: [0.5] // If 50% of the element is in the screen, we count it!
+});
+
+document.getElementById("scenarioMain").addEventListener("scroll", function() {
+    blocks.forEach((block) => {
+        observer.observe(block);
+    });
+})
+
+
+
+
+
+
+
+
+// var getElementsInArea = (function(docElm){
+//     var viewportHeight = docElm.clientHeight;
+//
+//     return function(e, opts){
+//         var found = [], i;
+//
+//         if( e && e.type == 'resize' )
+//             viewportHeight = docElm.clientHeight;
+//
+//         for( i = opts.elements.length; i--; ){
+//             var elm        = opts.elements[i],
+//                 pos        = elm.getBoundingClientRect(),
+//                 topPerc    = pos.top    / viewportHeight * 100,
+//                 bottomPerc = pos.bottom / viewportHeight * 100,
+//                 middle     = (topPerc + bottomPerc)/2,
+//                 inViewport = middle > opts.zone[1] &&
+//                     middle < (100-opts.zone[1]);
+//
+//             elm.classList.toggle(opts.markedClass, inViewport);
+//
+//             if( inViewport )
+//                 found.push(elm);
+//         }
+//     };
+// })(document.documentElement);
+//
+// document.getElementById("scenarioMain").addEventListener('scroll', f)
+// // window.addEventListener('resize', f)
+//
+// function f(e){
+//     getElementsInArea(e, {
+//         elements    : document.querySelectorAll('.block'),
+//         markedClass : 'top',
+//         zone        : [0, 64] // percentage distance from top & bottom
+//     });
+//     getElementsInArea(e, {
+//         elements    : document.querySelectorAll('.block'),
+//         markedClass : 'middle',
+//         zone        : [33, 33] // percentage distance from top & bottom
+//     });
+//
+//     getElementsInArea(e, {
+//         elements    : document.querySelectorAll('.block'),
+//         markedClass : 'bottom',
+//         zone        : [49, 49] // percentage distance from top & bottom
+//     });
+// }
+
+
+
+
+// const blocks = document.querySelectorAll('.block');
+// const observerOptions = {
+//     root: null,
+//     rootMargin: '0px',
+//     threshold: 0.5,
+// };
+//
+// const observerCallback = (entries) => {
+//     entries.forEach((entry) => {
+//         const target = entry.target;
+//
+//         if (entry.isIntersecting) {
+//             // Remove existing classes from all blocks
+//             blocks.forEach((block) => {
+//                 block.classList.remove('top', 'middle', 'bottom');
+//             });
+//
+//             // Add appropriate classes to the current visible blocks
+//             const visibleBlocks = Array.from(entries)
+//                 .filter((entry) => entry.isIntersecting)
+//                 .map((entry) => entry.target);
+//
+//             visibleBlocks.forEach((block, index) => {
+//                 if (index === 0) {
+//                     block.classList.add('top');
+//                 } else if (index === visibleBlocks.length - 1) {
+//                     block.classList.add('bottom');
+//                 } else {
+//                     block.classList.add('middle');
+//                 }
+//             });
+//         }
+//     });
+// };
+//
+// const observer = new IntersectionObserver(observerCallback, observerOptions);
+//
+// blocks.forEach((block) => {
+//     observer.observe(block);
+// });
+
+
 // document.getElementById("scenarioMain").addEventListener("scroll", function() {
 //     // console.log("scroll");
 //     // console.log(document.getElementById("3").scrollTop);
@@ -107,145 +282,156 @@
 
 
 // popup windows on hint click
-function showHint(elementId) {
-    const elementToShow = document.getElementById('hint');
-    elementToShow.style.visibility = 'visible';
-    switch (elementId) {
-        case 's1p2':
-            elementToShow.onclick = function() {
-                Swal.fire({
-                    // title: 'Error!',
-                    html: '<p>Why would the teacher invite questions and then ‘hide’ in front of his computer?</p><p>What could he do differently to invite interaction with the students?<br>Is there anything in this opening scene that resonates with you and your practice?</p><p>Is this what you do?</p>',
-                    // inputAttributes: {
-                    //     id: "txt-note",
-                    //   },
-                    showCloseButton: true,
-                    showConfirmButton: false,
-                    // confirmButtonText: 'Close'
-                })
-            }
-            break;
-        case 's1p5':
-            elementToShow.onclick = function() {
-                Swal.fire({
-                    // title: 'Error!',
-                    html: '<p>Why is Sofia so upset here?</p><p>What do you think about Anna’s role as the local Scottish student?</p><p>As a teacher, how do you feel about the criticism here?</p>',
-                    showCloseButton: true,
-                    showConfirmButton: false,
-                })
-            }
-            break;
-        case 's1p6':
-            elementToShow.onclick = function() {
-                Swal.fire({
-                    // title: 'Error!',
-                    html: '<p>Interesting peer learning going on here – does this surprise you?</p><p>Do you acknowledge this in your teaching?</p>',
-                    showCloseButton: true,
-                    showConfirmButton: false,
-                })
-            }
-            break;
-        case 's1p7':
-            elementToShow.onclick = function() {
-                Swal.fire({
-                    // title: 'Error!',
-                    html: '<p>The student’s feeling of powerless, where does it come from?</p><p>What can you do to ensure that students feel able to feed back, to be heard, in your classes?</p>',
-                    showCloseButton: true,
-                    showConfirmButton: false,
-                })
-            }
-            break;
-        case 's1p9':
-            elementToShow.onclick = function() {
-                Swal.fire({
-                    // title: 'Error!',
-                    html: '<p>What do these comments tell us about the curriculum?</p>',
-                    showCloseButton: true,
-                    showConfirmButton: false,
-                })
-            }
-            break;
-        case 's1p13':
-            elementToShow.onclick = function() {
-                Swal.fire({
-                    // title: 'Error!',
-                    html: '<p>What do Anna’s comments here tell us about our approaches to teaching, in terms of our assumptions and knowledges?</p><p>How can we invite our students’ experiences and knowledge into our curriculum content? Would you want to?</p>',
-                    showCloseButton: true,
-                    showConfirmButton: false,
-                })
-            }
-            break;
-        case 's1p18':
-            elementToShow.onclick = function() {
-                Swal.fire({
-                    // title: 'Error!',
-                    html: '<p>How would you describe the overall tone and language here?</p><p>Is there anything that surprises you in this last section, from a staff or student perspective, or that makes you uncomfortable?</p><p>Does Anna’s frustration make you feel sympathy towards Dr Aaron Pearson, given the context, or does it illicit a different emotion?</p>',
-                    showCloseButton: true,
-                    showConfirmButton: false,
-                })
-            }
-            break;
-        case 's2p2':
-        elementToShow.onclick = function() {
-            Swal.fire({
-                // title: 'Error!',
-                text: 'And here pay attention to blablablabla here...',
-                confirmButtonText: 'Cool'
-            })
-        }
-        break;
-        default:
-            break;
-    }
-}
-function hideHint() {
-    const elementToShow = document.getElementById('hint');
-    // elementToShow.style.display = 'none';
-    elementToShow.style.visibility = 'hidden';
-}
-  
-const options = {
-    root: null,
-    rootMargin: '0px', 
-    threshold: 0.5 
-};
-  
-function handleIntersection(entries, observer) {
-    entries.forEach(entry => {
-      const elementId = entry.target.id;
-      if (entry.isIntersecting) {
-        showHint(elementId);
-      } else {
-        hideHint();
-      }
-    });
-}
-  
-if (window.location.href.includes('scenario1')) {
-    const idsToObserve = [
-        document.getElementById('s1p2'),
-        document.getElementById('s1p5'),
-        document.getElementById('s1p6'),
-        document.getElementById('s1p7'),
-        document.getElementById('s1p9'),
-        document.getElementById('s1p13'),
-        document.getElementById('s1p18'),
-        // document.getElementById('2section2'),
-    ];
-    const observer = new IntersectionObserver(handleIntersection, options);
-    idsToObserve.forEach(e => {
-        observer.observe(e);
-    });
-}
-if (window.location.href.includes('scenario2')) {
-    const idsToObserve = [
-        document.getElementById('s2p2'),
-    ];
-    const observer = new IntersectionObserver(handleIntersection, options);
-    idsToObserve.forEach(e => {
-        observer.observe(e);
-    });
-}
+//todo
+// function showHint(elementId) {
+//     const elementToShow = document.getElementById('hint');
+//     elementToShow.style.visibility = 'visible';
+//     switch (elementId) {
+//         case 's1p2':
+//             elementToShow.onclick = function() {
+//                 Swal.fire({
+//                     // title: 'Error!',
+//                     html: '<p>Why would the teacher invite questions and then ‘hide’ in front of his computer?</p><p>What could he do differently to invite interaction with the students?<br>Is there anything in this opening scene that resonates with you and your practice?</p><p>Is this what you do?</p>',
+//                     // inputAttributes: {
+//                     //     id: "txt-note",
+//                     //   },
+//                     showCloseButton: true,
+//                     showConfirmButton: false,
+//                     // confirmButtonText: 'Close'
+//                 })
+//             }
+//             break;
+//         case 's1p5':
+//             elementToShow.onclick = function() {
+//                 Swal.fire({
+//                     // title: 'Error!',
+//                     html: '<p>Why is Sofia so upset here?</p><p>What do you think about Anna’s role as the local Scottish student?</p><p>As a teacher, how do you feel about the criticism here?</p>',
+//                     showCloseButton: true,
+//                     showConfirmButton: false,
+//                 })
+//             }
+//             break;
+//         case 's1p6':
+//             elementToShow.onclick = function() {
+//                 Swal.fire({
+//                     // title: 'Error!',
+//                     html: '<p>Interesting peer learning going on here – does this surprise you?</p><p>Do you acknowledge this in your teaching?</p>',
+//                     showCloseButton: true,
+//                     showConfirmButton: false,
+//                 })
+//             }
+//             break;
+//         case 's1p7':
+//             elementToShow.onclick = function() {
+//                 Swal.fire({
+//                     // title: 'Error!',
+//                     html: '<p>The student’s feeling of powerless, where does it come from?</p><p>What can you do to ensure that students feel able to feed back, to be heard, in your classes?</p>',
+//                     showCloseButton: true,
+//                     showConfirmButton: false,
+//                 })
+//             }
+//             break;
+//         case 's1p9':
+//             elementToShow.onclick = function() {
+//                 Swal.fire({
+//                     // title: 'Error!',
+//                     html: '<p>What do these comments tell us about the curriculum?</p>',
+//                     showCloseButton: true,
+//                     showConfirmButton: false,
+//                 })
+//             }
+//             break;
+//         case 's1p13':
+//             elementToShow.onclick = function() {
+//                 Swal.fire({
+//                     // title: 'Error!',
+//                     html: '<p>What do Anna’s comments here tell us about our approaches to teaching, in terms of our assumptions and knowledges?</p><p>How can we invite our students’ experiences and knowledge into our curriculum content? Would you want to?</p>',
+//                     showCloseButton: true,
+//                     showConfirmButton: false,
+//                 })
+//             }
+//             break;
+//         case 's1p18':
+//             elementToShow.onclick = function() {
+//                 Swal.fire({
+//                     // title: 'Error!',
+//                     html: '<p>How would you describe the overall tone and language here?</p><p>Is there anything that surprises you in this last section, from a staff or student perspective, or that makes you uncomfortable?</p><p>Does Anna’s frustration make you feel sympathy towards Dr Aaron Pearson, given the context, or does it illicit a different emotion?</p>',
+//                     showCloseButton: true,
+//                     showConfirmButton: false,
+//                 })
+//             }
+//             break;
+//         case 's2p2':
+//         elementToShow.onclick = function() {
+//             Swal.fire({
+//                 // title: 'Error!',
+//                 text: 'And here pay attention to blablablabla here...',
+//                 confirmButtonText: 'Cool'
+//             })
+//         }
+//         break;
+//         default:
+//             break;
+//     }
+// }
+// function hideHint() {
+//     const elementToShow = document.getElementById('hint');
+//     // elementToShow.style.display = 'none';
+//     elementToShow.style.visibility = 'hidden';
+// }
+//
+// const options = {
+//     root: null,
+//     rootMargin: '0px',
+//     threshold: 0.5
+// };
+//
+// function handleIntersection(entries, observer) {
+//     entries.forEach(entry => {
+//       const elementId = entry.target.id;
+//       if (entry.isIntersecting) {
+//         showHint(elementId);
+//       } else {
+//         hideHint();
+//       }
+//     });
+// }
+//
+// if (window.location.href.includes('scenario1')) {
+//     const idsToObserve = [
+//         document.getElementById('s1p2'),
+//         document.getElementById('s1p5'),
+//         document.getElementById('s1p6'),
+//         document.getElementById('s1p7'),
+//         document.getElementById('s1p9'),
+//         document.getElementById('s1p13'),
+//         document.getElementById('s1p18'),
+//         // document.getElementById('2section2'),
+//     ];
+//     const observer = new IntersectionObserver(handleIntersection, options);
+//     idsToObserve.forEach(e => {
+//         observer.observe(e);
+//     });
+// }
+// if (window.location.href.includes('scenario2')) {
+//     const idsToObserve = [
+//         document.getElementById('s2p2'),
+//     ];
+//     const observer = new IntersectionObserver(handleIntersection, options);
+//     idsToObserve.forEach(e => {
+//         observer.observe(e);
+//     });
+// }
+//todo
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,3 +1,32 @@
+
+#scenarioMain {
+    background-image: linear-gradient(to bottom, #97794d, transparent, #97794d) !important;
+}
+
+.block {
+    /*background-image: linear-gradient(to bottom, #000000, transparent, #000);*/
+    opacity: 0;
+    transition: all 1s ease-in-out;
+    /*background-color: green;*/
+}
+.top, .bottom {
+    opacity: 0.6;
+}
+.top {
+    /*background-color: blue;*/
+    /*background-image: linear-gradient(to bottom, #000000, transparent);*/
+}
+.bottom {
+    /*background-color: yellow;*/
+    /*background-image: linear-gradient(to top, #000000, transparent);*/
+}
+.middle {
+    opacity: 1;
+    /*background-image: linear-gradient(to top, transparent, transparent);*/
+    /*background-color: red;*/
+}
+
+
 /* general */
 ::-webkit-scrollbar {
     width: 0px;
@@ -73,7 +102,7 @@ body {
     height: calc((100vh - 4rem) / 3);
     scroll-snap-align: start;
     scroll-snap-stop: always;
-    width: 75%;
+    /*width: 75%;*/
     display: flex;
     padding: 0 5px;
     align-items: center;
@@ -83,6 +112,9 @@ body {
     flex-direction: row-reverse;
 }
 
+.topBlock {
+    opacity: 0.6;
+}
 
 .charTxt, .backgroundTxt {
     position: relative;
@@ -91,6 +123,7 @@ body {
     height: fit-content;
     min-height: 3rem;
     min-width: 3rem;
+    /*max-width: 75%;*/
 }
 .charTxt p {
     min-height: 1.5rem;
