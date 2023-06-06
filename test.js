@@ -342,7 +342,65 @@ function checkClassesToDisplayPopup() {
             }
         }
     } else if (window.location.href.includes('scenario2')) {
-
+        if (document.querySelectorAll('.popup1.top').length === 1) {
+            if (user === 'teacher') {
+                Swal.fire({
+                    html: '<p>What do you think is going on here?</p><p>What does it tell you about some of the group dynamics at play here?</p>',
+                    showCloseButton: true,
+                    showConfirmButton: false,
+                })
+            }
+        } else if (document.querySelectorAll('.popup2.top').length === 1) {
+            if (user === 'teacher') {
+                Swal.fire({
+                    html: '<p>What is the point of this anecdote here, do you think?</p><p>It is clear that students relate their extracurricular life to their expectations of groupwork, and also how they interact as a result. What do you do as a lecturer/teacher to scaffold groupwork?</p><p>How do you think about your role and its position of authority, of power? What are the ways in which you enact it in your teaching, and how do you acknowledge it?</p>',
+                    showCloseButton: true,
+                    showConfirmButton: false,
+                })
+            } else {
+                Swal.fire({
+                    html: '<p>How does this scenario so far relate to your experiences of groupwork, both in the university context and beyond?</p>',
+                    showCloseButton: true,
+                    showConfirmButton: false,
+                })
+            }
+        } else if (document.querySelectorAll('.popup3.top').length === 1) {
+            if (user === 'teacher') {
+                Swal.fire({
+                    html: '<p>There are some interesting reflections here on staff-student dynamics, what surprises you about this dialogue?</p><p>What expectations do you have about student behaviour and/or engagement and how do you manage those in the classroom setting?</p><p>There is explicit reference here to the unease of a colleague when a student talks about racism – why do you think the teacher would have responded in this way? What message does that send out to the students and what would you do differently?</p>',
+                    showCloseButton: true,
+                    showConfirmButton: false,
+                })
+            }
+        } else if (document.querySelectorAll('.popup4.top').length === 1) {
+            if (user === 'teacher') {
+                Swal.fire({
+                    html: '<p>It feels like there are a lot of assumptions going on here, both from the students’ perspectives but also in the way they describe the staff responses.</p><p>What ideas do you have about how we can:</p><ul><li>Demonstrate ‘respect’ both as staff members and as students?</li><li>Convince our students that we care (or do we?)</li></ul>',
+                    showCloseButton: true,
+                    showConfirmButton: false,
+                })
+            } else {
+                Swal.fire({
+                    html: '<p>It feels like there are a lot of assumptions going on here, both from the students’ perspectives but also in the way they describe the staff responses.</p><p>What ideas do you have about how we can:</p><ul><li>Demonstrate ‘respect’ both as staff members and as students?</li><li>Explore our assumptions and differences together?</li></ul>',
+                    showCloseButton: true,
+                    showConfirmButton: false,
+                })
+            }
+        } else if (document.querySelectorAll('.popup5.top').length === 1) {
+            if (user === 'teacher') {
+                Swal.fire({
+                    html: '<p>There is an important link established here between the curriculum and student agency, their sense of (not) being heard and their experiences (not) valued.</p><p>What do you do already in your context to try and make this link explicit? Is there anything you could be doing differently?</p>',
+                    showCloseButton: true,
+                    showConfirmButton: false,
+                })
+            } else {
+                Swal.fire({
+                    html: '<p>Is there anything in this part that resonates and if so, what?</p><p>Do you offer feedback when offered through formal and informal mechanisms?</p>',
+                    showCloseButton: true,
+                    showConfirmButton: false,
+                })
+            }
+        }
     } else if (window.location.href.includes('scenario3')) {
 
     }

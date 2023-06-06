@@ -6,11 +6,7 @@
 html {
 }
 body {
-    /*background-color: #faebd7;*/
-    /*background-color: #b6b6b6;*/
-    /*height: 100vh;*/
     margin: 0;
-    /*pointer-events: none;*/
     overflow: hidden;
 }
 #backgroundImage {
@@ -188,11 +184,24 @@ body {
     transform: translateX(-100vw);
     animation: fade-in-right 1s ease-in-out forwards;
 }
+.blockRight:nth-child(1) .char,
+.blockRight:nth-child(2) .char,
+.blockRight:nth-child(3) .char {
+    transform: translateX(100vw);
+    animation: fade-in-left 1s ease-in-out forwards;
+}
 .block:nth-child(1) .charTxt, .block:nth-child(1) .backgroundTxt,
 .block:nth-child(2) .charTxt, .block:nth-child(2) .backgroundTxt,
 .block:nth-child(3) .charTxt, .block:nth-child(3) .backgroundTxt {
     transform: translateX(100vw);
     animation: fade-in-left 1s ease-in-out forwards;
+    animation-delay: 0.5s;
+}
+.blockRight:nth-child(1) .charTxt, .blockRight:nth-child(1) .backgroundTxt,
+.blockRight:nth-child(2) .charTxt, .blockRight:nth-child(2) .backgroundTxt,
+.blockRight:nth-child(3) .charTxt, .blockRight:nth-child(3) .backgroundTxt {
+    transform: translateX(-100vw);
+    animation: fade-in-right 1s ease-in-out forwards;
     animation-delay: 0.5s;
 }
 .block:nth-child(2) .char {
@@ -343,6 +352,15 @@ body {
 .sofia img {
     /* border: 5px solid grey; */
     background-color: #a52a2a;
+}
+.limei img {
+    background-color: #FFC0CBFF;
+}
+.kacper img {
+    background-color: #a6eaa6;
+}
+.sara img {
+    background-color: #e1b68b;
 }
 
 /*#s1p1 {*/

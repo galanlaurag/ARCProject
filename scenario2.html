@@ -28,68 +28,435 @@
 <body>
     <!-- <h1>Scenario 1</h1> -->
 
-    <main id="scenarioMain">
+    <header>
         <nav id="navbar">
-            <button id="home"><a href="test.html">Home</a></button>
-            <img id="hint" src="img/hint.png">
+            <a href="test.html"><img src="img/home.png" class="home"></a>
+            <h1>Scenario 2[/some other title]</h1>
+<!--            <button id="fillButton">Stop animating text</button>-->
+<!--            <div>-->
+<!--&lt;!&ndash;                <h1>[teacher]</h1>&ndash;&gt;-->
+<!--                <img id="hint" src="img/hint.png">-->
+<!--            </div>-->
+            <button id="userType" onclick="toggleUser()"></button>
+            <button id="popups" onclick="togglePopups()"></button>
         </nav>
-        <div class="section" id="s2p1">
-            <div class="block">
-                <img src="img/Pearson.png" class="charImg">
-                <p class="charTxt">Alright everyone, we’re going to take a short break here.</p>
+    </header>
+
+    <div id="backgroundImage"></div>
+    <main id="scenarioMain">
+        <div class="block limei top">
+            <div class="char">
+                <img src="img/LiMei.png" class="charImg">
+                <p class="charName">Li-Mei</p>
             </div>
-            <br>
-            <div class="block">
-                <img src="img/Pearson.png" class="charImg">
-                <p class="charTxt">Get yourselves a drink and have a little think about the social implications of what we’ve just been learning about this morning.</p>
-            </div>
-            <br>
-            <div class="block">
-                <img src="img/Pearson.png" class="charImg">
-                <p class="charTxt">I’ll be up at the front if anyone has any questions, otherwise we’ll start back up in about ten minutes.</p>
-            </div>
-        </div>
-        
-        <div class="section" id="s2p2">
-            <div class="block backgroundBlock">
-                <img src="img/classroom.jpg" class="backgroundImg">
-                <p class="charTxt backgroundTxt">Students shuffle around the room in their seats, some getting up in small clusters to head to the canteen. No one approaches Pearson, who sits by the front monitor and sips from his hydroflask while scrolling mindlessly on the computer.</p>
-            </div>
+            <div class="charTxt"><p><span style="font-style: italic;">Finishes chewing sandwich and begins to fold up the card packaging.</span><br>Have either of you heard from Callum, if he’s coming in or not?</p></div>
         </div>
 
-        <div class="section" id="s2p3">
-            <div class="block" style="border: 5px solid pink">
-                <img src="img/Anna2.png" class="charImg">
-                <p class="charTxt">Hey Sofia, did any of that seem… right to you? Like a lot of that sounded very missing-important-context right?</p>
+        <div class="block kacper blockRight middle">
+            <div class="char">
+                <img src="img/Kacper.png" class="charImg charImgRight">
+                <p class="charName">Kacper</p>
             </div>
-            <br>
-            <div class="block blockRight" style="border: 5px solid grey">
-                <img src="img/Sofia.png" class="charImg charImgRight">
-                <p class="charTxt"><span style="font-style: italic;">Softly sighs while staring at the last slide on the projector.</span> Yeah, he didn’t mention a word about any of the coups that have plagued the country before or after that revolution. </p>
-            </div>
-            <br>
-            <div class="block blockRight" style="border: 5px solid grey">
-                <img src="img/Sofia.png" class="charImg charImgRight">
-                <p class="charTxt"><span style="font-style: italic;">Or about the massive corporations who rushed in to bully the local workforce.</p>
-            </div>
+            <div class="charTxt"><p><span style="font-style: italic;">Pauses eating his fruit tub.</span><br>He’s not been online on Discord since yesterday, think the only thing he’s put in the groupchat was when he reacted to your message earlier.</p></div>
         </div>
-        
-        <div class="section" id="s2p4">
-            <div class="block blockRight" style="border: 5px solid grey">
-                <img src="img/Sofia.png" class="charImg charImgRight">
-                <p class="charTxt"><span style="font-style: italic;">Or about the international policies and tariffs that prevented people from getting help.</p>
-            </div>
-            <br>
-            <div class="block blockRight" style="border: 5px solid grey">
-                <img src="img/Sofia.png" class="charImg charImgRight">
-                <p class="charTxt"><span style="font-style: italic;">Not a single word.</p>
-            </div>
-            <br>
-            <div class="block" style="border: 5px solid pink">
-                <img src="img/Anna2.png" class="charImg">
-                <p class="charTxt">…</p>
-            </div>
 
+        <div class="block sara blockRight bottom">
+            <div class="char">
+                <img src="img/Sara.png" class="charImg charImgRight">
+                <p class="charName">Sara</p>
+            </div>
+            <div class="charTxt"><p><span style="font-style: italic;">Snapping the clips on her now-empty Tupperware closed.</span><br>No, I’ve not heard from him either. I’d like to hope he’ll show, but I suspect he’s too mortified after what he said to you the other week. Still can’t believe he’s got away with that.</p></div>
+        </div>
+
+        <div class="block limei">
+            <div class="char">
+                <img src="img/LiMei.png" class="charImg">
+                <p class="charName">Li-Mei</p>
+            </div>
+            <div class="charTxt"><p><span style="font-style: italic;">Grimacing.</span><br>Of course, if he makes it in at all… racist p£$%k</p></div>
+        </div>
+
+        <div class="block limei">
+            <div class="char">
+                <img src="img/LiMei.png" class="charImg">
+                <p class="charName">Li-Mei</p>
+            </div>
+            <div class="charTxt"><p>Well, him aside, what were you going to say earlier Sara? About the how we could interpret the assignment instructions?</p></div>
+        </div>
+
+        <div class="block limei popup1">
+            <div class="char">
+                <img src="img/LiMei.png" class="charImg">
+                <p class="charName">Li-Mei</p>
+            </div>
+            <div class="charTxt"><p>Because I’m still confused about some parts, I wanted to hear what you were going to say about it.</p></div>
+        </div>
+
+        <div class="block sara blockRight">
+            <div class="char">
+                <img src="img/Sara.png" class="charImg charImgRight">
+                <p class="charName">Sara</p>
+            </div>
+            <div class="charTxt"><p>About the assignment instructions?</div>
+        </div>
+
+        <div class="block limei">
+            <div class="char">
+                <img src="img/LiMei.png" class="charImg">
+                <p class="charName">Li-Mei</p>
+            </div>
+            <div class="charTxt"><p>Yeah, you mentioned something like you’d had a similar issue before, at your work?</p></div>
+        </div>
+
+        <div class="block sara blockRight">
+            <div class="char">
+                <img src="img/Sara.png" class="charImg charImgRight">
+                <p class="charName">Sara</p>
+            </div>
+            <div class="charTxt"><p>Oh yes, that.</div>
+        </div>
+
+        <div class="block sara blockRight">
+            <div class="char">
+                <img src="img/Sara.png" class="charImg charImgRight">
+                <p class="charName">Sara</p>
+            </div>
+            <div class="charTxt"><p>I mean, it’s only slightly related, but essentially we were given a team project with some rather, hmmm, vague? Yes, vague outlines of what the bosses expected of us.</div>
+        </div>
+
+        <div class="block sara blockRight">
+            <div class="char">
+                <img src="img/Sara.png" class="charImg charImgRight">
+                <p class="charName">Sara</p>
+            </div>
+            <div class="charTxt"><p>We were given a project that could’ve easily been interpreted 5 or more different ways, and the higher ups didn’t respond well when we asked for clarification.</div>
+        </div>
+
+        <div class="block sara blockRight">
+            <div class="char">
+                <img src="img/Sara.png" class="charImg charImgRight">
+                <p class="charName">Sara</p>
+            </div>
+            <div class="charTxt"><p>It was almost like they thought the team was incompetent and wasting time because we had to ask questions instead of just getting on with it.</div>
+        </div>
+
+        <div class="block kacper blockRight">
+            <div class="char">
+                <img src="img/Kacper.png" class="charImg charImgRight">
+                <p class="charName">Kacper</p>
+            </div>
+            <div class="charTxt"><p>Oh god, I hate when that happens, it’s like I wouldn’t bother asking if I didn’t think it was important right?</p></div>
+        </div>
+
+        <div class="block sara blockRight">
+            <div class="char">
+                <img src="img/Sara.png" class="charImg charImgRight">
+                <p class="charName">Sara</p>
+            </div>
+            <div class="charTxt"><p><span style="font-style: italic;">Nods in agreement.</span><br>Of course, that’s what we were talking about as well when it happened.</div>
+        </div>
+
+        <div class="block limei">
+            <div class="char">
+                <img src="img/LiMei.png" class="charImg">
+                <p class="charName">Li-Mei</p>
+            </div>
+            <div class="charTxt"><p>So, what did you do in the end? Did it at least turn out okay?</p></div>
+        </div>
+
+        <div class="block sara blockRight">
+            <div class="char">
+                <img src="img/Sara.png" class="charImg charImgRight">
+                <p class="charName">Sara</p>
+            </div>
+            <div class="charTxt"><p>Not really, unfortunately. It turned out as we’d anticipated – higher ups didn’t like what we turned in, even though we had tried to ask them to prevent it, blame got pushed onto the team leader, team leader split the blame between all of us… things didn’t improve after that.</div>
+        </div>
+
+        <div class="block sara blockRight">
+            <div class="char">
+                <img src="img/Sara.png" class="charImg charImgRight">
+                <p class="charName">Sara</p>
+            </div>
+            <div class="charTxt"><p>Actually, now I think about it, everyone from that debacle actually left the company separately within maybe half a year or a year after that.</div>
+        </div>
+
+        <div class="block kacper blockRight">
+            <div class="char">
+                <img src="img/Kacper.png" class="charImg charImgRight">
+                <p class="charName">Kacper</p>
+            </div>
+            <div class="charTxt"><p>Oh shit. That really sucks. I’m sorry it turned out that way.</p></div>
+        </div>
+
+        <div class="block limei">
+            <div class="char">
+                <img src="img/LiMei.png" class="charImg">
+                <p class="charName">Li-Mei</p>
+            </div>
+            <div class="charTxt"><p>Yeah, that sounds really awkward. Were you and the team alright afterwards?</p></div>
+        </div>
+
+        <div class="block sara blockRight">
+            <div class="char">
+                <img src="img/Sara.png" class="charImg charImgRight">
+                <p class="charName">Sara</p>
+            </div>
+            <div class="charTxt"><p>Oh yes, we all managed to patch ourselves up and get out on decent terms with each other.</div>
+        </div>
+
+        <div class="block sara blockRight">
+            <div class="char">
+                <img src="img/Sara.png" class="charImg charImgRight">
+                <p class="charName">Sara</p>
+            </div>
+            <div class="charTxt"><p>It was certainly an eye-opener about how certain people in authority respond to questions they don’t see any worth in.</div>
+        </div>
+
+        <div class="block sara blockRight popup2">
+            <div class="char">
+                <img src="img/Sara.png" class="charImg charImgRight">
+                <p class="charName">Sara</p>
+            </div>
+            <div class="charTxt"><p><span style="font-style: italic;">Checks her phone for the time, then places it back on the table.</span><br>Anyway, I think that’s a bit more dramatic than what we’ve got here.</div>
+        </div>
+
+        <div class="block sara blockRight">
+            <div class="char">
+                <img src="img/Sara.png" class="charImg charImgRight">
+                <p class="charName">Sara</p>
+            </div>
+            <div class="charTxt"><p>Did you ask John or Claire any of our points from our last chat at the end of yesterday’s classes, Li-Mei?</div>
+        </div>
+
+        <div class="block limei">
+            <div class="char">
+                <img src="img/LiMei.png" class="charImg">
+                <p class="charName">Li-Mei</p>
+            </div>
+            <div class="charTxt"><p><span style="font-style: italic;">Uncomfortable smile.</span><br>Oh, uhm, not really…</p></div>
+        </div>
+
+        <div class="block limei">
+            <div class="char">
+                <img src="img/LiMei.png" class="charImg">
+                <p class="charName">Li-Mei</p>
+            </div>
+            <div class="charTxt"><p>I mean, I asked about some pointers for learning outcomes 3 and 4 from Claire, which was a little helpful, but I got a bit mentally tied up about all the things they didn’t mention in the class session so I got a bit stuck before I could figure out how to ask more.</p></div>
+        </div>
+
+        <div class="block kacper blockRight">
+            <div class="char">
+                <img src="img/Kacper.png" class="charImg charImgRight">
+                <p class="charName">Kacper</p>
+            </div>
+            <div class="charTxt"><p>Oh yeah, about all the completely missing context for the history of the language in both the east and the west right?</p></div>
+        </div>
+
+        <div class="block kacper blockRight">
+            <div class="char">
+                <img src="img/Kacper.png" class="charImg charImgRight">
+                <p class="charName">Kacper</p>
+            </div>
+            <div class="charTxt"><p>God that was so annoying but I didn’t wanna be the one to argue about it all over again, I had enough of that back in first year and all it got me was lecture about students “bEiNg dIsRuPtIvE”. Worse than high school.</p></div>
+        </div>
+
+        <div class="block limei">
+            <div class="char">
+                <img src="img/LiMei.png" class="charImg">
+                <p class="charName">Li-Mei</p>
+            </div>
+            <div class="charTxt"><p><span style="font-style: italic;">Laughs.</span><br>Oh gosh yeah, I remember that. Dr Martins was so pissed off at you because you were right but he wasn’t allowed to actually say that because it went completely against what he wanted to be teaching.</p></div>
+        </div>
+
+        <div class="block limei">
+            <div class="char">
+                <img src="img/LiMei.png" class="charImg">
+                <p class="charName">Li-Mei</p>
+            </div>
+            <div class="charTxt"><p>Oh that’s happened to me loads, like when the teacher gave me the cold shoulder for that rant about racism?<br><span style="font-style: italic;">Laughs again.</span><br>Good times.</p></div>
+        </div>
+
+        <div class="block kacper blockRight">
+            <div class="char">
+                <img src="img/Kacper.png" class="charImg charImgRight">
+                <p class="charName">Kacper</p>
+            </div>
+            <div class="charTxt"><p>No, that was too funny.</p></div>
+        </div>
+
+        <div class="block sara blockRight">
+            <div class="char">
+                <img src="img/Sara.png" class="charImg charImgRight">
+                <p class="charName">Sara</p>
+            </div>
+            <div class="charTxt"><p><span style="font-style: italic;">Looking puzzled but amused.</span><br>Did this happen a lot then? When teachers would get mad at you for making a point in classes?</div>
+        </div>
+
+        <div class="block limei">
+            <div class="char">
+                <img src="img/LiMei.png" class="charImg">
+                <p class="charName">Li-Mei</p>
+            </div>
+            <div class="charTxt"><p>Oh yeah, I mean it would make more sense if we were the disruptive type of students who shouted out and that type of thing, but we were actually fairly good about it when it happened.</p></div>
+        </div>
+
+        <div class="block kacper blockRight">
+            <div class="char">
+                <img src="img/Kacper.png" class="charImg charImgRight">
+                <p class="charName">Kacper</p>
+            </div>
+            <div class="charTxt"><p>Yeah, like we would be actually doing the classwork and assignments and whatever properly but then there’d be something that we thought was worth talking about - us and the rest of friendgroup, not just us two - so we’d bring it up -</p></div>
+        </div>
+
+        <div class="block limei popup3">
+            <div class="char">
+                <img src="img/LiMei.png" class="charImg">
+                <p class="charName">Li-Mei</p>
+            </div>
+            <div class="charTxt"><p>- and they’d get really weird about it right? Some of them just completely brushed us off but others got really mad… which is really weird looking back now.</p></div>
+        </div>
+
+        <div class="block limei">
+            <div class="char">
+                <img src="img/LiMei.png" class="charImg">
+                <p class="charName">Li-Mei</p>
+            </div>
+            <div class="charTxt"><p>Like, why were they arguing with a bunch of students? We were clearly actually engaged in the learning if we were talking about that kind of stuff.</p></div>
+        </div>
+
+        <div class="block kacper blockRight">
+            <div class="char">
+                <img src="img/Kacper.png" class="charImg charImgRight">
+                <p class="charName">Kacper</p>
+            </div>
+            <div class="charTxt"><p><span style="font-style: italic;">Soft mocking laugh.</span><br>And suddenly they wonder why half of us don’t come to class, or generally hate talking to staff at any stage.</p></div>
+        </div>
+
+        <div class="block limei">
+            <div class="char">
+                <img src="img/LiMei.png" class="charImg">
+                <p class="charName">Li-Mei</p>
+            </div>
+            <div class="charTxt"><p>So yeah, that’s probably why I didn’t properly ask either of them our points yesterday.</p></div>
+        </div>
+
+        <div class="block limei">
+            <div class="char">
+                <img src="img/LiMei.png" class="charImg">
+                <p class="charName">Li-Mei</p>
+            </div>
+            <div class="charTxt"><p>Sorry about that Sara, I know you wanted to hear what they’d say about our questions for outcome 5 as well.</p></div>
+        </div>
+
+        <div class="block sara blockRight">
+            <div class="char">
+                <img src="img/Sara.png" class="charImg charImgRight">
+                <p class="charName">Sara</p>
+            </div>
+            <div class="charTxt"><p>Oh no no, don’t worry dear. I can only imagine how difficult it must be when it comes to this sort of thing – of course I don’t have the personal ties to the topics we’re learning about the same way you two do, but it must be hard, and I’ve been around these spaces for longer than you two.</div>
+        </div>
+
+        <div class="block limei popup4">
+            <div class="char">
+                <img src="img/LiMei.png" class="charImg">
+                <p class="charName">Li-Mei</p>
+            </div>
+            <div class="charTxt"><p>...thanks for that, seriously. It’s so annoying when we end up ranting about this stuff and older people jump on us for “disrespect” or whatever, when the whole point is that we want to be respectful but we can’t when there’s all this… wrong info going about.</p></div>
+        </div>
+
+        <div class="block sara blockRight">
+            <div class="char">
+                <img src="img/Sara.png" class="charImg charImgRight">
+                <p class="charName">Sara</p>
+            </div>
+            <div class="charTxt"><p><span style="font-style: italic;">Gentle laugh.</span><br>Hey, are you calling me old?</div>
+        </div>
+
+        <div class="block limei">
+            <div class="char">
+                <img src="img/LiMei.png" class="charImg">
+                <p class="charName">Li-Mei</p>
+            </div>
+            <div class="charTxt"><p><span style="font-style: italic;">Smiling jokingly.</span><br>You know what I mean!</p></div>
+        </div>
+
+        <div class="block sara blockRight">
+            <div class="char">
+                <img src="img/Sara.png" class="charImg charImgRight">
+                <p class="charName">Sara</p>
+            </div>
+            <div class="charTxt"><p>Of course, only joking.</div>
+        </div>
+
+        <div class="block kacper blockRight">
+            <div class="char">
+                <img src="img/Kacper.png" class="charImg charImgRight">
+                <p class="charName">Kacper</p>
+            </div>
+            <div class="charTxt"><p>Yeah, what she said, it gets really bad when we’re discussing stuff about Europe or whatever and I have to hold myself back from jumping in with all the other stuff that I know from lived experience because there’s never any space for it.</p></div>
+        </div>
+
+        <div class="block kacper blockRight">
+            <div class="char">
+                <img src="img/Kacper.png" class="charImg charImgRight">
+                <p class="charName">Kacper</p>
+            </div>
+            <div class="charTxt"><p>Like, even when it’s done correctly, quote unquote, it’s still like we’re running through a checklist and there’s never time to actually interact with the learning to add in the extra bits that we could talk about.</p></div>
+        </div>
+
+        <div class="block limei">
+            <div class="char">
+                <img src="img/LiMei.png" class="charImg">
+                <p class="charName">Li-Mei</p>
+            </div>
+            <div class="charTxt"><p>Mhm! It’s not like we can just up and ask them to change the pacing or content of the classes either because I bet we’ll just get the same response as we always have done.</p></div>
+        </div>
+
+        <div class="block sara blockRight">
+            <div class="char">
+                <img src="img/Sara.png" class="charImg charImgRight">
+                <p class="charName">Sara</p>
+            </div>
+            <div class="charTxt"><p>Oh? What happened when you tried before? I’m very curious, surely it must’ve been heard somewhere if you complained?</div>
+        </div>
+
+        <div class="block limei">
+            <div class="char">
+                <img src="img/LiMei.png" class="charImg">
+                <p class="charName">Li-Mei</p>
+            </div>
+            <div class="charTxt"><p><span style="font-style: italic;">Grim chuckle.</span><br>You’d hope that, but nope. We just various replies of “We value your feedback but please understand it’s hard to change an established curriculum.” Or “Your experiences are valid and we’re listening but they’re too unique to be discussed.”</p></div>
+        </div>
+
+        <div class="block limei">
+            <div class="char">
+                <img src="img/LiMei.png" class="charImg">
+                <p class="charName">Li-Mei</p>
+            </div>
+            <div class="charTxt"><p>Load of bs if you ask me, younger me was so pissed off and just lost all the fire after that.</p></div>
+        </div>
+
+        <div class="block kacper blockRight popup5">
+            <div class="char">
+                <img src="img/Kacper.png" class="charImg charImgRight">
+                <p class="charName">Kacper</p>
+            </div>
+            <div class="charTxt"><p>Yep, that’s how it went down.</p></div>
+        </div>
+
+        <div class="block endBlock">
+            <div class="char">
+                <a href="test.html"><img src="img/home.png" class="charImg home"></a>
+                <!--                <p class="charName">Go back to home</p>-->
+            </div>
+            <div class="charTxt"><p>See scenario 2</p> <p>See scenario 3</p></div>
+        </div>
+        <div class="block endBlock">
+            <div class="char">
+                <a href="test.html"><img src="img/home.png" class="charImg home"></a>
+                <!--                <p class="charName">Go back to home</p>-->
+            </div>
+            <div class="charTxt"><p>Go back home</p></div>
         </div>
 
   </main>
