@@ -101,17 +101,51 @@ body {
         transform: translateX(0);
     }
 }
+@keyframes fade-in-left {
+    from {
+        transform: translateX(100vw);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
 /*bottom animation*/
-.block .char, .block .charTxt, .block .backgroundTxt {
+.block .char {
     transform: translateX(-100vw);
 }
-.bottom .char, .bottom .charTxt, .bottom .backgroundTxt {
+.block .charTxt, .block .backgroundTxt {
+    transform: translateX(100vw);
+}
+.bottom .char {
     animation: fade-in-right 1s ease-in-out forwards;
 }
 .bottom .charTxt, .bottom .backgroundTxt {
+    animation: fade-in-left 1s ease-in-out forwards;
+    animation-delay: 0.5s;
+}
+/*right side*/
+.blockRight .char {
+    transform: translateX(100vw);
+}
+.blockRight .charTxt, .blockRight .backgroundTxt {
+    transform: translateX(-100vw);
+}
+.bottom.blockRight .char {
+    animation: fade-in-left 1s ease-in-out forwards;
+}
+.bottom.blockRight .charTxt, .bottom.blockRight .backgroundTxt {
     animation: fade-in-right 1s ease-in-out forwards;
     animation-delay: 0.5s;
 }
+
 /*no animation when going back*/
 .bottom2 .char, .bottom2 .charTxt, .bottom2 .backgroundTxt {
     transform: translateX(0);
@@ -123,16 +157,31 @@ body {
 }
 /*top and middle animation on 1st page*/
 .block:nth-child(1) .char,
-.block:nth-child(2) .char {
+.block:nth-child(2) .char,
+.block:nth-child(3) .char {
     transform: translateX(-100vw);
     animation: fade-in-right 1s ease-in-out forwards;
 }
 .block:nth-child(1) .charTxt, .block:nth-child(1) .backgroundTxt,
-.block:nth-child(2) .charTxt, .block:nth-child(2) .backgroundTxt {
-    transform: translateX(-100vw);
-    animation: fade-in-right 1s ease-in-out forwards;
+.block:nth-child(2) .charTxt, .block:nth-child(2) .backgroundTxt,
+.block:nth-child(3) .charTxt, .block:nth-child(3) .backgroundTxt {
+    transform: translateX(100vw);
+    animation: fade-in-left 1s ease-in-out forwards;
     animation-delay: 0.5s;
 }
+.block:nth-child(2) .char {
+    animation-delay: 2.5s;
+}
+.block:nth-child(2) .charTxt, .block:nth-child(2) .backgroundTxt {
+    animation-delay: 3s;
+}
+.block:nth-child(3) .char {
+    animation-delay: 5s;
+}
+.block:nth-child(3) .charTxt, .block:nth-child(3) .backgroundTxt {
+    animation-delay: 5.5s;
+}
+
 /*first page onload - appearance*/
 .block:nth-child(1) {
     opacity: 1;
