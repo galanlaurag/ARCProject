@@ -36,6 +36,9 @@ body {
 .navbar .homeLink {
     text-align: left;
 }
+.navbar .homeLink i {
+    font-size: 2rem;
+}
 .navbar .settings {
     justify-content: flex-end;
 }
@@ -67,8 +70,8 @@ body {
     height: 2rem;
 }
 #popups {
-    color: #fff;
-    background-color: #000;
+    color: #000;
+    background-color: #fff;
     border: none;
     border-radius: 30px;
 }

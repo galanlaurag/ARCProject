@@ -66,48 +66,96 @@ if (document.getElementById("scenarioMain")) {
         const user = localStorage.getItem('user');
         if (user === 'student') {
             localStorage.setItem('user', 'student');
-            document.getElementById('userType').textContent = 'Change to teacher view';
-        } else {
+            // document.getElementById('userType').textContent = 'Change to teacher view';
+        } else if (user === 'teacher') {
             localStorage.setItem('user', 'teacher');
-            document.getElementById('userType').textContent = 'Change to student view';
+            // document.getElementById('userType').textContent = 'Change to student view';
         }
 
         const shouldDisplayPopups = localStorage.getItem('popups');
         if (shouldDisplayPopups === "false") {
             localStorage.setItem('popups', 'false');
             document.querySelector('#popups span').textContent = 'Enable popups';
-            document.getElementById('userType').style.visibility = "hidden";
+            // document.getElementById('userType').style.visibility = "hidden";
         } else {
             localStorage.setItem('popups', 'true');
             document.querySelector('#popups span').textContent = 'Disable popups';
-            document.getElementById('userType').style.visibility = "visible";
+            // document.getElementById('userType').style.visibility = "visible";
         }
     };
 }
 
-//toggling user types and popups
-function toggleUser() {
+//first alert
+document.addEventListener('DOMContentLoaded', function() {
     const user = localStorage.getItem('user');
-    // Toggle users and update local storage
-    if (user === 'teacher') {
-        document.getElementById('userType').textContent = 'Change to teacher view';
-        localStorage.setItem('user', 'student');
-    } else {
-        document.getElementById('userType').textContent = 'Change to student view';
-        localStorage.setItem('user', 'teacher');
+    if (!user) {
+        // Display the alert
+        Swal.fire({
+            title: 'Are you Student or Teacher?',
+            showDenyButton: true,
+            allowOutsideClick: false,
+            confirmButtonText: 'Student',
+            denyButtonText: `Teacher`,
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                localStorage.setItem('user', 'student');
+                if (document.getElementById("scenarioMain")) {
+                    // document.getElementById('userType').textContent = 'Change to teacher view';
+                }
+            } else if (result.isDenied) {
+                localStorage.setItem('user', 'teacher');
+                if (document.getElementById("scenarioMain")) {
+                    // document.getElementById('userType').textContent = 'Change to student view';
+                }
+            }
+        })
     }
-}
+});
+
+// //toggling user types and popups
+// function toggleUser() {
+//     const user = localStorage.getItem('user');
+//     // Toggle users and update local storage
+//     if (user === 'teacher') {
+//         document.getElementById('userType').textContent = 'Change to teacher view';
+//         localStorage.setItem('user', 'student');
+//     } else {
+//         document.getElementById('userType').textContent = 'Change to student view';
+//         localStorage.setItem('user', 'teacher');
+//     }
+// }
 function togglePopups() {
     const shouldDisplayPopups = localStorage.getItem('popups');
     // Toggle popups and update local storage
     if (shouldDisplayPopups === 'true') {
         document.querySelector('#popups span').textContent = 'Enable popups';
-        document.getElementById('userType').style.visibility = "hidden";
+        // document.getElementById('userType').style.visibility = "hidden";
         localStorage.setItem('popups', 'false');
     } else {
         document.querySelector('#popups span').textContent = 'Disable popups';
-        document.getElementById('userType').style.visibility = "visible";
+        // document.getElementById('userType').style.visibility = "visible";
         localStorage.setItem('popups', 'true');
+        Swal.fire({
+            title: 'Are you Student or Teacher?',
+            showDenyButton: true,
+            allowOutsideClick: false,
+            confirmButtonText: 'Student',
+            denyButtonText: `Teacher`,
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                localStorage.setItem('user', 'student');
+                if (document.getElementById("scenarioMain")) {
+                    // document.getElementById('userType').textContent = 'Change to teacher view';
+                }
+            } else if (result.isDenied) {
+                localStorage.setItem('user', 'teacher');
+                if (document.getElementById("scenarioMain")) {
+                    // document.getElementById('userType').textContent = 'Change to student view';
+                }
+            }
+        })
     }
 }
 

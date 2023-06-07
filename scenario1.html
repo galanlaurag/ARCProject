@@ -22,15 +22,13 @@
 
   <link rel="stylesheet" href="style.css">
   <!-- jquery - might not need? -->
-  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <!--  <script src="libraries/jquery/jquery.min.js"></script>-->
   <!-- sweet alerts for popups -->
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <!-- on scroll animations -->
-<!--  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">-->
-  <!-- <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> -->
-<!-- fontawesome -->
-    <link href="libraries/fontawesome/css/fontawesome.min.css" rel="stylesheet">
-    <link href="libraries/fontawesome/css/solid.min.css" rel="stylesheet">
+  <script src="libraries/sweetalert/sweetalert.min.js"></script>
+<!--  <link href="libraries/sweetalert/sweetalert.min.css" rel="stylesheet">-->
+  <!-- fontawesome -->
+  <link href="libraries/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+  <link href="libraries/fontawesome/css/solid.min.css" rel="stylesheet">
 
 
 
@@ -40,7 +38,7 @@
     <!-- <h1>Scenario 1</h1> -->
     <header>
         <nav id="navbar1" class="navbar">
-            <a href="index.html" class="homeLink"><img src="img/home.png" class="home"></a>
+            <a href="index.html" class="homeLink"><i class="fa-solid fa-house"></i></a>
             <h1 class="title">Scenario 1[/some other title]</h1>
 <!--            <button id="fillButton">Stop animating text</button>-->
 <!--            <div>-->
@@ -48,7 +46,7 @@
 <!--                <img id="hint" src="img/hint.png">-->
 <!--            </div>-->
             <div class="settings">
-                <button id="userType" onclick="toggleUser()"></button>
+<!--                <button id="userType" onclick="toggleUser()"></button>-->
                 <button id="popups" onclick="togglePopups()"><i class="fa-solid fa-window-restore"></i> <span></span></button>
             </div>
         </nav>
