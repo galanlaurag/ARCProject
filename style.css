@@ -83,8 +83,9 @@ body {
 
 /* scenarios */
 #scenarioMain {
-    height: 100vh;
+    /*height: 100vh;*/
     /*height: calc(100vh - 4rem);*/
+    height: calc(100vh - 3rem);
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
     backdrop-filter: blur(3px);
@@ -275,7 +276,10 @@ body {
     border-width: 40px 40px 0 0;
     border-color: #fcf5eb transparent transparent transparent;
 }
-
+/*end blocks*/
+.endBlock {
+    display: flex;
+}
 
 /* characters */
 .char {
@@ -354,6 +358,106 @@ body {
 footer {
 }
 
+
+/*responsiveness*/
+@media screen and (max-width: 1024px) {
+    .navbar .homeLink, .navbar .title, .navbar .settings {
+        flex: auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .charImg {
+        width: 8rem;
+        height: 8rem;
+    }
+    .charName, .title {
+        font-size: 1.3rem;
+    }
+    .charTxt, .backgroundTxt {
+        font-size: 1.3rem;
+        line-height: 1.3rem;
+        min-height: 2.3rem;
+        min-width: 2.3rem;
+    }
+    .charTxt p {
+        min-height: 1.3rem;
+    }
+    .charTxt:after {
+        border-width: 0 30px 30px 0;
+        left: -26px;
+    }
+    .blockRight .charTxt:after {
+        right: -26px;
+        border-width: 30px 30px 0 0;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .navbar {
+        padding: 1rem 0.7rem;
+    }
+    .charImg {
+        width: 7rem;
+        height: 7rem;
+    }
+    .charName {
+        font-size: 1.1rem;
+    }
+    .charTxt, .backgroundTxt {
+        font-size: 1.1rem;
+        line-height: 1.1rem;
+        padding: 0 0.7rem;
+        margin: 0.7rem;
+        min-height: 2.1rem;
+        min-width: 2.1rem;
+    }
+    .charTxt p {
+        min-height: 1.1rem;
+        margin: 0.5rem 0;
+    }
+    .charTxt:after {
+        border-width: 0 20px 20px 0;
+        left: -16px;
+    }
+    .blockRight .charTxt:after {
+        right: -16px;
+        border-width: 20px 20px 0 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .title {
+        font-size: 1.2rem;
+    }
+    #popups {
+        font-size: 0.7rem;
+    }
+    .charImg {
+        width: 6rem;
+        height: 6rem;
+    }
+    .charName{
+        font-size: 0.9rem;
+    }
+    .charTxt, .backgroundTxt {
+        font-size: 0.9rem;
+        line-height: 0.9rem;
+        min-height: 1.9rem;
+        min-width: 1.9rem;
+    }
+    .charTxt p {
+        min-height: 0.9rem;
+    }
+    .charTxt:after {
+        border-width: 0 15px 15px 0;
+        left: -11px;
+    }
+    .blockRight .charTxt:after {
+        right: -11px;
+        border-width: 15px 15px 0 0;
+    }
+}
 
 
   

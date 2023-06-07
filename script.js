@@ -75,11 +75,11 @@ if (document.getElementById("scenarioMain")) {
         const shouldDisplayPopups = localStorage.getItem('popups');
         if (shouldDisplayPopups === "false") {
             localStorage.setItem('popups', 'false');
-            document.querySelector('#popups span').textContent = 'Enable popups';
+            document.getElementById('popups').textContent = 'Enable popups';
             // document.getElementById('userType').style.visibility = "hidden";
         } else {
             localStorage.setItem('popups', 'true');
-            document.querySelector('#popups span').textContent = 'Disable popups';
+            document.getElementById('popups').textContent = 'Disable popups';
             // document.getElementById('userType').style.visibility = "visible";
         }
     };
@@ -129,11 +129,11 @@ function togglePopups() {
     const shouldDisplayPopups = localStorage.getItem('popups');
     // Toggle popups and update local storage
     if (shouldDisplayPopups === 'true') {
-        document.querySelector('#popups span').textContent = 'Enable popups';
+        document.getElementById('popups').textContent = 'Enable popups';
         // document.getElementById('userType').style.visibility = "hidden";
         localStorage.setItem('popups', 'false');
     } else {
-        document.querySelector('#popups span').textContent = 'Disable popups';
+        document.getElementById('popups').textContent = 'Disable popups';
         // document.getElementById('userType').style.visibility = "visible";
         localStorage.setItem('popups', 'true');
         Swal.fire({
