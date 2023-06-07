@@ -29,6 +29,7 @@ let observer = new IntersectionObserver(callback, {
     threshold: [0.5] // If 50% of the element is in the screen, we count it!
 });
 
+let isPopupInProgress = false;
 let timeoutId = null;
 let prevScrollTop = 0;
 if (document.getElementById("scenarioMain")) {
@@ -39,7 +40,7 @@ if (document.getElementById("scenarioMain")) {
         });
         //display popups only on scrolls down
         const currentScrollTop = event.target.scrollTop;
-        if (currentScrollTop > prevScrollTop) {
+        if (currentScrollTop > prevScrollTop && !isPopupInProgress) {
             clearTimeout(timeoutId);
             // if (document.querySelectorAll('.popup7.top').length === 1) {
             //     timeoutId = setTimeout(function () {
@@ -48,10 +49,16 @@ if (document.getElementById("scenarioMain")) {
             // } else {
             timeoutId = setTimeout(function () {
                 checkClassesToDisplayPopup();
-            }, 450);
+            }, 100);
             // }
         }
         prevScrollTop = currentScrollTop;
+
+        //dont animate first blocks when scrolled
+        document.querySelectorAll('.block:nth-child(1) .char, .block:nth-child(1) .charTxt, .block:nth-child(2) .char, .block:nth-child(2) .charTxt, .block:nth-child(3) .char, .block:nth-child(3) .charTxt').forEach(e => {
+            e.style.transform = "translateX(0)";
+            e.style.animation = "none";
+        });
     })
 
     //store & toggle user type in local storage
@@ -59,19 +66,21 @@ if (document.getElementById("scenarioMain")) {
         const user = localStorage.getItem('user');
         if (user === 'student') {
             localStorage.setItem('user', 'student');
-            document.getElementById('userType').textContent = 'Change to teacher';
+            document.getElementById('userType').textContent = 'Change to teacher view';
         } else {
             localStorage.setItem('user', 'teacher');
-            document.getElementById('userType').textContent = 'Change to student';
+            document.getElementById('userType').textContent = 'Change to student view';
         }
 
         const shouldDisplayPopups = localStorage.getItem('popups');
         if (shouldDisplayPopups === "false") {
             localStorage.setItem('popups', 'false');
-            document.getElementById('popups').textContent = 'Enable popups';
+            document.querySelector('#popups span').textContent = 'Enable popups';
+            document.getElementById('userType').style.visibility = "hidden";
         } else {
             localStorage.setItem('popups', 'true');
-            document.getElementById('popups').textContent = 'Disable popups';
+            document.querySelector('#popups span').textContent = 'Disable popups';
+            document.getElementById('userType').style.visibility = "visible";
         }
     };
 }
@@ -81,10 +90,10 @@ function toggleUser() {
     const user = localStorage.getItem('user');
     // Toggle users and update local storage
     if (user === 'teacher') {
-        document.getElementById('userType').textContent = 'Change to teacher';
+        document.getElementById('userType').textContent = 'Change to teacher view';
         localStorage.setItem('user', 'student');
     } else {
-        document.getElementById('userType').textContent = 'Change to student';
+        document.getElementById('userType').textContent = 'Change to student view';
         localStorage.setItem('user', 'teacher');
     }
 }
@@ -92,10 +101,12 @@ function togglePopups() {
     const shouldDisplayPopups = localStorage.getItem('popups');
     // Toggle popups and update local storage
     if (shouldDisplayPopups === 'true') {
-        document.getElementById('popups').textContent = 'Enable popups';
+        document.querySelector('#popups span').textContent = 'Enable popups';
+        document.getElementById('userType').style.visibility = "hidden";
         localStorage.setItem('popups', 'false');
     } else {
-        document.getElementById('popups').textContent = 'Disable popups';
+        document.querySelector('#popups span').textContent = 'Disable popups';
+        document.getElementById('userType').style.visibility = "visible";
         localStorage.setItem('popups', 'true');
     }
 }
@@ -105,6 +116,10 @@ function checkClassesToDisplayPopup() {
     if (localStorage.getItem('popups') === 'false') {
         return;
     }
+    if (isPopupInProgress) {
+        return;
+    }
+    isPopupInProgress = true;
     const user = localStorage.getItem('user');
     if (window.location.href.includes('scenario1')) {
         if (document.querySelectorAll('.popup1.top').length === 1) {
@@ -341,6 +356,7 @@ function checkClassesToDisplayPopup() {
             }
         }
     }
+    isPopupInProgress = false;
 }
 
 
