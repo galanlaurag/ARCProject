@@ -62,27 +62,27 @@ if (document.getElementById("scenarioMain")) {
     })
 
     //store & toggle user type in local storage
-    window.onload = function() {
-        const user = localStorage.getItem('user');
-        if (user === 'student') {
-            localStorage.setItem('user', 'student');
-            // document.getElementById('userType').textContent = 'Change to teacher view';
-        } else if (user === 'teacher') {
-            localStorage.setItem('user', 'teacher');
-            // document.getElementById('userType').textContent = 'Change to student view';
-        }
-
-        const shouldDisplayPopups = localStorage.getItem('popups');
-        if (shouldDisplayPopups === "false") {
-            localStorage.setItem('popups', 'false');
-            document.getElementById('popups').textContent = 'Enable popups';
-            // document.getElementById('userType').style.visibility = "hidden";
-        } else {
-            localStorage.setItem('popups', 'true');
-            document.getElementById('popups').textContent = 'Disable popups';
-            // document.getElementById('userType').style.visibility = "visible";
-        }
-    };
+    // window.onload = function() {
+    //     const user = localStorage.getItem('user');
+    //     if (user === 'student') {
+    //         localStorage.setItem('user', 'student');
+    //         // document.getElementById('userType').textContent = 'Change to teacher view';
+    //     } else if (user === 'teacher') {
+    //         localStorage.setItem('user', 'teacher');
+    //         // document.getElementById('userType').textContent = 'Change to student view';
+    //     }
+    //
+    //     const shouldDisplayPopups = localStorage.getItem('popups');
+    //     if (shouldDisplayPopups === "false") {
+    //         localStorage.setItem('popups', 'false');
+    //         document.getElementById('popups').textContent = 'Enable popups';
+    //         // document.getElementById('userType').style.visibility = "hidden";
+    //     } else {
+    //         localStorage.setItem('popups', 'true');
+    //         document.getElementById('popups').textContent = 'Disable popups';
+    //         // document.getElementById('userType').style.visibility = "visible";
+    //     }
+    // };
 }
 
 //first alert
@@ -110,6 +110,25 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         })
+    }
+    //store & toggle user type in local storage
+    if (user === 'student') {
+        localStorage.setItem('user', 'student');
+        // document.getElementById('userType').textContent = 'Change to teacher view';
+    } else if (user === 'teacher') {
+        localStorage.setItem('user', 'teacher');
+        // document.getElementById('userType').textContent = 'Change to student view';
+    }
+
+    const shouldDisplayPopups = localStorage.getItem('popups');
+    if (shouldDisplayPopups === "false") {
+        localStorage.setItem('popups', 'false');
+        document.getElementById('popups').textContent = 'Enable popups';
+        // document.getElementById('userType').style.visibility = "hidden";
+    } else {
+        localStorage.setItem('popups', 'true');
+        document.getElementById('popups').textContent = 'Disable popups';
+        // document.getElementById('userType').style.visibility = "visible";
     }
 });
 

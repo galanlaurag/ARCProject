@@ -4,6 +4,10 @@ body {
     margin: 0;
     overflow: hidden;
 }
+a {
+    color: #000;
+    text-decoration: none;
+}
 
 /* navbar */
 .navbar {
@@ -52,9 +56,6 @@ body {
 }
 .navbar h1 {
     margin: 0;
-}
-.home {
-    height: 2rem;
 }
 #popups {
     color: #000;
@@ -355,7 +356,71 @@ body {
 }
 
 /* homepage */
+#homeHtml, #homeBody {
+    height: -webkit-fill-available;
+}
+#homeBody {
+    background-image: linear-gradient(to right, #d8fbf9, #dbf9f0, #e1f7e7, #e8f4e1, #eff1dc, #f3eeda, #f6ecd8, #f9e9d8, #fae7d7, #fce5d7, #fce3d7, #fde1d8);
+
+}
+/*navbar*/
+#navbarHomepage, footer {
+    background-color: #00000045;
+}
+#navbarHomepage h1, #navbarHomepage .navbar a, #navbarHomepage .navbar p {
+    color: #000;
+}
+#navbarHomepage .title {
+    text-align: left;
+}
+#navbarHomepage #popups {
+    background-color: #fff;
+}
+/*content*/
+#homeMain {
+    height: calc(100% - 9rem);
+    /*background-color: rgba(0, 0, 0, 0.47);*/
+    /*background-image: linear-gradient(to right, #d8fbf9, #c3e9dd, #b5d5bf, #abc1a1, #a6ac84, #aea881, #b5a57f, #bba17f, #ceb095, #dfbfab, #efd0c1, #fde1d8);*/
+    /*background-image: linear-gradient(to right, #d8fbf9, #dbf9f0, #e1f7e7, #e8f4e1, #eff1dc, #f3eeda, #f6ecd8, #f9e9d8, #fae7d7, #fce5d7, #fce3d7, #fde1d8);*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 0 2rem;
+}
+#scenarios {
+    display: flex;
+    justify-content: space-evenly;
+}
+.scenarioImg {
+    object-fit: cover;
+    border-radius: 50%;
+    width: 25vw;
+    height: 25vw;
+    transition: 0.5s ease-in-out;
+}
+.scenario:nth-child(1) .scenarioImg {
+    box-shadow: 0 0 15px 5px #accac8;
+}
+.scenario:nth-child(2) .scenarioImg {
+    box-shadow: 0 0 15px 5px #cab484;
+}
+.scenario:nth-child(3) .scenarioImg {
+    box-shadow: 0 0 15px 5px #f6beb9;
+}
+.scenario .scenarioImg:hover {
+    /*box-shadow: 0 0 15px 5px #fcf5ec;*/
+    /*border: 1px solid white;*/
+}
+.scenario, .scenarioTitle {
+    text-align: center;
+}
+/*footer*/
 footer {
+    position: absolute;
+    width: -webkit-fill-available;
+    bottom: 0;
+    height: 5rem;
+    padding: 0 1rem;
 }
 
 
@@ -456,6 +521,11 @@ footer {
     .blockRight .charTxt:after {
         right: -11px;
         border-width: 15px 15px 0 0;
+    }
+    /* homepage */
+    footer {
+        font-size: 0.9rem;
+        padding: 0 0.7rem;
     }
 }
 

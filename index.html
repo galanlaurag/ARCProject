@@ -1,6 +1,6 @@
 <!doctype html>
 
-<html lang="en">
+<html id="homeHtml" lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,23 +38,58 @@
 
 </head>
 
-<body>
-    <h1>Homepage</h1>
-    <div id="mainmenu" style="display: block;">
-        <ul>
-          <li><button id="Narrative1Button"><a href="scenario1.html">Narrative 1</a></button></li>
-          <li><button id="Narrative2Button"><a href="scenario2.html">Narrative 2</a></button></li>
-          <li><button id="Narrative3Button"><a href="scenario3.html">Narrative 3</a></button></li>
-          <li><a href="#" id="optionsButton">Options</a></li>
-        </ul>
+<body id="homeBody">
+<header>
+    <nav id="navbarHomepage" class="navbar">
+<!--            <a href="index.html" class="homeLink"><i class="fa-solid fa-house"></i></a>-->
+            <h1 class="title">[/website title]</h1>
+            <div class="settings">
+                <!--                <button id="userType" onclick="toggleUser()"></button>-->
+                <button id="popups" onclick="togglePopups()"></button>
+            </div>
+        </nav>
+    </header>
+    <main id="homeMain">
+<!--        <ul>-->
+<!--          <li><button id="Narrative1Button"><a href="scenario1.html">Narrative 1</a></button></li>-->
+<!--          <li><button id="Narrative2Button"><a href="scenario2.html">Narrative 2</a></button></li>-->
+<!--          <li><button id="Narrative3Button"><a href="scenario3.html">Narrative 3</a></button></li>-->
+<!--          <li><a href="#" id="optionsButton">Options</a></li>-->
+<!--        </ul>-->
 
-        <p>Scroll down until the black arrow disappears (add the arrow and make it disappear at the bottom)</p>
-    </div>
-    <h3>Look for light bulbs for insights into the ???</h3>
+        <div id="scenarios">
+            <div class="scenario">
+                <a href="scenario1.html">
+                    <img class="scenarioImg" src="img/homeClass.png">
+                    <h1 class="scenarioTitle">Scenario 1 title</h1>
+                </a>
+            </div>
+            <div class="scenario">
+                <a href="scenario2.html">
+                    <img class="scenarioImg" src="img/homeRoom.png">
+                    <h1 class="scenarioTitle">Scenario 2 title</h1>
+                </a>
+            </div>
+            <div class="scenario">
+                <a href="scenario3.html">
+                    <img class="scenarioImg" src="img/homeMeeting.png">
+                    <h1 class="scenarioTitle">Scenario 3 title</h1>
+                </a>
+            </div>
+        </div>
+
+        <h2>These stories ..</h2>
+
+        <ul>
+            <li>Scroll down until the black arrow disappears (add the arrow and make it disappear at the bottom)</li>
+            <li>Disable or enable pop-up windows in the top right corner</li>
+            <li>To change view mode (student/teacher), disable and re-anable pop-ups</li>
+        </ul>
+    </main>
 
     <footer>
-        <p>Cartoon Characters - <a href="https://fresh-folk.com">Fresh Folk</a> by <a href="https://www.lenikauffman.com">Leni Kauffman.</a></p>
-        <p>Background images: <a href="https://www.shutterstock.com/image-vector/university-leture-hall-students-professor-618361994">Scenario 1</a>, <a href="https://www.freepik.com/free-vector/family-psychotherapy-psychologist-couple_33819391.htm#query=crowded%20room%20cartoon&position=11&from_view=search&track=ais">Scenario 2</a>, <a href="https://www.freepik.com/free-vector/organic-flat-people-business-training-illustration_13379600.htm">Scenario 3</a>.</p>
+        <p>Character Images: <a href="https://fresh-folk.com" target=”_blank”>Fresh Folk</a> by <a href="https://www.lenikauffman.com" target=”_blank”>Leni Kauffman.</a></p>
+        <p>Background Images: <a href="https://www.shutterstock.com/image-vector/university-leture-hall-students-professor-618361994" target=”_blank”>Scenario 1</a>, <a href="https://www.freepik.com/free-vector/family-psychotherapy-psychologist-couple_33819391.htm#query=crowded%20room%20cartoon&position=11&from_view=search&track=ais" target=”_blank”>Scenario 2</a>, <a href="https://www.freepik.com/free-vector/organic-flat-people-business-training-illustration_13379600.htm" target=”_blank”>Scenario 3</a>.</p>
     </footer>
   <script src="script.js"></script>
 </body>
