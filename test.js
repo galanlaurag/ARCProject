@@ -46,7 +46,7 @@ document.getElementById("scenarioMain").addEventListener("scroll", function(even
         // } else {
             timeoutId = setTimeout(function () {
                 checkClassesToDisplayPopup();
-            }, 300);
+            }, 450);
         // }
     }
     prevScrollTop = currentScrollTop;
@@ -246,7 +246,6 @@ function checkClassesToDisplayPopup() {
     }
     const user = localStorage.getItem('user');
     if (window.location.href.includes('scenario1')) {
-        isLastPopup = 0;
         if (document.querySelectorAll('.popup1.top').length === 1) {
             if (user === 'teacher') {
                 Swal.fire({
