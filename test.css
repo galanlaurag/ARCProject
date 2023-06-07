@@ -1,6 +1,6 @@
 /* general */
 ::-webkit-scrollbar {
-    width: 0px;
+    width: 0;
     background: transparent; 
 }
 html {
@@ -119,7 +119,7 @@ body {
     opacity: 0.5;
 }
 .middle .charTxt, .middle .backgroundTxt {
-    box-shadow: 0px 0px 15px 5px #fcf5ec;
+    box-shadow: 0 0 15px 5px #fcf5ec;
 }
 
 /*animations*/
@@ -151,13 +151,13 @@ body {
 .block .char {
     transform: translateX(-100vw);
 }
-.block .charTxt, .block .backgroundTxt {
+.block .charTxt {
     transform: translateX(100vw);
 }
 .bottom .char {
     animation: fade-in-right 1s ease-in-out forwards;
 }
-.bottom .charTxt, .bottom .backgroundTxt {
+.bottom .charTxt {
     animation: fade-in-left 1s ease-in-out forwards;
     animation-delay: 0.5s;
 }
@@ -165,25 +165,38 @@ body {
 .blockRight .char {
     transform: translateX(100vw);
 }
-.blockRight .charTxt, .blockRight .backgroundTxt {
+.blockRight .charTxt {
     transform: translateX(-100vw);
 }
 .bottom.blockRight .char {
     animation: fade-in-left 1s ease-in-out forwards;
 }
-.bottom.blockRight .charTxt, .bottom.blockRight .backgroundTxt {
+.bottom.blockRight .charTxt {
     animation: fade-in-right 1s ease-in-out forwards;
     animation-delay: 0.5s;
 }
+/*commentary*/
+.block .backgroundTxt {
+    transform: translateX(0);
+    opacity: 0;
+}
+.bottom .backgroundTxt {
+    animation: fade-in 1s ease-in-out forwards;
+    animation-delay: 0.5s;
+}
+
 
 /*no animation when going back*/
-.bottom2 .char, .bottom2 .charTxt, .bottom2 .backgroundTxt {
+.bottom2 .char, .bottom2 .charTxt {
     transform: translateX(0);
 }
 /*no animation for top and middle*/
-.top .char, .top .charTxt, .top .backgroundTxt,
-.middle .char, .middle .charTxt, .middle .backgroundTxt {
+.top .char, .top .charTxt,
+.middle .char, .middle .charTxt {
     transform: translateX(0);
+}
+.bottom2 .backgroundTxt, .top .backgroundTxt, .middle .backgroundTxt  {
+    opacity: 1;
 }
 /*top and middle animation on 1st page*/
 .block:nth-child(1) .char,
@@ -232,7 +245,7 @@ body {
     /*background-image: linear-gradient(to bottom, #d0d0d0, #a4a4a4);*/
 }
 .block:nth-child(1) .charTxt {
-    box-shadow: 0px 0px 15px 5px #fcf5ec;
+    box-shadow: 0 0 15px 5px #fcf5ec;
 }
 .block:nth-child(2) {
     /*background-image: linear-gradient(to bottom, #d5d5d5, transparent);*/
