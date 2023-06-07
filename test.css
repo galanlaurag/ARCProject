@@ -9,17 +9,23 @@ body {
     margin: 0;
     overflow: hidden;
 }
-#backgroundImage {
+.backgroundImage {
     width: 100vw;
     height: 100vh;
     position: absolute;
-    background-image: url("img/class2.png");
+    background-image: url("img/class.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    filter: blur(8px);
+    filter: blur(4px);
     pointer-events: none;
 
+}
+.backgroundImage2 {
+    background-image: url("img/room.png");
+}
+.backgroundImage3 {
+    background-image: url("img/meeting.png");
 }
 
 
@@ -369,7 +375,7 @@ body {
     background-color: #cc7888;
 }
 .luke img {
-    background-color: #83267f;
+    background-color: #1e4b1c;
 }
 
 /*#s1p1 {*/
