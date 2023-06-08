@@ -21,6 +21,7 @@ let callback = (entries) => {
             blocks[targetIndex - 3]?.classList.add('top');
             blocks[targetIndex - 2]?.classList.add('middle');
             blocks[targetIndex - 1]?.classList.add('bottom2');
+            document.getElementById("arrowDown").style.visibility = "visible";
         }
 
     })
@@ -55,8 +56,12 @@ if (document.getElementById("scenarioMain")) {
         prevScrollTop = currentScrollTop;
 
         //dont animate first blocks when scrolled
-        document.querySelectorAll('.block:nth-child(1) .char, .block:nth-child(1) .charTxt, .block:nth-child(2) .char, .block:nth-child(2) .charTxt, .block:nth-child(3) .char, .block:nth-child(3) .charTxt').forEach(e => {
+        document.querySelectorAll('.block:nth-child(1) .char, .block:nth-child(2) .char, .block:nth-child(3) .char').forEach(e => {
             e.style.transform = "translateX(0)";
+            e.style.animation = "none";
+        });
+        document.querySelectorAll('.block:nth-child(1) .charTxt, .block:nth-child(2) .charTxt, .block:nth-child(3) .charTxt').forEach(e => {
+            e.style.opacity = "1";
             e.style.animation = "none";
         });
     })
@@ -87,6 +92,12 @@ if (document.getElementById("scenarioMain")) {
 
 //first alert
 document.addEventListener('DOMContentLoaded', function() {
+    //scrolling down functionality fix
+    if (document.getElementById("scenarioMain")) {
+        addEventListener("keydown", (event) => {
+            scrollDown();
+        });
+    }
     const user = localStorage.getItem('user');
     if (!user) {
         // Display the alert
@@ -123,11 +134,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const shouldDisplayPopups = localStorage.getItem('popups');
     if (shouldDisplayPopups === "false") {
         localStorage.setItem('popups', 'false');
-        document.getElementById('popups').textContent = 'Enable popups';
+        if (document.getElementById("scenarioMain")) {
+            document.getElementById('popups').textContent = 'Enable popups';
+        }
         // document.getElementById('userType').style.visibility = "hidden";
     } else {
         localStorage.setItem('popups', 'true');
-        document.getElementById('popups').textContent = 'Disable popups';
+        if (document.getElementById("scenarioMain")) {
+            document.getElementById('popups').textContent = 'Disable popups';
+        }
         // document.getElementById('userType').style.visibility = "visible";
     }
 });
@@ -144,6 +159,13 @@ document.addEventListener('DOMContentLoaded', function() {
 //         localStorage.setItem('user', 'teacher');
 //     }
 // }
+
+function scrollDown() {
+    document.getElementById("scenarioMain").scrollBy({
+        top: window.innerHeight,
+        behavior: 'smooth'
+    });
+}
 function togglePopups() {
     const shouldDisplayPopups = localStorage.getItem('popups');
     // Toggle popups and update local storage
@@ -187,6 +209,7 @@ function checkClassesToDisplayPopup() {
         return;
     }
     isPopupInProgress = true;
+    document.getElementById("arrowDown").style.visibility = "visible";
     const user = localStorage.getItem('user');
     if (window.location.href.includes('scenario1')) {
         if (document.querySelectorAll('.popup1.top').length === 1) {
@@ -281,6 +304,7 @@ function checkClassesToDisplayPopup() {
                     showConfirmButton: false,
                 })
             }
+            document.getElementById("arrowDown").style.visibility = "hidden";
         }
     } else if (window.location.href.includes('scenario2')) {
         if (document.querySelectorAll('.popup1.top').length === 1) {
@@ -341,6 +365,7 @@ function checkClassesToDisplayPopup() {
                     showConfirmButton: false,
                 })
             }
+            document.getElementById("arrowDown").style.visibility = "hidden";
         }
     } else if (window.location.href.includes('scenario3')) {
         if (document.querySelectorAll('.popup1.top').length === 1) {
@@ -421,6 +446,7 @@ function checkClassesToDisplayPopup() {
                     showConfirmButton: false,
                 })
             }
+            document.getElementById("arrowDown").style.visibility = "hidden";
         }
     }
     isPopupInProgress = false;

@@ -14,7 +14,7 @@ a {
     position: sticky;
     height: 2rem;
     top: 0;
-    padding: 1rem;
+    padding: 1rem !important;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -67,19 +67,30 @@ a {
 /*background images*/
 .backgroundImage {
     width: 100vw;
-    height: 100vh;
+    /*height: 100vh;*/
+    height: -webkit-fill-available;
     position: absolute;
     background-image: url("img/class.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     pointer-events: none;
+    overflow: hidden;
 }
 .backgroundImage2 {
     background-image: url("img/room.png");
 }
 .backgroundImage3 {
     background-image: url("img/meeting.png");
+}
+#arrowDown {
+    visibility: visible;
+    position: fixed;
+    bottom: 15px;
+    right: 50%;
+    z-index: 10;
+    transform: scale(6,3);
+    color: rgba(252, 245, 235, 0.5);
 }
 
 /* scenarios */
@@ -140,30 +151,34 @@ a {
 /*bottom animation*/
 .block .char {
     transform: translateX(-100vw);
+    /*opacity: 0;*/
 }
 .block .charTxt {
-    transform: translateX(100vw);
+    /*transform: translateX(100vw);*/
+    opacity: 0;
 }
 .bottom .char {
     animation: fade-in-right 1s ease-in-out forwards;
 }
 .bottom .charTxt {
-    animation: fade-in-left 1s ease-in-out forwards;
-    animation-delay: 0.5s;
+    animation: fade-in 1s ease-in-out forwards;
+    animation-delay: 1s;
 }
 /*right side*/
 .blockRight .char {
     transform: translateX(100vw);
+    /*opacity: 0;*/
 }
 .blockRight .charTxt {
-    transform: translateX(-100vw);
+    /*transform: translateX(-100vw);*/
+    opacity: 0;
 }
 .bottom.blockRight .char {
     animation: fade-in-left 1s ease-in-out forwards;
 }
 .bottom.blockRight .charTxt {
-    animation: fade-in-right 1s ease-in-out forwards;
-    animation-delay: 0.5s;
+    animation: fade-in 1s ease-in-out forwards;
+    animation-delay: 1s;
 }
 /*commentary*/
 .block .backgroundTxt {
@@ -177,13 +192,24 @@ a {
 
 
 /*no animation when going back*/
-.bottom2 .char, .bottom2 .charTxt {
+.bottom2 .char {
     transform: translateX(0);
+    /*opacity: 1;*/
+}
+.bottom2 .charTxt {
+    /*transform: translateX(0);*/
+    opacity: 1;
 }
 /*no animation for top and middle*/
-.top .char, .top .charTxt,
-.middle .char, .middle .charTxt {
+.top .char,
+.middle .char {
     transform: translateX(0);
+    /*opacity: 1;*/
+}
+.top .charTxt,
+.middle .charTxt {
+    /*transform: translateX(0);*/
+    opacity: 1;
 }
 .bottom2 .backgroundTxt, .top .backgroundTxt, .middle .backgroundTxt  {
     opacity: 1;
@@ -204,28 +230,30 @@ a {
 .block:nth-child(1) .charTxt, .block:nth-child(1) .backgroundTxt,
 .block:nth-child(2) .charTxt, .block:nth-child(2) .backgroundTxt,
 .block:nth-child(3) .charTxt, .block:nth-child(3) .backgroundTxt {
-    transform: translateX(100vw);
-    animation: fade-in-left 1s ease-in-out forwards;
-    animation-delay: 0.5s;
+    /*transform: translateX(100vw);*/
+    opacity: 0;
+    animation: fade-in 1s ease-in-out forwards;
+    animation-delay: 1s;
 }
 .blockRight:nth-child(1) .charTxt, .blockRight:nth-child(1) .backgroundTxt,
 .blockRight:nth-child(2) .charTxt, .blockRight:nth-child(2) .backgroundTxt,
 .blockRight:nth-child(3) .charTxt, .blockRight:nth-child(3) .backgroundTxt {
-    transform: translateX(-100vw);
-    animation: fade-in-right 1s ease-in-out forwards;
-    animation-delay: 0.5s;
+    /*transform: translateX(-100vw);*/
+    opacity: 0;
+    animation: fade-in 1s ease-in-out forwards;
+    animation-delay: 1s;
 }
 .block:nth-child(2) .char {
     animation-delay: 2.5s;
 }
 .block:nth-child(2) .charTxt, .block:nth-child(2) .backgroundTxt {
-    animation-delay: 3s;
+    animation-delay: 3.5s;
 }
 .block:nth-child(3) .char {
     animation-delay: 5s;
 }
 .block:nth-child(3) .charTxt, .block:nth-child(3) .backgroundTxt {
-    animation-delay: 5.5s;
+    animation-delay: 6s;
 }
 
 /*first page onload - appearance*/
@@ -365,20 +393,24 @@ a {
 }
 /*navbar*/
 #navbarHomepage, footer {
-    background-color: #00000045;
+    /*background-color: #00000045;*/
 }
 #navbarHomepage h1, #navbarHomepage .navbar a, #navbarHomepage .navbar p {
     color: #000;
 }
 #navbarHomepage .title {
-    text-align: left;
+    /*text-align: left;*/
+    text-align: center;
 }
 #navbarHomepage #popups {
     background-color: #fff;
 }
+#navbarHomepage .title, #navbarHomepage .settings {
+    flex: auto;
+}
 /*content*/
 #homeMain {
-    height: calc(100% - 9rem);
+    height: calc(100% - 8rem);
     /*background-color: rgba(0, 0, 0, 0.47);*/
     /*background-image: linear-gradient(to right, #d8fbf9, #c3e9dd, #b5d5bf, #abc1a1, #a6ac84, #aea881, #b5a57f, #bba17f, #ceb095, #dfbfab, #efd0c1, #fde1d8);*/
     /*background-image: linear-gradient(to right, #d8fbf9, #dbf9f0, #e1f7e7, #e8f4e1, #eff1dc, #f3eeda, #f6ecd8, #f9e9d8, #fae7d7, #fce5d7, #fce3d7, #fde1d8);*/
@@ -419,8 +451,9 @@ footer {
     position: absolute;
     width: -webkit-fill-available;
     bottom: 0;
-    height: 5rem;
+    height: 4rem;
     padding: 0 1rem;
+    font-size: 0.8rem;
 }
 
 
