@@ -87,7 +87,7 @@ a {
     visibility: visible;
     position: fixed;
     bottom: 15px;
-    right: 50%;
+    right: 48%;
     z-index: 10;
     transform: scale(6,3);
     color: rgba(252, 245, 235, 0.5);
@@ -308,7 +308,31 @@ a {
 /*end blocks*/
 .endBlock {
     display: flex;
+    opacity: 1 !important;
 }
+.endBlock .scenarioImg {
+    width: 10rem;
+    height: 10rem;
+    box-shadow: 0 0 15px 5px #fcf5ec !important;
+    opacity: 0;
+}
+.endBlock .scenarioTitle {
+    color: #fff;
+    opacity: 0;
+}
+.endBlock.bottom .scenarioImg, .endBlock.bottom .scenarioTitle {
+    animation: fade-in 1s ease-in-out forwards;
+}
+.endBlock.bottom .scenario:nth-child(1) .scenarioTitle {
+    animation-delay: 0.5s;
+}
+.endBlock.bottom .scenario:nth-child(2) .scenarioImg {
+    animation-delay: 1.5s;
+}
+.endBlock.bottom .scenario:nth-child(2) .scenarioTitle {
+    animation-delay: 2s;
+}
+
 
 /* characters */
 .char {
@@ -331,7 +355,8 @@ a {
 .charImgRight {
     transform: scaleX(-1);
 }
-.charTxt, .backgroundTxt {
+.charTxt, .backgroundTxt,
+.endBlock .scenarioTitle {
     justify-content: center;
     padding: 0 1rem;
     font-size: 1.5rem;
@@ -422,6 +447,7 @@ a {
 #scenarios {
     display: flex;
     justify-content: space-evenly;
+    width: 100%;
 }
 .scenarioImg {
     object-fit: cover;
@@ -465,14 +491,15 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
-    .charImg {
+    .charImg, .endBlock .scenarioImg {
         width: 8rem;
         height: 8rem;
     }
     .charName, .title {
         font-size: 1.3rem;
     }
-    .charTxt, .backgroundTxt {
+    .charTxt, .backgroundTxt,
+    .endBlock .scenarioTitle {
         font-size: 1.3rem;
         line-height: 1.3rem;
         min-height: 2.3rem;
@@ -495,14 +522,15 @@ footer {
     .navbar {
         padding: 1rem 0.7rem;
     }
-    .charImg {
+    .charImg, .endBlock .scenarioImg {
         width: 7rem;
         height: 7rem;
     }
     .charName {
         font-size: 1.1rem;
     }
-    .charTxt, .backgroundTxt {
+    .charTxt, .backgroundTxt,
+    .endBlock .scenarioTitle {
         font-size: 1.1rem;
         line-height: 1.1rem;
         padding: 0 0.7rem;
@@ -531,14 +559,15 @@ footer {
     #popups {
         font-size: 0.7rem;
     }
-    .charImg {
+    .charImg, .endBlock .scenarioImg {
         width: 6rem;
         height: 6rem;
     }
     .charName{
         font-size: 0.9rem;
     }
-    .charTxt, .backgroundTxt {
+    .charTxt, .backgroundTxt,
+    .endBlock .scenarioTitle {
         font-size: 0.9rem;
         line-height: 0.9rem;
         min-height: 1.9rem;

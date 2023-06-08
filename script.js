@@ -202,12 +202,19 @@ function togglePopups() {
 
 //displaying popups
 function checkClassesToDisplayPopup() {
-    if (localStorage.getItem('popups') === 'false') {
+    if ((localStorage.getItem('popups') === 'false') || isPopupInProgress) {
+        if ((window.location.href.includes('scenario1') && (document.querySelectorAll('.popup7.top').length === 1))
+            || ((window.location.href.includes('scenario2') && document.querySelectorAll('.popup5.top').length === 1))
+            || ((window.location.href.includes('scenario3') && document.querySelectorAll('.popup6.top').length === 1))) {
+            document.getElementById("arrowDown").style.visibility = "hidden";
+        } else {
+            document.getElementById("arrowDown").style.visibility = "visible";
+        }
         return;
     }
-    if (isPopupInProgress) {
-        return;
-    }
+    // if (isPopupInProgress) {
+    //     return;
+    // }
     isPopupInProgress = true;
     document.getElementById("arrowDown").style.visibility = "visible";
     const user = localStorage.getItem('user');
