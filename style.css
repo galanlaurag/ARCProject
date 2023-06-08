@@ -1,3 +1,6 @@
+* {
+    transition: 0.5s ease-in-out;
+}
 html {
 }
 body {
@@ -91,6 +94,10 @@ a {
     z-index: 10;
     transform: scale(6,3);
     color: rgba(252, 245, 235, 0.5);
+    cursor: pointer;
+}
+#arrowDown:hover {
+    color: #fcf5ec;
 }
 
 /* scenarios */
@@ -454,7 +461,7 @@ a {
     border-radius: 50%;
     width: 25vw;
     height: 25vw;
-    transition: 0.5s ease-in-out;
+    /*transition: 0.5s ease-in-out;*/
 }
 .scenario:nth-child(1) .scenarioImg {
     box-shadow: 0 0 15px 5px #accac8;
@@ -520,7 +527,7 @@ footer {
 
 @media screen and (max-width: 576px) {
     .navbar {
-        padding: 1rem 0.7rem;
+        padding: 1rem 0.7rem !important;
     }
     .charImg, .endBlock .scenarioImg {
         width: 7rem;

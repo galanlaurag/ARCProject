@@ -27,7 +27,7 @@ let callback = (entries) => {
     })
 }
 let observer = new IntersectionObserver(callback, {
-    threshold: [0.5] // If 50% of the element is in the screen, we count it!
+    threshold: [0.5] // If 50% of the element is in the screen, we count it
 });
 
 let isPopupInProgress = false;
@@ -43,19 +43,13 @@ if (document.getElementById("scenarioMain")) {
         const currentScrollTop = event.target.scrollTop;
         if (currentScrollTop > prevScrollTop && !isPopupInProgress) {
             clearTimeout(timeoutId);
-            // if (document.querySelectorAll('.popup7.top').length === 1) {
-            //     timeoutId = setTimeout(function () {
-            //         checkClassesToDisplayPopup();
-            //     }, 10000);
-            // } else {
             timeoutId = setTimeout(function () {
                 checkClassesToDisplayPopup();
-            }, 100);
-            // }
+            }, 200);
         }
         prevScrollTop = currentScrollTop;
 
-        //dont animate first blocks when scrolled
+        //don't animate first blocks when scrolled
         document.querySelectorAll('.block:nth-child(1) .char, .block:nth-child(2) .char, .block:nth-child(3) .char').forEach(e => {
             e.style.transform = "translateX(0)";
             e.style.animation = "none";
@@ -65,29 +59,6 @@ if (document.getElementById("scenarioMain")) {
             e.style.animation = "none";
         });
     })
-
-    //store & toggle user type in local storage
-    // window.onload = function() {
-    //     const user = localStorage.getItem('user');
-    //     if (user === 'student') {
-    //         localStorage.setItem('user', 'student');
-    //         // document.getElementById('userType').textContent = 'Change to teacher view';
-    //     } else if (user === 'teacher') {
-    //         localStorage.setItem('user', 'teacher');
-    //         // document.getElementById('userType').textContent = 'Change to student view';
-    //     }
-    //
-    //     const shouldDisplayPopups = localStorage.getItem('popups');
-    //     if (shouldDisplayPopups === "false") {
-    //         localStorage.setItem('popups', 'false');
-    //         document.getElementById('popups').textContent = 'Enable popups';
-    //         // document.getElementById('userType').style.visibility = "hidden";
-    //     } else {
-    //         localStorage.setItem('popups', 'true');
-    //         document.getElementById('popups').textContent = 'Disable popups';
-    //         // document.getElementById('userType').style.visibility = "visible";
-    //     }
-    // };
 }
 
 //first alert
@@ -95,12 +66,15 @@ document.addEventListener('DOMContentLoaded', function() {
     //scrolling down functionality fix
     if (document.getElementById("scenarioMain")) {
         addEventListener("keydown", (event) => {
-            scrollDown();
+            if (event.key === "ArrowDown") {
+                scrollDown();
+            } else if (event.key === "ArrowUp") {
+                scrollUp();
+            }
         });
     }
     const user = localStorage.getItem('user');
     if (!user) {
-        // Display the alert
         Swal.fire({
             title: 'Are you Student or Teacher?',
             showDenyButton: true,
@@ -108,16 +82,13 @@ document.addEventListener('DOMContentLoaded', function() {
             confirmButtonText: 'Student',
             denyButtonText: `Teacher`,
         }).then((result) => {
-            /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
                 localStorage.setItem('user', 'student');
                 if (document.getElementById("scenarioMain")) {
-                    // document.getElementById('userType').textContent = 'Change to teacher view';
                 }
             } else if (result.isDenied) {
                 localStorage.setItem('user', 'teacher');
                 if (document.getElementById("scenarioMain")) {
-                    // document.getElementById('userType').textContent = 'Change to student view';
                 }
             }
         })
@@ -125,10 +96,8 @@ document.addEventListener('DOMContentLoaded', function() {
     //store & toggle user type in local storage
     if (user === 'student') {
         localStorage.setItem('user', 'student');
-        // document.getElementById('userType').textContent = 'Change to teacher view';
     } else if (user === 'teacher') {
         localStorage.setItem('user', 'teacher');
-        // document.getElementById('userType').textContent = 'Change to student view';
     }
 
     const shouldDisplayPopups = localStorage.getItem('popups');
@@ -137,32 +106,23 @@ document.addEventListener('DOMContentLoaded', function() {
         if (document.getElementById("scenarioMain")) {
             document.getElementById('popups').textContent = 'Enable popups';
         }
-        // document.getElementById('userType').style.visibility = "hidden";
     } else {
         localStorage.setItem('popups', 'true');
         if (document.getElementById("scenarioMain")) {
             document.getElementById('popups').textContent = 'Disable popups';
         }
-        // document.getElementById('userType').style.visibility = "visible";
     }
 });
-
-// //toggling user types and popups
-// function toggleUser() {
-//     const user = localStorage.getItem('user');
-//     // Toggle users and update local storage
-//     if (user === 'teacher') {
-//         document.getElementById('userType').textContent = 'Change to teacher view';
-//         localStorage.setItem('user', 'student');
-//     } else {
-//         document.getElementById('userType').textContent = 'Change to student view';
-//         localStorage.setItem('user', 'teacher');
-//     }
-// }
 
 function scrollDown() {
     document.getElementById("scenarioMain").scrollBy({
         top: window.innerHeight,
+        behavior: 'smooth'
+    });
+}
+function scrollUp() {
+    document.getElementById("scenarioMain").scrollBy({
+        top: -window.innerHeight,
         behavior: 'smooth'
     });
 }
@@ -171,11 +131,9 @@ function togglePopups() {
     // Toggle popups and update local storage
     if (shouldDisplayPopups === 'true') {
         document.getElementById('popups').textContent = 'Enable popups';
-        // document.getElementById('userType').style.visibility = "hidden";
         localStorage.setItem('popups', 'false');
     } else {
         document.getElementById('popups').textContent = 'Disable popups';
-        // document.getElementById('userType').style.visibility = "visible";
         localStorage.setItem('popups', 'true');
         Swal.fire({
             title: 'Are you Student or Teacher?',
@@ -187,14 +145,8 @@ function togglePopups() {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
                 localStorage.setItem('user', 'student');
-                if (document.getElementById("scenarioMain")) {
-                    // document.getElementById('userType').textContent = 'Change to teacher view';
-                }
             } else if (result.isDenied) {
                 localStorage.setItem('user', 'teacher');
-                if (document.getElementById("scenarioMain")) {
-                    // document.getElementById('userType').textContent = 'Change to student view';
-                }
             }
         })
     }
@@ -203,6 +155,7 @@ function togglePopups() {
 //displaying popups
 function checkClassesToDisplayPopup() {
     if ((localStorage.getItem('popups') === 'false') || isPopupInProgress) {
+        //still hide arrow at the bottom of the page when popups disabled
         if ((window.location.href.includes('scenario1') && (document.querySelectorAll('.popup7.top').length === 1))
             || ((window.location.href.includes('scenario2') && document.querySelectorAll('.popup5.top').length === 1))
             || ((window.location.href.includes('scenario3') && document.querySelectorAll('.popup6.top').length === 1))) {
@@ -212,9 +165,6 @@ function checkClassesToDisplayPopup() {
         }
         return;
     }
-    // if (isPopupInProgress) {
-    //     return;
-    // }
     isPopupInProgress = true;
     document.getElementById("arrowDown").style.visibility = "visible";
     const user = localStorage.getItem('user');
@@ -458,232 +408,3 @@ function checkClassesToDisplayPopup() {
     }
     isPopupInProgress = false;
 }
-
-
-
-// function hideHint() {
-//     const elementToShow = document.getElementById('hint');
-//     // elementToShow.style.display = 'none';
-//     elementToShow.style.visibility = 'hidden';
-// }
-
-
-// typewriter - runs one after the other, toggle button to stop and start animating with consideration of the last animated index
-// var contents = [
-//     'Alright everyone, we’re going to take a short break here.',
-//     'Get yourselves a drink and have a little think about the social implications of what we’ve just been learning about this morning.',
-//     'I’ll be up at the front if anyone has any questions, otherwise we’ll start back up in about ten minutes.',
-//     'Students shuffle around the room in their seats, some getting up in small clusters to head to the canteen. No one approaches Pearson, who sits by the front monitor and sips from his hydroflask while scrolling mindlessly on the computer.',
-//     'Hey Sofia, did any of that seem… right to you? Like a lot of that sounded very missing-important-context right?',
-//     'Softly sighs while staring at the last slide on the projector. Yeah, he didn’t mention a word about any of the coups that have plagued the country before or after that revolution.',
-//     // Add more content strings here
-// ];
-//
-// var delay = 10;
-// var animationRunning = true;
-// var animationTimeouts = [];
-// var lastAnimatedIndex = 0;
-//
-// function animateContent(content, target) {
-//     var elements = '<span>' + content.split('').join('</span><span>') + '</span>';
-//
-//     $(elements)
-//         .hide()
-//         .appendTo(target)
-//         .each(function (i) {
-//             var element = $(this);
-//             var timeout = setTimeout(function () {
-//                 element.css({
-//                     display: 'inline',
-//                     opacity: 0,
-//                 }).animate(
-//                     {
-//                         opacity: 1,
-//                     },
-//                     100
-//                 );
-//             }, delay * i);
-//             animationTimeouts.push(timeout);
-//         });
-// }
-//
-// // function animateSequentially(index) {
-// //     lastAnimatedIndex = index;
-// //     if (index < contents.length) {
-// //         var target = '#txt' + (index + 1);
-// //         var targetElement = document.querySelector(target);
-// //         var textContainerElement = $(target).parent();
-// //         var characterElement = textContainerElement.parent().find('.char');
-// //
-// //         // Check if the target element already contains the complete content
-// //         // if (targetElement.textContent === contents[index]) {
-// //         //     animateSequentially(index + 1);
-// //         //     return;
-// //         // }
-// //         //
-// //         // var observer = new IntersectionObserver(function (entries, observer) {
-// //         //     if (entries[0].isIntersecting) {
-// //         //         animateContent(contents[index], target);
-// //         //         observer.unobserve(entries[0].target);
-// //         //         var timeout = setTimeout(function () {
-// //         //             animateSequentially(index + 1);
-// //         //         }, contents[index].length * delay + 500);
-// //         //         animationTimeouts.push(timeout);
-// //         //     }
-// //         // });
-// //         //
-// //         // observer.observe(targetElement);
-// //
-// //
-// //         if (targetElement.textContent !== contents[index]) {
-// //             characterElement
-// //                 .hide()
-// //                 .css({
-// //                     opacity: 0
-// //                 })
-// //                 .show()
-// //                 .animate(
-// //                     {
-// //                         opacity: '1'
-// //                     },
-// //                     500,
-// //                     function () {
-// //                         textContainerElement
-// //                             .hide()
-// //                             .css({
-// //                                 opacity: 0
-// //                             })
-// //                             .show()
-// //                             .animate(
-// //                                 {
-// //                                     opacity: 1
-// //                                 },
-// //                                 500,
-// //                                 function () {
-// //                                     // Check if the target element already contains the complete content
-// //                                     if (targetElement.textContent === contents[index]) {
-// //                                         animateSequentially(index + 1);
-// //                                         return;
-// //                                     }
-// //                                     var observer = new IntersectionObserver(function (entries, observer) {
-// //                                         if (entries[0].isIntersecting) {
-// //                                             animateContent(contents[index], target);
-// //                                             observer.unobserve(entries[0].target);
-// //                                             var timeout = setTimeout(function () {
-// //                                                 animateSequentially(index + 1);
-// //                                             }, contents[index].length * delay + 500);
-// //                                             animationTimeouts.push(timeout);
-// //                                         }
-// //                                     });
-// //                                     observer.observe(targetElement);
-// //                                 }
-// //                             );
-// //                     }
-// //                 );
-// //         }
-// //     }
-// // }
-// function animateSequentially(index) {
-//     lastAnimatedIndex = index;
-//     if (index < contents.length) {
-//         var target = '#txt' + (index + 1);
-//         var targetElement = document.querySelector(target);
-//         var textContainerElement = $(target).parent();
-//         var characterElement = textContainerElement.parent().find('.char');
-//
-//         // Check if the target element exists in the page before making changes
-//         if (!targetElement) {
-//             return;
-//         }
-//
-//         //observe if element is in the viewport before running an animation
-//         var observer = new IntersectionObserver(function (entries, observer) {
-//             if (entries[0].isIntersecting) {
-//                 if (targetElement.textContent !== contents[index]) {
-//                     characterElement
-//                         .hide()
-//                         .css({
-//                             opacity: 0
-//                         })
-//                         .show()
-//                         .animate(
-//                             {
-//                                 opacity: '1'
-//                             },
-//                             500,
-//                             function () {
-//                                 textContainerElement
-//                                     .hide()
-//                                     .css({
-//                                         opacity: 0
-//                                     })
-//                                     .show()
-//                                     .animate(
-//                                         {
-//                                             opacity: 1
-//                                         },
-//                                         500,
-//                                         function () {
-//                                             animateContent(contents[index], target);
-//                                             observer.unobserve(entries[0].target);
-//                                             var timeout = setTimeout(function () {
-//                                                 // Check if the target element isn't empty
-//                                                 if (targetElement.textContent !== '') {
-//                                                     animateSequentially(index + 1);
-//                                                 }
-//                                             }, contents[index].length * delay + 500);
-//                                             animationTimeouts.push(timeout);
-//                                         }
-//                                     );
-//                             }
-//                         );
-//                 }
-//             }
-//         });
-//         observer.observe(targetElement);
-//     }
-// }
-//
-// function resetAnimation() {
-//     // Clear animation timeouts
-//     animationTimeouts.forEach(function (timeout) {
-//         clearTimeout(timeout);
-//     });
-//     animationTimeouts = [];
-//
-//     // Clear target elements' content
-//     for (var i = lastAnimatedIndex; i < contents.length; i++) {
-//         var target = '#txt' + (i + 1);
-//         $(target).parent().css({opacity: '0'});
-//         $(target).parent().parent().find('.char').css({opacity: '0'});
-//         $(target).text('');
-//     }
-//
-//     // Restart the animation
-//     animateSequentially(lastAnimatedIndex);
-// }
-//
-// function fillContent() {
-//     if (animationRunning) {
-//         // Start the animation from the beginning
-//         animationRunning = false;
-//         $('#fillButton').text('Animate text');
-//         for (var i = 0; i < contents.length; i++) {
-//             var target = '#txt' + (i + 1);
-//             $(target).parent().css({opacity: '1'});
-//             $(target).parent().parent().find('.char').css({opacity: '1'});
-//             $(target).text(contents[i]);
-//         }
-//     } else {
-//         // Stop the animation
-//         animationRunning = true;
-//         $('#fillButton').text('Stop animating text');
-//         resetAnimation();
-//     }
-// }
-//
-// // Call the function when the button is clicked
-// $('#fillButton').click(fillContent);
-//
-// // Start the animation on page load
-// animateSequentially(0);
