@@ -1,5 +1,5 @@
 * {
-    transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out !important;
 }
 html {
 }
@@ -65,6 +65,7 @@ a {
     background-color: #afafaf;
     border: none;
     border-radius: 30px;
+    cursor: pointer;
 }
 
 /*background images*/
@@ -90,7 +91,8 @@ a {
     visibility: visible;
     position: fixed;
     bottom: 15px;
-    right: 48%;
+    width: 100%;
+    text-align: center;
     z-index: 10;
     transform: scale(6,3);
     color: rgba(252, 245, 235, 0.5);
@@ -105,6 +107,7 @@ a {
     /*height: 100vh;*/
     /*height: calc(100vh - 4rem);*/
     height: calc(100vh - 3rem);
+    overflow-x: hidden;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
     backdrop-filter: blur(3px);
@@ -489,6 +492,36 @@ footer {
     font-size: 0.8rem;
 }
 
+/*popups*/
+div:where(.swal2-container) div:where(.swal2-popup) {
+    border-radius: 30px !important;
+}
+div:where(.swal2-container) div:where(.swal2-popup) {
+    padding: 0 !important;
+}
+div:where(.swal2-container) div:where(.swal2-actions) {
+    margin: 1.25em auto !important;
+}
+div:where(.swal2-container) .swal2-html-container {
+    margin: 1em 1.6em !important;
+}
+div:where(.swal2-container) button:where(.swal2-close) {
+    color: #afafaf !important;
+}
+div:where(.swal2-container) button:where(.swal2-close):hover {
+    color: #f27474 !important;
+}
+div:where(.swal2-container) button:where(.swal2-close):focus,
+div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm:focus {
+    box-shadow: none !important;
+}
+div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm,
+div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
+    coloe: #000 !important;
+    background-color: #c36e66 !important;
+    border-radius: 30px !important;
+}
+
 
 /*responsiveness*/
 @media screen and (max-width: 1024px) {
@@ -498,6 +531,10 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
+    #arrowDown {
+        transform: scale(5,2.5);
+        bottom: 10px;
+    }
     .charImg, .endBlock .scenarioImg {
         width: 8rem;
         height: 8rem;
@@ -523,9 +560,16 @@ footer {
         right: -26px;
         border-width: 30px 30px 0 0;
     }
+
+    #swal2-html-container h3 {
+        font-size: 1.2rem;
+    }
 }
 
 @media screen and (max-width: 576px) {
+    #arrowDown {
+        transform: scale(4,2);
+    }
     .navbar {
         padding: 1rem 0.7rem !important;
     }
@@ -557,6 +601,10 @@ footer {
         right: -16px;
         border-width: 20px 20px 0 0;
     }
+
+    #swal2-html-container h3 {
+        font-size: 1.1rem;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -565,6 +613,7 @@ footer {
     }
     #popups {
         font-size: 0.7rem;
+        width: 4.5rem;
     }
     .charImg, .endBlock .scenarioImg {
         width: 6rem;
@@ -595,6 +644,10 @@ footer {
     footer {
         font-size: 0.9rem;
         padding: 0 0.7rem;
+    }
+
+    #swal2-html-container h3 {
+        font-size: 1.1rem;
     }
 }
 
