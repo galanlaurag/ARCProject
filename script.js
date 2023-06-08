@@ -7,17 +7,19 @@ let callback = (entries) => {
         const targetIndex = Array.from(blocks).indexOf(target);
         if (entry.isIntersecting) {
             blocks.forEach((block) => {
-                block.classList.remove('top', 'middle', 'bottom', 'bottom2');
+                block.classList.remove('hidden', 'top', 'middle', 'bottom', 'bottom2');
             });
+            blocks[targetIndex - 3]?.classList.add('hidden');
             blocks[targetIndex - 2]?.classList.add('top');
             blocks[targetIndex - 1]?.classList.add('middle');
             blocks[targetIndex]?.classList.add('bottom');
         } else {
             // Remove existing classes from all blocks
             blocks.forEach((block) => {
-                block.classList.remove('top', 'middle', 'bottom2', 'bottom');
+                block.classList.remove('hidden', 'top', 'middle', 'bottom2', 'bottom');
             });
             // Add appropriate classes to the current visible blocks
+            blocks[targetIndex - 4]?.classList.add('hidden');
             blocks[targetIndex - 3]?.classList.add('top');
             blocks[targetIndex - 2]?.classList.add('middle');
             blocks[targetIndex - 1]?.classList.add('bottom2');
@@ -45,16 +47,12 @@ if (document.getElementById("scenarioMain")) {
             clearTimeout(timeoutId);
             timeoutId = setTimeout(function () {
                 checkClassesToDisplayPopup();
-            }, 200);
+            }, 300);
         }
         prevScrollTop = currentScrollTop;
 
         //don't animate first blocks when scrolled
-        document.querySelectorAll('.block:nth-child(1) .char, .block:nth-child(2) .char, .block:nth-child(3) .char').forEach(e => {
-            e.style.transform = "translateX(0)";
-            e.style.animation = "none";
-        });
-        document.querySelectorAll('.block:nth-child(1) .charTxt, .block:nth-child(2) .charTxt, .block:nth-child(3) .charTxt').forEach(e => {
+        document.querySelectorAll('.block:nth-child(1) .char, .block:nth-child(2) .char, .block:nth-child(3) .char, .block:nth-child(2) .backgroundTxt, .block:nth-child(3) .backgroundTxt').forEach(e => {
             e.style.opacity = "1";
             e.style.animation = "none";
         });

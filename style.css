@@ -1,6 +1,3 @@
-* {
-    transition: 0.5s ease-in-out !important;
-}
 html {
 }
 body {
@@ -96,12 +93,13 @@ a {
     transform: scale(6,3);
     color: rgba(252, 245, 235, 0.5);
     cursor: pointer;
+    transition: 0.5s ease-in-out;
 }
 #arrowDown:hover {
     color: #fcf5ec;
 }
 
-/* scenarios */
+/*!* scenarios *!*/
 #scenarioMain {
     height: calc(100vh - 4rem);
     overflow-x: hidden;
@@ -194,26 +192,21 @@ a {
 }
 
 
-/*no animation when going back & fot top and middle*/
-.bottom2 .char, .top .char, .middle .char {
+/*no animation when going back & for top and middle on 1st page*/
+.block.bottom2 .char, .block.top .char, .block.middle .char, .block.hidden .char {
     transform: translateX(0);
 }
 .bottom2 .charTxt, .top .charTxt, .middle .charTxt,
-.bottom2 .backgroundTxt, .top .backgroundTxt, .middle .backgroundTxt{
+.bottom2 .backgroundTxt, .top .backgroundTxt, .middle .backgroundTxt,
+.hidden .charTxt, .hidden .backgroundTxt {
     opacity: 1;
 }
-/*top and middle animation on 1st page*/
-.block:nth-child(1) .char,
-.block:nth-child(2) .char,
-.block:nth-child(3) .char {
-    transform: translateX(-100vw);
-    animation: fade-in-right 1s ease-in-out forwards;
-}
-.blockRight:nth-child(1) .char,
-.blockRight:nth-child(2) .char,
-.blockRight:nth-child(3) .char {
-    transform: translateX(100vw);
-    animation: fade-in-left 1s ease-in-out forwards;
+.block:nth-child(1) .char:nth-child(1),
+.block:nth-child(1) .char:nth-child(2),
+.block:nth-child(1) .char:nth-child(3),
+.block:nth-child(1) .char:nth-child(4) {
+    opacity: 0;
+    animation: fade-in 1s ease-in-out forwards;
 }
 .block:nth-child(1) .charTxt, .block:nth-child(1) .backgroundTxt,
 .block:nth-child(2) .charTxt, .block:nth-child(2) .backgroundTxt,
@@ -225,24 +218,34 @@ a {
     animation: fade-in 1s ease-in-out forwards;
     animation-delay: 1s;
 }
-.block:nth-child(2) .char {
-    animation-delay: 2.5s;
+.block:nth-child(1) .char:nth-child(2) {
+    animation-delay: 1s;
+}
+.block:nth-child(1) .char:nth-child(3) {
+    animation-delay: 2s;
+}
+.block:nth-child(1) .char:nth-child(4) {
+    animation-delay: 3s;
 }
 .block:nth-child(2) .charTxt, .block:nth-child(2) .backgroundTxt {
-    animation-delay: 3.5s;
+    animation-delay: 4s;
 }
 .block:nth-child(3) .char {
-    animation-delay: 5s;
+    animation-delay: 5.5s;
 }
 .block:nth-child(3) .charTxt, .block:nth-child(3) .backgroundTxt {
-    animation-delay: 6s;
+    animation-delay: 6.5s;
 }
 
 /*first page onload - appearance*/
-.block:nth-child(1) {
+.characters .char {
+    transform: translateX(0);
     opacity: 1;
 }
-.block:nth-child(1) .charTxt {
+.block:nth-child(1), .block:nth-child(3):not(.top) {
+    opacity: 1;
+}
+.block:nth-child(2) .backgroundTxt, .block:nth-child(3) .backgroundTxt {
     box-shadow: 0 0 15px 5px #fcf5ec;
 }
 
@@ -266,7 +269,7 @@ a {
 	position: absolute;
 	width: 0;
 	height: 0;
-    left: -36px;
+    left: -33px;
     right: auto;
     top: auto;
     bottom: 22%;
@@ -280,7 +283,7 @@ a {
 }
 .blockRight .charTxt:after {
     left: auto;
-    right: -36px;
+    right: -33px;
     border-width: 40px 40px 0 0;
     border-color: #fcf5eb transparent transparent transparent;
 }
@@ -314,6 +317,19 @@ a {
 
 
 /* characters */
+/*1st page*/
+.characters {
+    display: flex;
+    justify-content: space-evenly;
+}
+.setting .backgroundTxt p, .storyline .backgroundTxt p {
+    margin-top: 0;
+}
+.setting .backgroundTxt h4, .storyline .backgroundTxt h4 {
+    font-style: normal;
+}
+
+
 .char {
     display: flex;
     flex-direction: column;
@@ -347,6 +363,9 @@ a {
 }
 .backgroundTxt {
     font-style: italic;
+}
+.backgroundTxt h4 {
+    margin: 1em 0 0.5rem 0;
 }
 .backgroundBlock .char {
     display: block;
@@ -449,7 +468,8 @@ a {
     width: 20vw;
     height: 20vw;
     transform: scale(1);
-    box-shadow: 0 0 15px 5px #fcf5ec
+    box-shadow: 0 0 15px 5px #fcf5ec;
+    transition: 0.5s ease-in-out;
 }
 .scenarioImg:hover {
     transform: scale(1.05);
@@ -467,12 +487,13 @@ a {
     text-align: center;
 }
 #instruction {
+    margin: 2rem 0;
     font-size: 1.1rem;
     text-align: center;
 }
 #instruction p {
     margin: 0.5rem 0;
-    opacity: 0.6;
+    opacity: 0.8;
 }
 /*footer*/
 footer {
@@ -482,7 +503,7 @@ footer {
     text-align: center;
 }
 footer p {
-    opacity: 0.3;
+    opacity: 0.4;
 }
 
 /*popups*/
@@ -500,6 +521,7 @@ div:where(.swal2-container) .swal2-html-container {
 }
 div:where(.swal2-container) button:where(.swal2-close) {
     color: #afafaf !important;
+    transition: 0.5s ease-in-out !important;
 }
 div:where(.swal2-container) button:where(.swal2-close):hover {
     color: #f27474 !important;
@@ -521,6 +543,17 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
     .navbar .homeLink, .navbar .title, .navbar .settings {
         flex: auto;
     }
+
+    .charTxt, .backgroundTxt,
+    .endBlock .scenarioTitle {
+        font-size: 1.35rem;
+        line-height: 1.35rem;
+        min-height: 2.35rem;
+        min-width: 2.35rem;
+    }
+    .charTxt p {
+        min-height: 1.4rem;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -531,6 +564,9 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
     #instruction {
         font-size: 1.05rem;
     }
+    #scenarios, #instruction {
+        margin: 1rem 0;
+    }
 
     #arrowDown {
         transform: scale(5,2.5);
@@ -540,29 +576,29 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
         width: 8rem;
         height: 8rem;
     }
-    .charName, .title, .scenarioTitle, #info {
+    .charName, .title, .scenarioTitle, #info, .backgroundTxt h4 {
         font-size: 1.3rem;
     }
     .charTxt, .backgroundTxt,
     .endBlock .scenarioTitle {
-        font-size: 1.3rem;
-        line-height: 1.3rem;
-        min-height: 2.3rem;
-        min-width: 2.3rem;
+        font-size: 1.25rem;
+        line-height: 1.25rem;
+        min-height: 2.25rem;
+        min-width: 2.25rem;
     }
     .charTxt p {
         min-height: 1.3rem;
     }
     .charTxt:after {
         border-width: 0 30px 30px 0;
-        left: -26px;
+        left: -23px;
     }
     .blockRight .charTxt:after {
-        right: -26px;
+        right: -23px;
         border-width: 30px 30px 0 0;
     }
 
-    #swal2-html-container h3 {
+    #swal2-html-container h4 {
         font-size: 1.2rem;
     }
 }
@@ -598,7 +634,7 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
         width: 7rem;
         height: 7rem;
     }
-    .charName {
+    .charName, .backgroundTxt h4 {
         font-size: 1.1rem;
     }
     .charTxt, .backgroundTxt,
@@ -616,10 +652,12 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
     }
     .charTxt:after {
         border-width: 0 20px 20px 0;
-        left: -16px;
+        left: -14px;
+        bottom: 20%;
     }
     .blockRight .charTxt:after {
-        right: -16px;
+        right: -14px;
+        bottom: 20%;
         border-width: 20px 20px 0 0;
     }
 
@@ -644,6 +682,12 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
         font-size: 0.9rem;
     }
 
+    #arrowDown {
+        bottom: 7px;
+    }
+    .backgroundTxt h4 {
+        font-size: 1rem;
+    }
     .title {
         font-size: 1.2rem;
     }
@@ -655,8 +699,15 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
         width: 6rem;
         height: 6rem;
     }
+    .characters .charImg {
+        width: 5rem;
+        height: 5rem;
+    }
     .charName{
         font-size: 0.9rem;
+    }
+    .characters .charName {
+        font-size: 0.8rem;
     }
     .charTxt, .backgroundTxt,
     .endBlock .scenarioTitle {
@@ -668,14 +719,14 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
     .charTxt p {
         min-height: 0.9rem;
     }
-    .charTxt:after {
-        border-width: 0 15px 15px 0;
-        left: -11px;
-    }
-    .blockRight .charTxt:after {
-        right: -11px;
-        border-width: 15px 15px 0 0;
-    }
+    /*.charTxt:after {*/
+    /*    border-width: 0 15px 15px 0;*/
+    /*    left: -11px;*/
+    /*}*/
+    /*.blockRight .charTxt:after {*/
+    /*    right: -11px;*/
+    /*    border-width: 15px 15px 0 0;*/
+    /*}*/
 
     #swal2-html-container h3 {
         font-size: 1.1rem;
