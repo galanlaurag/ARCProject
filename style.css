@@ -719,15 +719,6 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
     .charTxt p {
         min-height: 0.9rem;
     }
-    /*.charTxt:after {*/
-    /*    border-width: 0 15px 15px 0;*/
-    /*    left: -11px;*/
-    /*}*/
-    /*.blockRight .charTxt:after {*/
-    /*    right: -11px;*/
-    /*    border-width: 15px 15px 0 0;*/
-    /*}*/
-
     #swal2-html-container h3 {
         font-size: 1.1rem;
     }
