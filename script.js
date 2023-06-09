@@ -156,9 +156,9 @@ function togglePopups() {
 function checkClassesToDisplayPopup() {
     if ((localStorage.getItem('popups') === 'false') || isPopupInProgress) {
         //still hide arrow at the bottom of the page when popups disabled
-        if ((window.location.href.includes('scenario1') && (document.querySelectorAll('.popup7.top').length === 1))
-            || ((window.location.href.includes('scenario2') && document.querySelectorAll('.popup5.top').length === 1))
-            || ((window.location.href.includes('scenario3') && document.querySelectorAll('.popup6.top').length === 1))) {
+        if ((window.location.href.includes('theatre') && (document.querySelectorAll('.popup7.top').length === 1))
+            || ((window.location.href.includes('common') && document.querySelectorAll('.popup5.top').length === 1))
+            || ((window.location.href.includes('staffroom') && document.querySelectorAll('.popup6.top').length === 1))) {
             document.getElementById("arrowDown").style.visibility = "hidden";
         } else {
             document.getElementById("arrowDown").style.visibility = "visible";
@@ -168,7 +168,7 @@ function checkClassesToDisplayPopup() {
     isPopupInProgress = true;
     document.getElementById("arrowDown").style.visibility = "visible";
     const user = localStorage.getItem('user');
-    if (window.location.href.includes('scenario1')) {
+    if (window.location.href.includes('theatre')) {
         if (document.querySelectorAll('.popup1.top').length === 1) {
             if (user === 'teacher') {
                 Swal.fire({
@@ -263,7 +263,7 @@ function checkClassesToDisplayPopup() {
             }
             document.getElementById("arrowDown").style.visibility = "hidden";
         }
-    } else if (window.location.href.includes('scenario2')) {
+    } else if (window.location.href.includes('common')) {
         if (document.querySelectorAll('.popup1.top').length === 1) {
             if (user === 'teacher') {
                 Swal.fire({
@@ -324,7 +324,7 @@ function checkClassesToDisplayPopup() {
             }
             document.getElementById("arrowDown").style.visibility = "hidden";
         }
-    } else if (window.location.href.includes('scenario3')) {
+    } else if (window.location.href.includes('staffroom')) {
         if (document.querySelectorAll('.popup1.top').length === 1) {
             if (user === 'teacher') {
                 Swal.fire({
