@@ -219,22 +219,19 @@ a {
     animation-delay: 1s;
 }
 .block:nth-child(1) .char:nth-child(2) {
-    animation-delay: 1s;
+    animation-delay: 0.5s;
 }
 .block:nth-child(1) .char:nth-child(3) {
-    animation-delay: 2s;
+    animation-delay: 1s;
 }
 .block:nth-child(1) .char:nth-child(4) {
-    animation-delay: 3s;
+    animation-delay: 1.5s;
 }
 .block:nth-child(2) .charTxt, .block:nth-child(2) .backgroundTxt {
-    animation-delay: 4s;
-}
-.block:nth-child(3) .char {
-    animation-delay: 5.5s;
+    animation-delay: 2.25s;
 }
 .block:nth-child(3) .charTxt, .block:nth-child(3) .backgroundTxt {
-    animation-delay: 6.5s;
+    animation-delay: 3.5s;
 }
 
 /*first page onload - appearance*/
@@ -458,6 +455,17 @@ a {
     flex-direction: column;
     text-align: center;
     flex: 33%;
+    opacity: 0;
+    animation: fade-in 1s ease-in-out forwards;
+}
+.scenario:nth-of-type(1) {
+    animation-delay: 1s;
+}
+.scenario:nth-of-type(2) {
+    animation-delay: 1.5s;
+}
+.scenario:nth-of-type(3) {
+    animation-delay: 2s;
 }
 .scenario a:first-of-type {
     margin: auto 0;
@@ -485,11 +493,16 @@ a {
     border-radius: 30px;
     padding: 2rem;
     text-align: center;
+    opacity: 0;
+    animation: fade-in 1s ease-in-out forwards;
 }
 #instruction {
     margin: 2rem 0;
     font-size: 1.1rem;
     text-align: center;
+    opacity: 0;
+    animation: fade-in 1s ease-in-out forwards;
+    animation-delay: 3s;
 }
 #instruction p {
     margin: 0.5rem 0;
@@ -501,6 +514,9 @@ footer {
     padding: 0 1rem;
     font-size: 0.8rem;
     text-align: center;
+    opacity: 0;
+    animation: fade-in 1s ease-in-out forwards;
+    animation-delay: 3.5s;
 }
 footer p {
     opacity: 0.4;
