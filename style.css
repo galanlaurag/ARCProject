@@ -1,4 +1,7 @@
-html {
+* {
+    font-family: "Alegreya", Verdana, Helvetica, Arial, Geneva, sans-serif;
+    /*font-family: IBM Plex Serif,sans-serif;*/
+
 }
 body {
     margin: 0;
@@ -709,6 +712,7 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
     }
     #popups {
         font-size: 0.7rem;
+        line-height: 0.7rem;
         width: 4.5rem;
     }
     .charImg, .endBlock .scenarioImg {
