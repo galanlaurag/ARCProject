@@ -586,6 +586,7 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
     }
     #instruction {
         font-size: 1.05rem;
+        line-height: 1.05rem;
     }
     #scenarios, #instruction {
         margin: 1rem 0;
@@ -601,6 +602,7 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
     }
     .charName, .title, .scenarioTitle, #info, .backgroundTxt h4 {
         font-size: 1.3rem;
+        line-height: 1.3rem;
     }
     .charTxt, .backgroundTxt,
     .endBlock .scenarioTitle {
@@ -623,6 +625,7 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
 
     #swal2-html-container h4 {
         font-size: 1.2rem;
+        line-height: 1.2rem;
     }
 }
 
@@ -641,10 +644,12 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
     }
     #info {
         font-size: 1.2rem;
+        line-height: 1.2rem;
         padding: 0.75rem;
     }
     #instruction {
         font-size: 1rem;
+        line-height: 1rem;
     }
 
 
@@ -660,6 +665,7 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
     }
     .charName, .backgroundTxt h4 {
         font-size: 1.1rem;
+        line-height: 1.1rem;
     }
     .charTxt, .backgroundTxt,
     .endBlock .scenarioTitle {
@@ -687,6 +693,7 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
 
     #swal2-html-container h3 {
         font-size: 1.1rem;
+        line-height: 1.1rem;
     }
 }
 
@@ -694,6 +701,7 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
     /* homepage */
     footer {
         font-size: 0.9rem;
+        line-height: 0.9rem;
         padding: 0 0.7rem;
     }
     .scenarioTitle {
@@ -701,9 +709,11 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
     }
     #info {
         font-size: 1.1rem;
+        line-height: 1.1rem;
     }
     #instruction {
         font-size: 0.9rem;
+        line-height: 0.9rem;
     }
 
     #arrowDown {
@@ -711,9 +721,11 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
     }
     .backgroundTxt h4 {
         font-size: 1rem;
+        line-height: 1rem;
     }
     .title {
         font-size: 1.2rem;
+        line-height: 1.2rem;
     }
     #popups {
         font-size: 0.7rem;
@@ -730,9 +742,11 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
     }
     .charName{
         font-size: 0.9rem;
+        line-height: 0.9rem;
     }
     .characters .charName {
         font-size: 0.8rem;
+        line-height: 0.8rem;
     }
     .charTxt, .backgroundTxt,
     .endBlock .scenarioTitle {
@@ -746,6 +760,7 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
     }
     #swal2-html-container h3 {
         font-size: 1.1rem;
+        line-height: 1.1rem;
     }
 }
 
