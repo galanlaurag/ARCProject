@@ -82,7 +82,7 @@ a {
     height: 100%;
     height: -webkit-fill-available;
     position: absolute;
-    background-image: url("img/class.png");
+    background-image: url("img/LectureHall.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -90,10 +90,10 @@ a {
     overflow: hidden;
 }
 .backgroundImage2 {
-    background-image: url("img/room.png");
+    background-image: url("img/CommonSpace.png");
 }
 .backgroundImage3 {
-    background-image: url("img/meeting.png");
+    background-image: url("img/StaffRoom.png");
 }
 #arrowDown {
     visibility: visible;
@@ -428,7 +428,7 @@ a {
 }
 #homeBody {
     overflow: auto;
-    background-image: url("img/background.png");
+    background-image: url("img/Background.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -488,8 +488,8 @@ a {
 .scenarioImg {
     object-fit: cover;
     border-radius: 50%;
-    width: 20vw;
-    height: 20vw;
+    width: 15vw;
+    height: 15vw;
     transform: scale(1);
     box-shadow: 0 0 15px 5px #fcf5ec;
     transition: 0.5s ease-in-out;
@@ -513,7 +513,7 @@ a {
     animation: fade-in 1s ease-in-out forwards;
 }
 #instruction {
-    margin: 2rem 0;
+    margin: 0 0 2rem 0;
     font-size: 1.1rem;
     text-align: center;
     opacity: 0;
@@ -576,6 +576,10 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
     .navbar .homeLink, .navbar .title, .navbar .settings {
         flex: auto;
     }
+    .scenarioImg {
+        width: 20vw;
+        height: 20vw;
+    }
 
     .charTxt, .backgroundTxt,
     .endBlock .scenarioTitle {
@@ -597,8 +601,9 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
     #instruction {
         font-size: 1.05rem;
         line-height: 1.05rem;
+        margin: 0 0 1rem 0;
     }
-    #scenarios, #instruction {
+    #scenarios {
         margin: 1rem 0;
     }
     .scenarioImg {
