@@ -208,13 +208,13 @@ function checkClassesToDisplayPopup() {
         } else if (document.querySelectorAll('.popup4.top').length === 1) {
             if (user === 'teacher') {
                 Swal.fire({
-                    html: '<h3>The student’s feeling of powerless, where does it come from?</h3><h3>What can you do to ensure that students feel able to feed back, to be heard, in your classes?</h3>',
+                    html: '<h3>The student’s feeling of powerlessness, where does it come from?</h3><h3>What can you do to ensure that students feel able to feed back, to be heard, in your classes?</h3>',
                     showCloseButton: true,
                     showConfirmButton: false,
                 })
             } else {
                 Swal.fire({
-                    html: '<h3>Does this powerless surprise you?</h3><h3>Are there ways in which you could influence/feedback to staff?</h3>',
+                    html: '<h3>Does this powerlessness surprise you?</h3><h3>Are there ways in which you could influence/feedback to staff?</h3>',
                     showCloseButton: true,
                     showConfirmButton: false,
                 })

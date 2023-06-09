@@ -23,9 +23,13 @@ a {
     align-items: center;
     text-align: center;
     z-index: 10;
+    gap: 10px;
 }
-.navbar .homeLink, .navbar .title, .navbar .settings {
-    flex: 33%;
+.navbar .homeLink, .navbar .settings {
+    flex: 25%;
+}
+.navbar .title {
+    flex: 50%;
 }
 .navbar .homeLink {
     text-align: left;
@@ -475,7 +479,7 @@ a {
     animation-delay: 2s;
 }
 .scenario a:first-of-type {
-    margin: auto 0;
+    margin: 0 auto;
 }
 .scenarioImg {
     object-fit: cover;
@@ -591,6 +595,10 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
     #scenarios, #instruction {
         margin: 1rem 0;
     }
+    .scenarioImg {
+        width: 30vw;
+        height: 30vw;
+    }
 
     #arrowDown {
         transform: scale(5,2.5);
@@ -641,6 +649,9 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
     .scenarioTitle {
         margin: auto 0 auto 1.5rem;
         text-align: left;
+    }
+    .scenario a:first-of-type {
+        margin: auto 0;
     }
     #info {
         font-size: 1.2rem;
