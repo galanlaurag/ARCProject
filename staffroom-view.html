@@ -26,8 +26,10 @@
             <a href="/" class="homeLink"><i class="fa-solid fa-house"></i></a>
             <h1 class="title">View from the staffroom – intercultural encounters</h1>
             <div class="settings">
-                <button id="popups" onclick="togglePopups()"></button>
+                <!--                <button id="popups" onclick="togglePopups()"></button>-->
+                <button id="view" onclick="toggleViewMode()">Change view mode</button>
             </div>
+            <a id="link" href="#question3">Questions</a>
         </nav>
     </header>
     <i class="fa-solid fa-chevron-down" id="arrowDown" onclick="scrollDown()"></i>
@@ -83,12 +85,16 @@
             <div class="charTxt"><p>I mean of course, I don’t think that’s an unpopular opinion-</p></div>
         </div>
 
-        <div class="block pearson popup1">
+        <div class="block pearson popup1" id="question1">
             <div class="char">
                 <img src="img/Pearson.png" class="charImg" alt="Dr Aaron Pearson image">
                 <p class="charName">Dr Aaron Pearson</p>
             </div>
             <div class="charTxt"><p>Thank you! They know they’re here to learn, but apparently being irked by this behaviour is radical to some people...</p></div>
+        </div>
+
+        <div class="block backgroundBlock narrator">
+            <div class="backgroundTxt narratorTxt"><div><i class="fa-solid fa-question"></i></div><p id="q1"></p><div><i class="fa-solid fa-question"></i></div></div>
         </div>
 
         <div class="block pearson">
@@ -155,12 +161,16 @@
             <div class="charTxt"><p>No, seriously, Aaron.</p></div>
         </div>
 
-        <div class="block hana blockRight popup2">
+        <div class="block hana blockRight popup2" id="question2">
             <div class="char">
                 <img src="img/Hana.png" class="charImg charImgRight" alt="Dr Hana Lane image">
                 <p class="charName">Dr Hana Lane</p>
             </div>
             <div class="charTxt"><p>Again, I’m not looking to argue with you here, but from what you’ve told us, the entire incident comes across at best as rather unprofessional and at worst very offensive.</p></div>
+        </div>
+
+        <div class="block backgroundBlock narrator" id="actualQuestion2">
+            <div class="backgroundTxt narratorTxt"><div><i class="fa-solid fa-question"></i></div><p id="q2"></p><div><i class="fa-solid fa-question"></i></div></div>
         </div>
 
         <div class="block hana blockRight">
@@ -235,12 +245,16 @@
             <div class="charTxt"><p>-Precisely my point!</p></div>
         </div>
 
-        <div class="block hana blockRight popup3">
+        <div class="block hana blockRight popup3" id="question3">
             <div class="char">
                 <img src="img/Hana.png" class="charImg charImgRight" alt="Dr Hana Lane image">
                 <p class="charName">Dr Hana Lane</p>
             </div>
             <div class="charTxt"><p>How are we supposed to know which way to turn when every definition changes every other day?!</p></div>
+        </div>
+
+        <div class="block backgroundBlock narrator">
+            <div class="backgroundTxt narratorTxt"><div><i class="fa-solid fa-question"></i></div><p id="q3"></p><div><i class="fa-solid fa-question"></i></div></div>
         </div>
 
         <div class="block mary">
@@ -291,12 +305,16 @@
             <div class="charTxt"><p>They were talking about the way the exhibits portrayed British history, and about how their history of the same event in India had been taught very differently.</p></div>
         </div>
 
-        <div class="block mary popup4">
+        <div class="block mary popup4" id="question4">
             <div class="char">
                 <img src="img/Mary.png" class="charImg" alt="Prof Mary Cooke image">
                 <p class="charName">Prof Mary Cooke </p>
             </div>
             <div class="charTxt"><p>It made me think that the way our culture and our country represent our history is often romanticised, and even idealised.</p></div>
+        </div>
+
+        <div class="block backgroundBlock narrator">
+            <div class="backgroundTxt narratorTxt"><div><i class="fa-solid fa-question"></i></div><p id="q4"></p><div><i class="fa-solid fa-question"></i></div></div>
         </div>
 
         <div class="block mary">
@@ -355,12 +373,16 @@
             <div class="charTxt"><p>Seeing our world through the lens of these students got me thinking… the world is changing, that’s for sure.</p></div>
         </div>
 
-        <div class="block mary popup5">
+        <div class="block mary popup5" id="question5">
             <div class="char">
                 <img src="img/Mary.png" class="charImg" alt="Prof Mary Cooke image">
                 <p class="charName">Prof Mary Cooke </p>
             </div>
             <div class="charTxt"><p>We spend so much of our time teaching what we’ve always taught – or at least I do – and maybe we’re missing something.</p></div>
+        </div>
+
+        <div class="block backgroundBlock narrator">
+            <div class="backgroundTxt narratorTxt"><div><i class="fa-solid fa-question"></i></div><p id="q5"></p><div><i class="fa-solid fa-question"></i></div></div>
         </div>
 
         <div class="block mary">
@@ -579,7 +601,7 @@
             <div class="charTxt"><p>It should be about what’s best, and what’s right.</p></div>
         </div>
 
-        <div class="block mary popup6">
+        <div class="block mary popup6" id="question6">
             <div class="char">
                 <img src="img/Mary.png" class="charImg" alt="Prof Mary Cooke image">
                 <p class="charName">Prof Mary Cooke </p>
@@ -587,8 +609,10 @@
             <div class="charTxt"><p><em>Quietly.</em>As well as what’s needed, both for the academic world, and for the students...</p></div>
         </div>
 
-        <div class="block endBlock">
+        <div class="block backgroundBlock narrator">
+            <div class="backgroundTxt narratorTxt"><div><i class="fa-solid fa-question"></i></div><p id="q6"></p><div><i class="fa-solid fa-question"></i></div></div>
         </div>
+
         <div class="block endBlock">
             <div id="scenarios">
                 <div class="scenario">
