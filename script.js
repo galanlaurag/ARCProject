@@ -91,9 +91,10 @@ document.addEventListener('DOMContentLoaded', function() {
             observer.observe(block);
         });
         //don't animate first blocks when scrolled or button clicked
-        document.getElementById("scenarioMain").addEventListener("scroll", disableAnimation);
-        document.getElementById("link").addEventListener("click", disableAnimation);
-        //load questions content
+        document.getElementById("scenarioMain").addEventListener("scroll", () => {
+            disableAnimation();
+            checkArrowVisibility();
+        });
 
         //scrolling down & up functionality
         addEventListener("keydown", (event) => {
@@ -102,6 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } else if (event.key === "ArrowUp") {
                 scrollUp();
             }
+            checkArrowVisibility();
         });
     }
     //first alert onload
@@ -155,6 +157,18 @@ function disableAnimation() {
         e.style.animation = "none";
     });
 }
+//hide arrow when at the bottom of the page
+function checkArrowVisibility() {
+    setTimeout(() => {
+        if ((window.location.href.includes('theatre') && (document.querySelectorAll('#question7.top').length === 1))
+            || ((window.location.href.includes('common') && document.querySelectorAll('#question5.top').length === 1))
+            || ((window.location.href.includes('staffroom') && document.querySelectorAll('#question6.top').length === 1))) {
+            document.getElementById("arrowDown").style.visibility = "hidden";
+        } else {
+            document.getElementById("arrowDown").style.visibility = "visible";
+        }
+    }, 100);
+}
 
 //toggle view mode on button click
 function toggleViewMode() {
@@ -176,7 +190,6 @@ function toggleViewMode() {
     document.querySelector(".swal2-checkbox input").setAttribute("id", "swal2-checkbox");
 }
 
-//TODO arrow disappearing
 //content of questions block depending on the view mode
 function questionsContent() {
     const user = localStorage.getItem('user');
@@ -233,14 +246,6 @@ function questionsContent() {
             document.getElementById("q5").innerHTML = "<span>As a student, how do you respond to this part?</span>";
             document.getElementById("q6").innerHTML = "<span>How would you describe the overall tone and language here?</span><span>Is there anything in this dialogue that makes you feel uncomfortable? If so, why?</span><span>What, for you, is the purpose of higher education?</span>";
         }
-    }
-    //hide arrow when at the bottom of the page
-    if ((window.location.href.includes('theatre') && (document.querySelectorAll('#question7.top').length === 1))
-        || ((window.location.href.includes('common') && document.querySelectorAll('#question5.top').length === 1))
-        || ((window.location.href.includes('staffroom') && document.querySelectorAll('#question6.top').length === 1))) {
-        document.getElementById("arrowDown").style.visibility = "hidden";
-    } else {
-        document.getElementById("arrowDown").style.visibility = "visible";
     }
 }
 
