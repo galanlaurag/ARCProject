@@ -69,7 +69,7 @@ a {
 .navbar h1 {
     margin: 0;
 }
-#popups {
+#view {
     color: #000;
     background-color: #afafaf;
     border: none;
@@ -279,6 +279,23 @@ a {
 .charTxt, .backgroundTxt {
     background-color: #fcf5eb;
 }
+.narratorTxt {
+    display: flex;
+    background-image: linear-gradient(to right, #d8fbf9, #dbf9f0, #e1f7e7, #e8f4e1, #eff1dc, #f3eeda, #f6ecd8, #f9e9d8, #fae7d7, #fce5d7, #fce3d7, #fde1d8);
+}
+.narratorTxt div:first-of-type {
+    margin: auto 1rem auto 0;
+}
+.narratorTxt div:last-of-type {
+    margin: auto 0 auto 1rem
+}
+.narratorTxt i {
+    font-size: 4rem;
+}
+.narratorTxt span {
+    display: block;
+    margin: 0.25rem 0;
+}
 .charTxt:after {
     content: ' ';
 	position: absolute;
@@ -375,6 +392,7 @@ a {
 .backgroundBlock {
     border-radius: 50px;
     margin: auto;
+    justify-content: center;
 }
 .backgroundTxt {
     font-style: italic;
@@ -447,7 +465,7 @@ a {
 #navbarHomepage .title {
     text-align: center;
 }
-#navbarHomepage #popups {
+#navbarHomepage #view {
     background-color: #fff;
 }
 #navbarHomepage .title, #navbarHomepage .settings {
@@ -754,7 +772,7 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
         font-size: 1.2rem;
         line-height: 1.2rem;
     }
-    #popups {
+    #view {
         font-size: 0.7rem;
         line-height: 0.7rem;
         width: 4.5rem;

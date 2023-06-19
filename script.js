@@ -1,68 +1,185 @@
 //changing & observing the styling of top, middle and bottom block
 const blocks = document.querySelectorAll('.block');
+let isPopupInProgress = false;
 let callback = (entries) => {
     entries.forEach(entry => {
         const target = entry.target;
-
         const targetIndex = Array.from(blocks).indexOf(target);
+        //remove existing classes from all blocks
+        blocks.forEach((block) => {
+            block.classList.remove('hidden', 'top', 'middle', 'bottom', 'bottom2');
+        });
         if (entry.isIntersecting) {
-            blocks.forEach((block) => {
-                block.classList.remove('hidden', 'top', 'middle', 'bottom', 'bottom2');
-            });
-            blocks[targetIndex - 3]?.classList.add('hidden');
-            blocks[targetIndex - 2]?.classList.add('top');
-            blocks[targetIndex - 1]?.classList.add('middle');
-            blocks[targetIndex]?.classList.add('bottom');
+            // blocks[targetIndex - 3]?.classList.add('hidden');
+            // blocks[targetIndex - 2]?.classList.add('top');
+            // blocks[targetIndex - 1]?.classList.add('middle');
+            // blocks[targetIndex]?.classList.add('bottom');
+
+            if (blocks[targetIndex - 3] && blocks[targetIndex - 3].style.display === "none") {
+                blocks[targetIndex - 3]?.classList.remove('top');
+
+                blocks[targetIndex - 4]?.classList.add('hidden');
+                blocks[targetIndex - 2]?.classList.add('top');
+                blocks[targetIndex - 1]?.classList.add('middle');
+                blocks[targetIndex]?.classList.add('bottom');
+            } else if (blocks[targetIndex - 2] && blocks[targetIndex - 2].style.display === "none") {
+                blocks[targetIndex - 2]?.classList.remove('middle');
+
+                blocks[targetIndex - 4]?.classList.add('hidden');
+                blocks[targetIndex - 3]?.classList.add('top');
+                blocks[targetIndex - 1]?.classList.add('middle');
+                blocks[targetIndex]?.classList.add('bottom');
+            } else if (blocks[targetIndex - 1] && blocks[targetIndex - 1].style.display === "none") {
+                blocks[targetIndex - 1]?.classList.remove('bottom');
+
+                blocks[targetIndex - 4]?.classList.add('hidden');
+                blocks[targetIndex - 3]?.classList.add('top');
+                blocks[targetIndex - 2]?.classList.add('middle');
+                blocks[targetIndex]?.classList.add('bottom');
+            } else if (blocks[targetIndex] && blocks[targetIndex].style.display === "none") {
+                blocks[targetIndex - 4]?.classList.add('hidden');
+                blocks[targetIndex - 3]?.classList.add('top');
+                blocks[targetIndex - 2]?.classList.add('middle');
+                blocks[targetIndex - 1]?.classList.add('bottom');
+            } else {
+                blocks[targetIndex - 3]?.classList.add('hidden');
+                blocks[targetIndex - 2]?.classList.add('top');
+                blocks[targetIndex - 1]?.classList.add('middle');
+                blocks[targetIndex]?.classList.add('bottom');
+            }
+
+
+            // if (blocks[targetIndex - 3] && blocks[targetIndex - 3].style.display !== "none") {
+            //     blocks[targetIndex - 3]?.classList.add('hidden');
+            //     console.log("1")
+            // } else {
+            //     blocks[targetIndex - 3]?.classList.remove('hidden');
+            //     blocks[targetIndex - 4]?.classList.add('hidden');
+            //     console.log("1 else")
+            // }
+            // if (blocks[targetIndex - 2] && blocks[targetIndex - 2].style.display !== "none") {
+            //     blocks[targetIndex - 2]?.classList.add('top');
+            //     console.log("2")
+            // } else {
+            //     blocks[targetIndex - 3]?.classList.remove('hidden');
+            //     blocks[targetIndex - 3]?.classList.add('top');
+            // }
+            // if (blocks[targetIndex - 1] && blocks[targetIndex - 1].style.display !== "none") {
+            //     blocks[targetIndex - 1]?.classList.add('middle');
+            //     console.log("3")
+            // } else {
+            //     blocks[targetIndex - 2]?.classList.remove('top');
+            //     blocks[targetIndex - 2]?.classList.add('middle');
+            //     console.log("3else")
+            // }
+            // if (blocks[targetIndex] && blocks[targetIndex].style.display !== "none") {
+            //     blocks[targetIndex]?.classList.add('bottom');
+            //     console.log("4")
+            // } else {
+            //     blocks[targetIndex - 1]?.classList.remove('middle');
+            //     blocks[targetIndex - 1]?.classList.add('bottom');
+            // }
         } else {
             // Remove existing classes from all blocks
-            blocks.forEach((block) => {
-                block.classList.remove('hidden', 'top', 'middle', 'bottom2', 'bottom');
-            });
+            // blocks.forEach((block) => {
+            //     block.classList.remove('hidden', 'top', 'middle', 'bottom2', 'bottom');
+            // });
             // Add appropriate classes to the current visible blocks
-            blocks[targetIndex - 4]?.classList.add('hidden');
-            blocks[targetIndex - 3]?.classList.add('top');
-            blocks[targetIndex - 2]?.classList.add('middle');
-            blocks[targetIndex - 1]?.classList.add('bottom2');
+            // blocks[targetIndex - 4]?.classList.add('hidden');
+            // blocks[targetIndex - 3]?.classList.add('top');
+            // blocks[targetIndex - 2]?.classList.add('middle');
+            // blocks[targetIndex - 1]?.classList.add('bottom2');
+
+            // if (blocks[targetIndex - 5] && blocks[targetIndex - 5].style.display === "none") {
+            //     blocks[targetIndex - 5]?.classList.remove('hidden');
+            //
+            //     blocks[targetIndex - 6]?.classList.add('hidden');
+            //     blocks[targetIndex - 4]?.classList.add('top');
+            //     blocks[targetIndex - 3]?.classList.add('middle');
+            //     blocks[targetIndex - 2]?.classList.add('bottom2');
+            //     console.log("0")
+            // } else
+            if (blocks[targetIndex - 4] && blocks[targetIndex - 4].style.display === "none") {
+                blocks[targetIndex - 4]?.classList.remove('top');
+
+                blocks[targetIndex - 5]?.classList.add('hidden');
+                blocks[targetIndex - 3]?.classList.add('top');
+                blocks[targetIndex - 2]?.classList.add('middle');
+                blocks[targetIndex - 1]?.classList.add('bottom2');
+            } else if (blocks[targetIndex - 3] && blocks[targetIndex - 3].style.display === "none") {
+                blocks[targetIndex - 3]?.classList.remove('middle');
+
+                blocks[targetIndex - 5]?.classList.add('hidden');
+                blocks[targetIndex - 4]?.classList.add('top');
+                blocks[targetIndex - 2]?.classList.add('middle');
+                blocks[targetIndex - 1]?.classList.add('bottom2');
+            } else if (blocks[targetIndex - 2] && blocks[targetIndex - 2].style.display === "none") {
+                blocks[targetIndex - 2]?.classList.remove('bottom2');
+
+                blocks[targetIndex - 5]?.classList.add('hidden');
+                blocks[targetIndex - 4]?.classList.add('top');
+                blocks[targetIndex - 3]?.classList.add('middle');
+                blocks[targetIndex - 1]?.classList.add('bottom2');
+            } else if (blocks[targetIndex - 1] && blocks[targetIndex - 1].style.display === "none") {
+                blocks[targetIndex - 5]?.classList.add('hidden');
+                blocks[targetIndex - 4]?.classList.add('top');
+                blocks[targetIndex - 3]?.classList.add('middle');
+                blocks[targetIndex - 2]?.classList.add('bottom2');
+            } else {
+                blocks[targetIndex - 4]?.classList.add('hidden');
+                blocks[targetIndex - 3]?.classList.add('top');
+                blocks[targetIndex - 2]?.classList.add('middle');
+                blocks[targetIndex - 1]?.classList.add('bottom2');
+            }
+
+            // if (blocks[targetIndex - 4] && blocks[targetIndex - 4].style.display !== "none") {
+            //     blocks[targetIndex - 4]?.classList.add('hidden');
+            //     console.log("a")
+            // } else {
+            //     blocks[targetIndex - 4]?.classList.remove('hidden');
+            //     blocks[targetIndex - 5]?.classList.add('hidden');
+            //     console.log("elsea")
+            // }
+            // if (blocks[targetIndex - 3] && blocks[targetIndex - 3].style.display !== "none") {
+            //     blocks[targetIndex - 3]?.classList.add('top');
+            // } else {
+            //     blocks[targetIndex - 4]?.classList.remove('hidden');
+            //     blocks[targetIndex - 4]?.classList.add('top');
+            // }
+            // if (blocks[targetIndex - 2] && blocks[targetIndex - 2].style.display !== "none") {
+            //     blocks[targetIndex - 2]?.classList.add('middle');
+            // } else {
+            //     blocks[targetIndex - 3]?.classList.remove('top');
+            //     blocks[targetIndex - 3]?.classList.add('middle');
+            // }
+            // if (blocks[targetIndex - 1] && blocks[targetIndex - 1].style.display !== "none") {
+            //     blocks[targetIndex - 1]?.classList.add('bottom2');
+            // } else {
+            //     blocks[targetIndex - 2]?.classList.remove('middle');
+            //     blocks[targetIndex - 2]?.classList.add('bottom2');
+            // }
             document.getElementById("arrowDown").style.visibility = "visible";
         }
-
     })
 }
 let observer = new IntersectionObserver(callback, {
     threshold: [0.5] // If 50% of the element is in the screen, we count it
 });
 
-let isPopupInProgress = false;
-let timeoutId = null;
-let prevScrollTop = 0;
-if (document.getElementById("scenarioMain")) {
-    //onscroll observer & popup management
-    document.getElementById("scenarioMain").addEventListener("scroll", function (event) {
+//onload
+document.addEventListener('DOMContentLoaded', function() {
+    if (document.getElementById("scenarioMain")) {
+        questionsContent();
+        //observer
         blocks.forEach((block) => {
             observer.observe(block);
         });
-        //display popups only on scrolls down
-        const currentScrollTop = event.target.scrollTop;
-        if (currentScrollTop > prevScrollTop && !isPopupInProgress) {
-            clearTimeout(timeoutId);
-            timeoutId = setTimeout(function () {
-                checkClassesToDisplayPopup();
-            }, 300);
-        }
-        prevScrollTop = currentScrollTop;
+        //don't animate first blocks when scrolled or button clicked
+        document.getElementById("scenarioMain").addEventListener("scroll", disableAnimation);
+        document.getElementById("link").addEventListener("click", disableAnimation);
+        //load questions content
 
-        //don't animate first blocks when scrolled
-        document.querySelectorAll('.block:nth-child(1) .char, .block:nth-child(2) .char, .block:nth-child(3) .char, .block:nth-child(2) .backgroundTxt, .block:nth-child(3) .backgroundTxt').forEach(e => {
-            e.style.opacity = "1";
-            e.style.animation = "none";
-        });
-    })
-}
-
-//first alert
-document.addEventListener('DOMContentLoaded', function() {
-    //scrolling down functionality fix
-    if (document.getElementById("scenarioMain")) {
+        //scrolling down & up functionality
         addEventListener("keydown", (event) => {
             if (event.key === "ArrowDown") {
                 scrollDown();
@@ -71,6 +188,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+    //first alert onload
     const user = localStorage.getItem('user');
     if (!user) {
         Swal.fire({
@@ -98,21 +216,9 @@ document.addEventListener('DOMContentLoaded', function() {
     } else if (user === 'teacher') {
         localStorage.setItem('user', 'teacher');
     }
-
-    const shouldDisplayPopups = localStorage.getItem('popups');
-    if (shouldDisplayPopups === "false") {
-        localStorage.setItem('popups', 'false');
-        if (document.getElementById("scenarioMain")) {
-            document.getElementById('popups').textContent = 'Enable popups';
-        }
-    } else {
-        localStorage.setItem('popups', 'true');
-        if (document.getElementById("scenarioMain")) {
-            document.getElementById('popups').textContent = 'Disable popups';
-        }
-    }
 });
 
+//scrolling functionality
 function scrollDown() {
     document.getElementById("scenarioMain").scrollBy({
         top: window.innerHeight,
@@ -125,32 +231,63 @@ function scrollUp() {
         behavior: 'smooth'
     });
 }
-function togglePopups() {
-    const shouldDisplayPopups = localStorage.getItem('popups');
-    // Toggle popups and update local storage
-    if (shouldDisplayPopups === 'true') {
-        document.getElementById('popups').textContent = 'Enable popups';
-        localStorage.setItem('popups', 'false');
-    } else {
-        document.getElementById('popups').textContent = 'Disable popups';
-        localStorage.setItem('popups', 'true');
-        Swal.fire({
-            title: 'Are you Student or Teacher?',
-            showDenyButton: true,
-            allowOutsideClick: false,
-            confirmButtonText: 'Student',
-            denyButtonText: `Teacher`,
-        }).then((result) => {
-            /* Read more about isConfirmed, isDenied below */
-            if (result.isConfirmed) {
-                localStorage.setItem('user', 'student');
-            } else if (result.isDenied) {
-                localStorage.setItem('user', 'teacher');
-            }
-        })
-        document.querySelector(".swal2-checkbox input").setAttribute("id", "swal2-checkbox");
+
+//don't animate first blocks when scrolled or button clicked
+function disableAnimation() {
+    document.querySelectorAll('.block:nth-child(1) .char, .block:nth-child(2) .char, .block:nth-child(3) .char, .block:nth-child(2) .backgroundTxt, .block:nth-child(3) .backgroundTxt').forEach(e => {
+        e.style.opacity = "1";
+        e.style.animation = "none";
+    });
+}
+
+//toggle view mode on button click
+function toggleViewMode() {
+    Swal.fire({
+        title: 'Are you Student or Teacher?',
+        showDenyButton: true,
+        allowOutsideClick: false,
+        confirmButtonText: 'Student',
+        denyButtonText: `Teacher`,
+    }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+            localStorage.setItem('user', 'student');
+        } else if (result.isDenied) {
+            localStorage.setItem('user', 'teacher');
+        }
+        questionsContent();
+    })
+}
+
+//TODO arrow disappearing
+//content of questions block depending on the view mode
+function questionsContent() {
+    const user = localStorage.getItem('user');
+    if (window.location.href.includes('theatre')) {
+        if (user === 'teacher') {
+            document.getElementById("q1").innerHTML = "<span>Why would the teacher invite questions and then ‘hide’ in front of his computer?</span><span>What could he do differently to invite interaction with the students?</span><span>Is there anything in this opening scene that resonates with you and your practice?</span><span>Is this what you do?</span>";
+            document.getElementById("q2").innerHTML = "<span>Why is Sofia so upset here?</span><span>What do you think about Anna’s role as the local Scottish student?</span><span>As a teacher, how do you feel about the criticism here?</span>";
+            document.getElementById("actualQuestion3").style.display = "flex";
+            document.getElementById("q3").innerHTML = "<h3>Interesting peer learning going on here – does this surprise you? Do you acknowledge this in your teaching?</h3>";
+            document.getElementById("q4").innerHTML = "<h3>The student’s feeling of powerlessness, where does it come from?</h3><h3>What can you do to ensure that students feel able to feed back, to be heard, in your classes?</h3>";
+            document.getElementById("q5").innerHTML = "<h3>What do these comments tell us about the curriculum?</h3>";
+            document.getElementById("q6").innerHTML = "<h3>What do Anna’s comments here tell us about our approaches to teaching, in terms of our assumptions and knowledges?</h3><h3>How can we invite our students’ experiences and knowledge into our curriculum content?</h3><h3>Would you want to?</h3>";
+            document.getElementById("q7").innerHTML = "<h3>How would you describe the overall tone and language here?</h3><h3>Is there anything that surprises you in this last section, from a staff or student perspective, or that makes you uncomfortable?</h3><h3>Does Anna’s frustration make you feel sympathy towards Dr Aaron Pearson, given the context, or does it illicit a different emotion?</h3>";
+        } else {
+            document.getElementById("q1").innerHTML = "<span>Why do you think the teacher invites questions but then doesn’t encourage interaction?</span><span>Is this familiar to you?</span><span>As students, what kind of interaction would you like here? What would make you approach the teacher?</span><span>What could he do differently to invite interaction with the students?</span><span>Is there anything in this opening scene that resonates with you and your practice?</span><span>Is this what you do?</span>";
+            document.getElementById("q2").innerHTML = "<h3>As a student, does Sofia and/or Anna’s response resonate?</h3>";
+            // document.getElementById("q3").innerHTML = "";
+            document.getElementById("actualQuestion3").style.display = "none";
+            // document.getElementById("actualQuestion3").style.visibility = "hidden";
+            document.getElementById("q4").innerHTML = "<h3>Does this powerlessness surprise you?</h3><h3>Are there ways in which you could influence/feedback to staff?</h3>";
+            document.getElementById("q5").innerHTML = "<h3>What do these comments tells us about the formal materials you are taught?</h3>";
+            document.getElementById("q6").innerHTML = "<h3>Anna’s frustration here is clear, how does that make you feel, as a student? Is she right do you think and if so, why?</h3><h3>How can we invite our students’ experiences and knowledge into our curriculum content?</h3><h3>Would you want to?</h3>";
+            document.getElementById("q7").innerHTML = "<h3>How would you describe the overall tone and language here?</h3><h3>Is there anything that surprises you in this last section, from a staff or student perspective, or that makes you uncomfortable?</h3>";
+        }
     }
 }
+
+
 
 //displaying popups
 function checkClassesToDisplayPopup() {

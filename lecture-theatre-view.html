@@ -1,6 +1,6 @@
 <!doctype html>
 
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,8 +26,10 @@
             <a href="/" class="homeLink"><i class="fa-solid fa-house"></i></a>
             <h1 class="title">View from the Lecture theatre</h1>
             <div class="settings">
-                <button id="popups" onclick="togglePopups()"></button>
+<!--                <button id="popups" onclick="togglePopups()"></button>-->
+                <button id="view" onclick="toggleViewMode()">Change view mode</button>
             </div>
+            <a id="link" href="#question3">Questions</a>
         </nav>
     </header>
     <i class="fa-solid fa-chevron-down" id="arrowDown" onclick="scrollDown()"></i>
@@ -80,8 +82,16 @@
              <div class="charTxt"><p>I’ll be up at the front if anyone has any questions, otherwise we’ll start back up in about ten minutes.</p></div>
         </div>
 
-        <div class="block backgroundBlock popup1">
+        <div class="block backgroundBlock popup1" id="question1">
             <div class="backgroundTxt"><p>Students shuffle around the room in their seats, some getting up in small clusters to head to the canteen. No one approaches Aaron, who sits by the front monitor and sips from his hydroflask while scrolling mindlessly on the computer.</p></div>
+        </div>
+
+        <div class="block backgroundBlock narrator">
+<!--            <div class="char">-->
+<!--                <img src="img/Narrator.png" class="charImg" alt="Narrator image">-->
+<!--                <p class="charName">Narrator</p>-->
+<!--            </div>-->
+            <div class="backgroundTxt narratorTxt"><div><i class="fa-solid fa-question"></i></div><p id="q1"></p><div><i class="fa-solid fa-question"></i></div></div>
         </div>
 
         <div class="block anna">
@@ -140,12 +150,16 @@
             <div class="charTxt"><p>It must really suck to see all of that stuff not mentioned here. I’m really annoyed and sorry we have to sit through all this stuff without being able to talk back...</p></div>
         </div>
 
-        <div class="block blockRight sofia popup2">
+        <div class="block blockRight sofia popup2" id="question2">
             <div class="char">
                 <img src="img/Sofia.png" class="charImg charImgRight" alt="Sofia image">
                 <p class="charName">Sofia</p>
             </div>
             <div class="charTxt"><p>Yeah, it’s actually a joke.</p></div>
+        </div>
+
+        <div class="block backgroundBlock narrator">
+            <div class="backgroundTxt narratorTxt"><div><i class="fa-solid fa-question"></i></div><p id="q2"></p><div><i class="fa-solid fa-question"></i></div></div>
         </div>
 
         <div class="block blockRight sofia">
@@ -172,12 +186,16 @@
             <div class="charTxt"><p>I don’t suppose you want to do anything about it this time?</p></div>
         </div>
 
-        <div class="block anna popup3">
+        <div class="block anna popup3" id="question3">
             <div class="char">
                 <img src="img/Anna.png" class="charImg" alt="Anna image">
                 <p class="charName">Anna</p>
             </div>
             <div class="charTxt"><p>Especially since it’s not just been today for this module, it happened last week as well when you were telling me about all that stuff about the media campaigns in Puerto Rico too that he didn’t mention.</p></div>
+        </div>
+
+        <div class="block backgroundBlock narrator" id="actualQuestion3">
+            <div class="backgroundTxt narratorTxt"><div><i class="fa-solid fa-question"></i></div><p id="q3"></p><div><i class="fa-solid fa-question"></i></div></div>
         </div>
 
         <div class="block blockRight sofia">
@@ -196,12 +214,16 @@
             <div class="charTxt"><p>Why would he listen to me and make any changes to module halfway through the term?</p></div>
         </div>
 
-        <div class="block blockRight sofia popup4">
+        <div class="block blockRight sofia popup4" id="question4">
             <div class="char">
                 <img src="img/Sofia.png" class="charImg charImgRight" alt="Sofia image">
                 <p class="charName">Sofia</p>
             </div>
             <div class="charTxt"><p>It’s not like I have anything to back up my points other than stuff I’ve lived through or heard from my family, so I can’t point him to a source to put up the slides.</p></div>
+        </div>
+
+        <div class="block backgroundBlock narrator">
+            <div class="backgroundTxt narratorTxt"><div><i class="fa-solid fa-question"></i></div><p id="q4"></p><div><i class="fa-solid fa-question"></i></div></div>
         </div>
 
         <div class="block blockRight sofia">
@@ -236,12 +258,16 @@
             <div class="charTxt"><p>...</p></div>
         </div>
 
-        <div class="block anna popup5">
+        <div class="block anna popup5" id="question5">
             <div class="char">
                 <img src="img/Anna.png" class="charImg" alt="Anna image">
                 <p class="charName">Anna</p>
             </div>
             <div class="charTxt"><p>...</p></div>
+        </div>
+
+        <div class="block backgroundBlock narrator">
+            <div class="backgroundTxt narratorTxt"><div><i class="fa-solid fa-question"></i></div><p id="q5"></p><div><i class="fa-solid fa-question"></i></div></div>
         </div>
 
         <div class="block blockRight sofia">
@@ -340,12 +366,16 @@
             <div class="charTxt"><p>Yeah, I know that, but really what could I even do? I’m just sitting here doing my job as a student when half the class hasn’t even shown up.</p></div>
         </div>
 
-        <div class="block blockRight sofia popup6">
+        <div class="block blockRight sofia popup6" id="question6">
             <div class="char">
                 <img src="img/Sofia.png" class="charImg charImgRight" alt="Sofia image">
                 <p class="charName">Sofia</p>
             </div>
             <div class="charTxt"><p><em>Resentfully.</em>And now if we’re talking about unfair responsibilities, how is it fair that it’s my job to educate the lecturer on why his content sucks, just because I happen to know it first hand?</p></div>
+        </div>
+
+        <div class="block backgroundBlock narrator">
+            <div class="backgroundTxt narratorTxt"><div><i class="fa-solid fa-question"></i></div><p id="q6"></p><div><i class="fa-solid fa-question"></i></div></div>
         </div>
 
         <div class="block blockRight sofia">
@@ -460,7 +490,7 @@
             <div class="charTxt"><p>Youngins, young uns? You know what I mean.</p></div>
         </div>
 
-        <div class="block anna popup7">
+        <div class="block anna popup7" id="question7">
             <div class="char">
                 <img src="img/Anna.png" class="charImg" alt="Anna image">
                 <p class="charName">Anna</p>
@@ -468,8 +498,10 @@
             <div class="charTxt"><p>Oh yeah, with all his “back in my day” bs it’s a wonder he’s even ended up teaching a module like this.</p></div>
         </div>
 
-        <div class="block endBlock">
+        <div class="block backgroundBlock narrator">
+            <div class="backgroundTxt narratorTxt"><div><i class="fa-solid fa-question"></i></div><p id="q7"></p><div><i class="fa-solid fa-question"></i></div></div>
         </div>
+
         <div class="block endBlock">
             <div id="scenarios">
                 <div class="scenario">
