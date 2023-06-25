@@ -1,8 +1,5 @@
 * {
-    /*font-family: "Alegreya", Verdana, Helvetica, Arial, Geneva, sans-serif;*/
     font-family: Arial, Helvetica, sans-serif;
-    /*font-family: IBM Plex Serif,sans-serif;*/
-
 }
 body {
     margin: 0;
@@ -42,15 +39,12 @@ a {
     justify-content: flex-end;
 }
 #navbar1 {
-    /*background-color: #536366;*/
     background-color: #363f3f;
 }
 #navbar2 {
-    /*background-color: #524733;*/
     background-color: #282319;
 }
 #navbar3 {
-    /*background-color: #6d605e;*/
     background-color: #403c3a;
 }
 .navbar h1, .navbar a, .navbar p {
@@ -121,6 +115,7 @@ a {
     overflow-x: hidden;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
     background-color: rgba(0, 0, 0, 0.75);
@@ -143,6 +138,9 @@ a {
 }
 .middle .charTxt, .middle .backgroundTxt {
     box-shadow: 0 0 15px 5px #fcf5ec;
+}
+.middle .narratorTxt {
+    box-shadow: 0 0 30px 10px #fcf5ec;
 }
 
 /*animations*/
@@ -202,6 +200,7 @@ a {
 .block .backgroundTxt {
     transform: translateX(0);
     opacity: 0;
+    background-image: linear-gradient(to right, #fde1d8, #fce3d7, #fce5d7, #fae7d7, #f9e9d8, #f9ebda, #f8ecdc, #f8eede, #f9f0e1, #faf2e4, #fbf3e7, #fcf5ea);
 }
 .bottom .backgroundTxt {
     animation: fade-in 1s ease-in-out forwards;
@@ -284,16 +283,32 @@ a {
 }
 .narratorTxt {
     display: flex;
-    background-image: linear-gradient(to right, #d8fbf9, #dbf9f0, #e1f7e7, #e8f4e1, #eff1dc, #f3eeda, #f6ecd8, #f9e9d8, #fae7d7, #fce5d7, #fce3d7, #fde1d8);
+    background-image: linear-gradient(to right, #d8fbf9, #dbf9f0, #e1f7e7, #e8f4e1, #eff1dc, #f3eeda, #f6ecd8, #f9e9d8, #fae7d7, #fce5d7, #fce3d7, #fde1d8) !important;
+}
+.narratorTxt span:first-letter {
+    font-size: 115%;
+}
+.narratorTxt span {
+    font-size: 110%;
+    line-height: 110%;
 }
 .narratorTxt div:first-of-type {
     margin: auto 1rem auto 0;
 }
-.narratorTxt div:last-of-type {
-    margin: auto 0 auto 1rem
-}
 .narratorTxt i {
     font-size: 4rem;
+}
+.narratorTxt .arrows i {
+    font-size: 2rem;
+}
+.narratorTxt .arrows a {
+    padding: 0 1rem;
+    height: 50%;
+    display: flex;
+    align-items: center;
+}
+.narratorTxt .oneArrow a {
+    height: 100%;
 }
 .narratorTxt span {
     display: block;
@@ -311,6 +326,12 @@ a {
     border-style: solid;
     border-width: 0 40px 40px 0;
     border-color: transparent #fcf5eb transparent transparent;
+}
+/*arrows*/
+.narratorTxt .arrows {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 /*right blocks*/
 .blockRight .charTxt {
@@ -391,6 +412,9 @@ a {
     padding: 0 1rem;
     font-size: 1.5rem;
     line-height: 1.5rem;
+}
+.narratorTxt {
+    padding: 0 0 0 1rem !important;
 }
 .backgroundBlock {
     border-radius: 50px;
@@ -539,7 +563,7 @@ a {
     animation: fade-in 1s ease-in-out forwards;
 }
 #instruction {
-    margin: 0 0 2rem 0;
+    margin: 0 0 1.5rem 0;
     font-size: 1.1rem;
     text-align: center;
     opacity: 0;
@@ -614,6 +638,9 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
     .narratorTxt i {
         font-size: 3.5rem;
     }
+    .narratorTxt .arrows i {
+        font-size: 1.75rem;
+    }
     .charTxt, .backgroundTxt,
     .endBlock .scenarioTitle {
         font-size: 1.35rem;
@@ -646,6 +673,9 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
 
     .narratorTxt i {
         font-size: 3rem;
+    }
+    .narratorTxt .arrows i {
+        font-size: 1.5rem;
     }
     #arrowDown {
         transform: scale(5,2.5);
@@ -718,6 +748,12 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
     .narratorTxt i {
         font-size: 2.5rem;
     }
+    .narratorTxt .arrows i {
+        font-size: 1.25rem;
+    }
+    .narratorTxt .arrows a {
+        padding: 0 0.7rem 0 0.5rem;
+    }
     #arrowDown {
         transform: scale(4,2);
     }
@@ -741,6 +777,9 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
         min-height: 2.1rem;
         min-width: 2.1rem;
     }
+    .narratorTxt {
+        padding: 0 0 0 0.7rem !important;
+    }
     .charTxt p, .backgroundTxt p {
         min-height: 1.1rem;
         margin: 0.5rem 0;
@@ -750,9 +789,6 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
     }
     .narratorTxt div:first-of-type {
         margin: auto 0.5rem auto 0;
-    }
-    .narratorTxt div:last-of-type {
-        margin: auto 0 auto 0.5rem;
     }
     .charTxt:after {
         border-width: 0 20px 20px 0;
@@ -792,6 +828,9 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
 
     .narratorTxt i {
         font-size: 2rem;
+    }
+    .narratorTxt .arrows i {
+        font-size: 1rem;
     }
     #arrowDown {
         bottom: 7px;
