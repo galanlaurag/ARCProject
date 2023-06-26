@@ -86,6 +86,7 @@ let observer = new IntersectionObserver(callback, {
 document.addEventListener('DOMContentLoaded', function() {
     if (document.getElementById("scenarioMain")) {
         questionsContent();
+        skipHidden();
         //observer
         blocks.forEach((block) => {
             observer.observe(block);
@@ -135,6 +136,33 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('user', 'teacher');
     }
 });
+
+//skipping hidden prompt bubbles for student view
+function skipHidden() {
+    if (localStorage.getItem('user') === 'student') {
+        if (window.location.href.includes('theatre')) {
+            document.getElementById("skipA").href = "#question4";
+            document.getElementById("skipB").href = "#question2";
+        } else if (window.location.href.includes('common')) {
+            document.getElementById("firstSkip").innerHTML = '<a href="#question4"><i class="fa-solid fa-chevron-down"></i></a>';
+            document.getElementById("skipA").href = "#question2";
+        } else if (window.location.href.includes('staffroom')) {
+            document.getElementById("skipA").href = "#question3";
+            document.getElementById("skipB").href = "#question1";
+        }
+    } else {
+        if (window.location.href.includes('theatre')) {
+            document.getElementById("skipA").href = "#question3";
+            document.getElementById("skipB").href = "#question3";
+        } else if (window.location.href.includes('common')) {
+            document.getElementById("firstSkip").innerHTML = '<a href="#question1"><i class="fa-solid fa-chevron-up"></i></a><a href="#question3"><i class="fa-solid fa-chevron-down"></i></a>'
+            document.getElementById("skipA").href = "#question3";
+        } else if (window.location.href.includes('staffroom')) {
+            document.getElementById("skipA").href = "#question2";
+            document.getElementById("skipB").href = "#question2";
+        }
+    }
+}
 
 //scrolling functionality
 function scrollDown() {
@@ -186,6 +214,7 @@ function toggleViewMode() {
             localStorage.setItem('user', 'teacher');
         }
         questionsContent();
+        skipHidden();
     })
     document.querySelector(".swal2-checkbox input").setAttribute("id", "swal2-checkbox");
 }

@@ -286,11 +286,11 @@ a {
     background-image: linear-gradient(to right, #d8fbf9, #dbf9f0, #e1f7e7, #e8f4e1, #eff1dc, #f3eeda, #f6ecd8, #f9e9d8, #fae7d7, #fce5d7, #fce3d7, #fde1d8) !important;
 }
 .narratorTxt span:first-letter {
-    font-size: 115%;
+    font-size: 110%;
 }
 .narratorTxt span {
-    font-size: 110%;
-    line-height: 110%;
+    font-size: 105%;
+    line-height: 105%;
 }
 .narratorTxt div:first-of-type {
     margin: auto 1rem auto 0;
